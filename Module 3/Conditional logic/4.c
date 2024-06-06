@@ -1,5 +1,4 @@
-//M3_4  WAP to make simple calculator (operation include Addition, Subtraction, Multiplication, Division, modulo) 
-//using conditional statement.
+//M3_4  WAP to make simple calculator (operation include Addition, Subtraction, Multiplication, Division, modulo) uusing conditional statement.
 
 #include<stdio.h>
 #include<conio.h>
