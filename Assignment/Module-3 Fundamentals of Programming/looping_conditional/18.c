@@ -14,7 +14,7 @@ void main(){
         
         res = n * i;
 
-        printf("\n%d * %d = %d",n,i,res);
+        printf("\n%d ",res);
     }
    
 }

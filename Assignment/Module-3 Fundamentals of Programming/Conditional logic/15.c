@@ -28,12 +28,16 @@ void main(){
     
     if ( ((m >= 65) && (p >= 55) && (c >= 50) && (sum >= 190)) || (mp >= 140) )
     {
+        printf("\n--------------------------");
         printf("\nThe candidate is eligible");
+        printf("\nTotal is: %d",sum);
+        printf("\nTotal in maths and physics is: %d",mp);
     }
 
     else
     {
-        printf("candidate is not eligible");
+        printf("\n--------------------------");
+        printf("\ncandidate is not eligible");
         printf("\nTotal is: %d",sum);
         printf("\nTotal in maths and physics is: %d",mp);
     }
