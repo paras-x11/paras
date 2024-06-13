@@ -24,9 +24,42 @@
 // o If no then display the final bill on the screen 
 
 #include<stdio.h>
-#include<stdlib.h>
 int p, b, d, i, choice;
 int previous_sum, total=0;
+
+void menu();
+
+void main(){
+    char ch;
+    
+    menu();
+
+    start_b:
+    while ((getchar()) != '\n'); 
+    
+    printf("\nDo you want to place more order (y or n): ");
+    scanf("%c", &ch);
+
+    if (ch == 'y' || ch == 'Y') {
+        
+        menu();
+        
+        goto start_b;
+
+    } 
+
+    else if (ch == 'n' || ch == 'N') {
+
+        printf("\n>> Your Final Amount is: %d",total); 
+
+    }
+    else {
+
+        printf("\nPlease Select (y or n)."); 
+
+        goto start_b;
+    }
+}
 
 void menu(){
 
@@ -38,6 +71,7 @@ void menu(){
     printf("\n3.Dosa            price = 120rs/pcs");
     printf("\n4.Idli            price = 50rs/pcs\n");
     
+ 
     printf("\nPlease Enter Your Choice: ");
     scanf("%d", &choice);
 
@@ -83,37 +117,8 @@ void menu(){
             printf("\nTotal Amount= %d",total);
         break;
 
-    case 0: printf("\nExited.");
-            exit(0);
-        break;
-
     default: printf("\n<< Please Enter 1 to 4 According To Menu. >>\n");
              goto start;
         break;
     }  
-}
-
-void main(){
-    char ch;
-    
-    menu();
-
-    start_b:
-    while ((getchar()) != '\n'); 
-    
-    printf("\nDo you want to place more order (y or n): ");
-    scanf("%c", &ch);
-
-    if (ch == 'y' || ch == 'Y') {
-        
-        menu();
-        
-        goto start_b;
-        
-    } 
-    
-    else {
-        printf("\n>> Your Final Amount is: %d",total); 
-    }
-    
 }
