@@ -25,33 +25,45 @@
 // }
 
 
+// take element as input and give its position in array using function.
+
 #include<stdio.h>
-#include<stdlib.h>
+int search(int arr[], int n, int element){
 
+    for(int i=0; i<n; i++){
+        if(arr[i] == element){
+            return i;
+            break;
+        }
+    }
+    // return -1;     //instead of break;
+}
 int main(){
-    int p;
-    char ch;
+    int i, n,element, position;
 
-    start:
-    printf("\nEmter value: ");
-    scanf("%d",&p);
+    printf("\nEnter the range of array: ");
+    scanf("%d",&n);
+    int arr[n];
 
-    printf("\np * 2 = %d",p*2);
-
-    while ((getchar()) != '\n'); // This consumes all characters in the input buffer until a newline
-
-
-    printf("\nDo You Want To Place More Order: y or n: ");
-    scanf(" %c", &ch);
-
-    if(ch == 'y' || ch == 'Y'){
-
-        goto start;
-    
+    printf("\nenter %d elements: ",n);
+    for(i=0; i<n; i++){
+        scanf("%d",&arr[i]);
     }
-    
+
+    printf("\nYour Array is: ");
+    for(i=0; i<n; i++){
+        printf("%d\t",arr[i]);
+    }
+
+    printf("\nenter element: ");
+    scanf("%d",&element);
+
+    position = search(arr, n, element);
+
+    if(position>=0){
+        printf("\nPosition of %d is: %d",element,position);
+    }
     else{
-        printf("\nexited.");
-    }
-    return 0;
+        printf("\nElement not found in array.");
+    } 
 }

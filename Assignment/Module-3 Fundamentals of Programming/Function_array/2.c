@@ -1,4 +1,4 @@
-// Module 3: 2. WAP to make a simple calc.
+// 2. WAP of Addition, Subtraction, Multiplication and Division using Switch case.(Must Be Menu Driven) 
 
 #include<stdio.h>
 #include<conio.h>

@@ -83,7 +83,7 @@
 // - - - - *
 
 // task 13:
-//      *
+//       *
 //      * *
 //     * * *
 //    * * * *
@@ -103,3 +103,16 @@
 //1. write a user defined function to print the multiplication table of the given number.
 //2. WAP to find max of 3 numbers using ternary operator and function.
 //3. WAP using function to swap 2 numbers without using 3rd variable.
+
+// task 15:
+//1. WAP to find weather the number is palindrome or not using function.
+//2. wap a number fine the GCD using loop of 2 numbers.
+//3. insert an element at specific position in array.
+//4. calculate sum of natural number using while loop 
+
+//task 16:
+//1.WAP to read n number of values in an array and display them in reverse order.
+//ex: 2,5,7 o/p: 7,5,2;
+
+//2. WAP to find the sum of all elements of the array.
+//ex: 2,3,5 o/p:10
