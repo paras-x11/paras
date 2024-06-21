@@ -10,7 +10,7 @@ void main(){
 
     printf("\nPress 0 for Exit.");
 
-    start: 
+    while(1){ 
     printf("\n ");
     printf("\nEnter the number of week day : ");
     scanf("%d",&week_day);
@@ -52,6 +52,6 @@ void main(){
     default:
         printf("\nInvalid week number.");
         break;
-    }goto start;
+    }}
 
 }

@@ -6,7 +6,7 @@
 void main(){
     
     char ch;
-    start:
+    while(1){
                 printf("\n-------------------------------------");
                 printf("\nEnter any character (or '.' to exit): ");
                 scanf(" %c", &ch);
@@ -29,5 +29,6 @@ void main(){
                     default:
                             printf("%c is a consonant\n", ch);
                     break;
-                }goto start;
+                }
+    }
 }

@@ -126,18 +126,31 @@
 // 14. Perform 2D matrix array 
 
 #include<stdio.h>
-
+#include<stdlib.h>
 void main(){
-    int row=2, col=2, r, c, element, position, flag;
-    int arr1[2][2] = { {1,2}, {3,4} };
+    int row, col, r, c, element, position, flag;
 
-    printf("\nArray 1: \n");                // display array 1.
+    printf("\nEnter row: ");
+    scanf("%d",&row);
+    printf("\nEnter column: ");
+    scanf("%d",&col);
+    
+    int arr1[row][col] ;
+
+    printf("\nEnter element in array 1: \n");                // enter array 1.
+    for(r=0; r<row; r++){
+        for(c=0; c<col; c++){
+            scanf("%d",&arr1[r][c]);
+        }
+    }
+    
+    printf("\nArray 1: \n");                                // display array 1.
     for(r=0; r<row; r++){
         for(c=0; c<col; c++){
             printf("%d\t",arr1[r][c]);
         }printf("\n");
     }
-
+        
     printf("\nEnter Element to search in array 1: ");
     scanf("%d",&element);
 
@@ -152,5 +165,5 @@ void main(){
 
     if(flag != 1){
         printf("\n%d is not found.",element);
-    }  
+    }
 }
