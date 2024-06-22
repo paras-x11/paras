@@ -15,19 +15,36 @@ int length(char str[]){
 }
 
 void main(){
-    char str1[20], str2[20], str3[20], str[20] = "hello world";
+    char rev[20], str1[20], str2[20], str3[20], str[20] = "nayan";
 
-    printf("\nEnter string 1: ");
-    gets(str1);
+    strrev(str);
+    strcpy(rev,str);
+    
+    int flag = 1;
+    for(int i=0; str[i] != '\0'; i++){
+        if(rev[i] != str[i]){
+            flag=0;
+        }
+    }
 
-    printf("\nEnter string 2: ");
-    gets(str2);
+    if(flag==1){
+        printf("\npalindrome.");
+    }
+    else{
+        printf("\nnot palindrome.");
+    }
 
-    printf("\nstr1: %s",str1);
-    printf("\nstr2: %s\n",str2);
+    // printf("\nEnter string 1: ");
+    // gets(str1);
 
-    printf("\nLength of str1 is: %d", length(str1));
-    printf("\nLength of str2 is: %d", length(str2));
+    // printf("\nEnter string 2: ");
+    // gets(str2);
+
+    // printf("\nstr1: %s",str1);
+    // printf("\nstr2: %s\n",str2);
+
+    // printf("\nLength of str1 is: %d", length(str1));
+    // printf("\nLength of str2 is: %d", length(str2));
 
     // printf("\nLength of str1 is: %d",strlen(str1));
     // printf("\nLength of str2 is: %d\n",strlen(str2));
@@ -42,8 +59,14 @@ void main(){
     // printf("\nComparison if str2 > str1 strings: %d\n",strcmp(str2, str1));
 
     // printf("\nString reverse: \n");
+    // printf("\nstr1: %s\n",strrev(str));
+    
+    
+    
     // printf("\nstr1: %s\n",strrev(str1));
     // printf("\nstr2: %s\n",strrev(str2));
+
+
 
     // printf("\nString copy str3 = str1: %s",strcpy(str3,str1));
 
