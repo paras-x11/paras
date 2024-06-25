@@ -1,9 +1,37 @@
 // 8. WAP to reverse a string and check that the string is palindrome or not.
 
-// #include<stdio.h>
+#include<stdio.h>                                               // without using another string.
+#include<string.h>
+void main(){
+    char str[50];
+    int i, len=0, r=0;
+
+    printf("\nenter string: ");
+    gets(str);
+
+    len = strlen(str);
+
+    for(i=0; i < len/2; i++){
+
+        if(str[i] == str[len-i-1]){
+            r++;
+        }
+    }
+
+    if(r == len/2){
+        printf("\nstring is palindrome- %s",str);
+    }
+    else{
+        printf("\nstring is not palindrome- %s",str);        
+    }
+   
+}
+
+// #include<stdio.h>                                            // without using string function, but using another string.
+// #include<string.h>
 // char rev[50];
 
-// void check(char str[]){                                     // without using string function.
+// void check(char str[]){                                     
 //     int i, len = 0, flag = 1;
 
 //     for(i=0; str[i] != '\0'; i++){
@@ -45,27 +73,27 @@
          
 // }
 
-#include<stdio.h>
-void main(){
-    char rev[20], str[20] = "nayan";
 
-    strrev(str);
-    strcpy(rev,str);
-    printf("%s\n",rev);
-    strrev(str);
-   
-    int flag = 1;
-    for(int i=0; str[i] != '\0'; i++){
-        if(rev[i] != str[i]){
-            flag=0;
-        }
-    }
+// #include<stdio.h>                                       // using in-built string function.
+// #include<string.h>
+// void main(){
+//     char rev[20], str[20];
 
-    if(flag==1){
-        printf("\npalindrome.");
-    }
-    else{
-        printf("\nnot palindrome.");
-    }
+//     printf("\nEnter String: ");
+//     scanf("%s", &str);
+
+//     strrev(str);
+//     strcpy(rev,str);
+//     printf("rev= %s\n",rev);
+
+//     strrev(str);
+//     printf("str= %s\n",str);
    
-}
+//     if( strcmp(str, rev) == 0 ){
+//         printf("\npalindrome.");
+//     }
+//     else{
+//         printf("\nnot palindrome.");
+//     }
+   
+// }
