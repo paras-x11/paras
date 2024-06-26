@@ -12,9 +12,9 @@ void main(){
     printf("-------------------\n");
     printf("press 1 for addition: \npress 2 for substraction: \npress 3 for multiplication: \npress 4 for division: ");
     printf("\npress 5 for modulo: \n");
-    printf("\nPress 6 for exit: ");
+    printf("\nPress 0 for exit: ");
 
-    start:
+    while(1){
     printf("\n\nEnter choice: ");
     scanf("%d",&ch);
 
@@ -80,7 +80,7 @@ void main(){
         printf("\n%d modulo %d = %d",a,b,c);
     break;
 
-    case 6 :
+    case 0 :
         printf("\nExited.");
         exit(0);
     break;
@@ -88,5 +88,5 @@ void main(){
     default: printf("\ninvalid operation");
     break;
     }
-    goto start;
+    }
 }

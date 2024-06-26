@@ -3,6 +3,9 @@
         "stdio.h": "c",
         "random": "c",
         "limits": "c",
-        "sstream": "c"
+        "sstream": "c",
+        "*.tcc": "c",
+        "string": "c",
+        "unordered_map": "c"
     }
 }

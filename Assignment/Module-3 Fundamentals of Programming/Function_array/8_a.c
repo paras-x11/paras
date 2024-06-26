@@ -2,7 +2,7 @@
 // a. information -print and display empno, empname, address and age 
 
 #include<stdio.h>
-struct employee
+struct employee 
 {
     int emp_no;
     char emp_name[20];
