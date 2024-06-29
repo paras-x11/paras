@@ -88,6 +88,8 @@
 // 1.C Program for Reverse a String Using Pointer
 // 2.Write a C Program to Compare Two Strings Using Pointers
 // 3.Open a File(open a Program Itself) Using Pointer
+
+
 // Patterns
 // 1.Home Pattern with Help of *
 // 2.Diamond Star * Pattern
@@ -100,6 +102,7 @@
 // 9.Pascal Triangle Using a Number
 // 10.Christmas Tree Pattern Using *
 
+
 // Sorting
 // 1.BUBBLE Sort in Ascending and Descending Order
 // 2.SELECTION Sort in Ascending and Descending Order
@@ -107,6 +110,7 @@
 // 4.QUICK Sort in Ascending Order
 // 5.MERGE Sort in Ascending Order
 // 6.Heap Sort in Ascending Order with Complexity
+
 
 // Searching
 // 1.Linear Search Program in C

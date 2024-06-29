@@ -8,7 +8,7 @@ struct employee{
     {
         int dept_id;
         char dept_name[20];
-    } dept;
+    } dept;                                 // nested structure variable always here.
     
 };
 
