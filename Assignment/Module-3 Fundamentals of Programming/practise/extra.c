@@ -21,6 +21,19 @@
 // 5.Checking Number Is Even or Odd
 // 6.Leap Year Program in C with Logic, Explanation and Output
 // 7.Check Character Is a Vowel or Not Using If-Else
+#include <stdio.h>
+#include <ctype.h>
+void main(){
+    char ch;
+
+    printf("Enter the character: ");
+    scanf("%c", &ch);
+
+    ch = tolower(ch);
+
+    (ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u') ? printf("%c is vowel.", ch) : printf("%c is consonant.", ch) ;
+   
+}
 // 8.Given Date Month and the Year Is Correct or Not Using If-Else
 // 9.Largest of Three Numbers in C Using Nested if Else
 
