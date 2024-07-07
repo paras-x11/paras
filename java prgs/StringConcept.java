@@ -1,5 +1,5 @@
 
-public class PS3 {
+public class StringConcept {
     public static void main(String[] args) {
 
         String name = "Paras Rana";
