@@ -23,7 +23,7 @@
 // int main(){
 
 //     emp e, e2;
-//     e.getData();
+//     e.getData();                         // dot(.) is a member access operator
 //     e2.getData();
 
 //     e.show();    
