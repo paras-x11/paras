@@ -17,6 +17,7 @@ class student_info{
         cin >> sid;
 
         cout << "Enter Student's name: ";
+        cin.ignore();
         cin >> name;
 
         cout << "Enter Student's standard: ";
@@ -78,7 +79,7 @@ class marksheet : protected student_info, protected marks{
 
     float percentage(){
 
-        return ( (m + s + e) * 100 ) / 300;
+        return ( (m + s + e) * 100.0 ) / 300.0;
     }
 
     void display(){
