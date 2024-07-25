@@ -19,10 +19,6 @@ template <typename T> T A_sort(int a[5]){
         }
     }
 
-    cout << "\nAscending Array is: \n";
-    for(i=0; i<5; i++){
-        cout << a[i] << "\t";
-    }
 }
 
 template <typename T> T D_sort(int a[5]){
@@ -40,11 +36,6 @@ template <typename T> T D_sort(int a[5]){
             }
         }
     }
-
-    cout << "\nDescending Array is: \n";
-    for(i=0; i<5; i++){
-        cout << a[i] << "\t";
-    }
 }
 
 int main(){
@@ -61,25 +52,25 @@ int main(){
         cout << a[i] << "\t";
     }
 
-    while(1){
-    cout << "\n\nEnter 1 for Ascending sort \t 2 for Descending sort: ";
-    cin >> ch;
-
-    switch (ch)
-    {
-    case 1: A_sort<int>(a);
-        break;
+    A_sort<int>(a);
     
-    case 2: D_sort<int>(a);
-        break;
-
-    case 0: cout << "\n-> Exited";
-            exit(0);
-        break;
-
-    default: cout << "-> Enter valid choice.\n";
-        break;
+    cout << "\nAscending Array is: \n";
+    for(i=0; i<5; i++){
+        cout << a[i] << "\t";
     }
+
+
+    D_sort<int>(a);
+    
+    cout << "\nDescending Array is: \n";
+    for(i=0; i<5; i++){
+        cout << a[i] << "\t";
+    }
+
+    
+    cout << "\nOriginal Array is: \n";
+    for(i=0; i<5; i++){
+        cout << a[i] << "\t";
     }
 
     return 0;
