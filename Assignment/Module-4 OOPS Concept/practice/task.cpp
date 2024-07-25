@@ -17,3 +17,7 @@
 // 14. WAP using constructor and destructor to get and display odd numbers.
 // 15. WAP of constructor overloading to find average of  2,3,4 numbers.
 // 16. Wap to create mark-sheets of 5 students using constructor.
+// 17. Assume that a bank maintains two kinds of accounts for customer, one called as saving account and other as current accounts provides Simple 
+// interest and withdraw facilities but no Cheque book facility.  
+// a) The current account provides Cheque book facility but no interest.      
+// b) Current account holders should maintain a minimum balance and if the balance falls below this level a service charges is imposed 
