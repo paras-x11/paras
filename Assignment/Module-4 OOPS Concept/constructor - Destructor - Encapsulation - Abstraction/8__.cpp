@@ -5,10 +5,48 @@
 #include <iostream>
 using namespace std;
 
+class address{
+    public:
+    string ad;
 
+    public:
+    address(string a){
+        ad = a;
+    }
+};
+
+class student{
+    private: 
+    address *a;
+    string name;
+    int Class, roll_no, marks;
+
+    public:
+
+    student(string n, int c, int r, int m, address *a1){
+        name = n;
+        Class = c;
+        roll_no = r;
+        marks = m;
+        this->a = a1;
+    }
+
+    void display(){
+        cout << "Name: " << name << endl;
+        cout << "Class: " << Class << endl;
+        cout << "Roll no.: " << roll_no << endl;
+        cout << "Marks: " << marks << endl;
+        cout << "Address: " << a->ad << endl;
+    }
+};
 
 int main(){
     
+    address add("101, sagrampura main road, surat.");
+
+    student s("paras", 10, 22, 100, &add);
+
+    s.display();
 
     return 0;
 }
