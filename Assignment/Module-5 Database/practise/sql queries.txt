@@ -1,0 +1,23 @@
+create database new;
+show database;
+use 'database-name;
+
+create database module5;
+
+use new;
+
+show databases;
+
+show tables;
+
+create table student (no int, name varchar(20), age int, dob date, gender varchar(20));
+
+drop table student;
+
+drop database new;
+
+describe student;
+
+alter table student add column mobile_no varchar(20) after name;
+
+alter table student drop column mobile_no;
