@@ -1,10 +1,12 @@
-create database module5;
+create database practice;
 
-use module5;
+use practice;
 
 show databases;
 
 show tables;
+
+desc student;
 
 -- student: 
 create table student (no int, name varchar(20), age int, dob date, gender varchar(20));
@@ -67,7 +69,25 @@ insert into employee values(5, "raj", 30, "2016-01-10", 70000, "9909898099"), (4
 
 delete from employee where eid = 1;
 
+-- for rename the table
+rename table employee to emp_details;
 
+select eid, name, salary from emp_details where salary > 25000;
 
+alter table emp_details add column city varchar(10) not null after name;
+
+rename table emp_details to employee;
+
+update employee set city = "surat" where eid = 1;
+
+update employee set city = "ahmedabad" where eid = 2;
+
+update employee set city = "baroda" where eid = 3;
+
+update employee set city = "valsad" where eid = 4;
+
+update employee set city = "vapi" where eid = 5;
+
+select eid, name, salary from employee where city = "surat";
 
 
