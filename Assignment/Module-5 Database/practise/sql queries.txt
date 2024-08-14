@@ -21,3 +21,12 @@ describe student;
 alter table student add column mobile_no varchar(20) after name;
 
 alter table student drop column mobile_no;
+
+limit
+
+order by: asc desc
+
+aggregate func: avg sum min max count
+
+like: '_' '%'
+

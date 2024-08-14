@@ -1,4 +1,4 @@
-// 1 .wap a  to check whether  the given number is even or odd using if else in c++.
+// 1 .wap a to check whether  the given number is even or odd using if else in c++.
 // 2. wa menu driven program to calculate area of circle,rectangle,triangle.
 // 3. write a program to calculate factorial using loop.
 // 4. write a prg to calculate fibonacci series.
@@ -20,4 +20,4 @@
 // 17. Assume that a bank maintains two kinds of accounts for customer, one called as saving account and other as current accounts provides Simple 
 // interest and withdraw facilities but no Cheque book facility.  
 // a) The current account provides Cheque book facility but no interest.      
-// b) Current account holders should maintain a minimum balance and if the balance falls below this level a service charges is imposed 
+// b) Current account holders should maintain a minimum balance and if the balance falls below this level a service charges is imposed.

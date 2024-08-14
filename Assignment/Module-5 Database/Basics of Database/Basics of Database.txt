@@ -1,0 +1,11 @@
+1. What do you understand By Database
+-> 
+2. What is Normalization? 
+3. What is Difference between DBMS and RDBMS? 
+4. What is MF Cod Rule of RDBMS Systems? 
+5. What do you understand By Data Redundancy? 
+6. What is DDL Interpreter? 
+7. What is DML Compiler in SQL? 
+8. What is SQL Key Constraints writing an Example of SQL Key Constraints 
+9. What is save Point? How to create a save Point write a Query? 
+10. What is trigger and how to create a Trigger in SQL? 

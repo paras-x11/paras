@@ -1,7 +1,6 @@
 {
-    "files.associations": {
-        "iostream": "cpp",
-        "array": "cpp",
-        "string": "cpp"
-    }
+    "java.project.sourcePaths": [
+        "java prgs"
+    ],
+    "java.project.referencedLibraries": []
 }

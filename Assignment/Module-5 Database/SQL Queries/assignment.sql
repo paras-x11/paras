@@ -81,7 +81,71 @@ insert into incentive values
 select * from incentive;
 
 -- 3. Get First_Name from employee table using Tom name “Employee Name”.
-select * from 
+
+select first_name as employee_name from employee where first_name = "tom";
+
+-- 4. Get FIRST_NAME, Joining Date, and Salary from employee table.
+
+select first_name, joining_date, salary from employee;
+
+-- 5. Get all employee details from the employee table order by First_Name Ascending and Salary descending? 
+
+select * from employee order by first_name asc;
+select * from employee order by first_name desc;
+
+-- 6. Get employee details from employee table whose first name contains ‘J’. 
+
+select * from employee where first_name like "j%"; 
+ 
+-- 7. Get department wise maximum salary from employee table order by salary ascending? 
+
+-- wrong*** -> select * from employee  where department = "banking" order by salary asc; 
+
+-- 9. Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000 
+
+
+-- 10. Create After Insert trigger on Employee table which insert records in viewtable 
+
+-- 11. Create table given below: Salesperson and Customer.
+
+create table sales_person (
+	sno int primary key,
+    sname varchar(20)not null,
+    city varchar(20) not null,
+    comm float not null);
+    
+insert into sales_person values 
+	(1001, "peel", "london", 0.12),
+	(1002, "serres", "san jose", 0.13),
+    (1004, "motika", "london", 0.11),
+	(1007, "rafkin", "barelona", 0.15),
+    (1003, "axerlrod", "new york", 0.10);
+    
+select * from sales_person;
+
+create table customer (
+	cno int primary key,
+    cname varchar(20),
+    city varchar(20),
+    rating int not null,
+    sno int,
+    foreign key (sno) references sales_person(sno));
+    
+insert into customer values
+	(201, "hoffman", "london", 100, 1001),
+    (202, "giovanne", "rome", 200, 1003),
+    (203, "liu", "san jose", 300, 1002),
+    (204, "grass", "barcelona", 100, 1002),
+    (206, "clemens", "london", 300, 1007),
+    (207, "pereira", "rome", 100, 1004);
+    
+select * from customer;
+
+-- 12. Retrieve the below data from above table 
+-- 13. All orders for more than $1000. 
+-- ?? 
+
+
  
 
     

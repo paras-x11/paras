@@ -53,19 +53,25 @@ CREATE TABLE employee (
     CHECK (age > 21)
 );
 
+alter table employee add column city varchar(10) after age;
+
 insert into employee (eid,name,age,join_date,mobile_no) values (1, "paras", 22, "2014-01-10", "9898060000");
 
-update employee set age = 24 where eid = 2;
+update employee set city = "surat" where eid = 1;
 
 select * from employee;
 
 update employee set age = 24 where age = 22;
 
-update employee set age = 24 where salary = 25000;
+update employee set salary = 30000 where age = 22;
 
 UPDATE employee SET `join_date` = '2012-01-10' WHERE (`eid` = '1');
 
-insert into employee values(5, "raj", 30, "2016-01-10", 70000, "9909898099"), (4, "vikas", 30, "2020-06-01", 40000, "9824009482");
+insert into employee values
+	(2, "rahul", 28, "valsad", "2014-06-01", 50000, "9922778800"),
+    (3, "pavan", 35, "ahmedabad", "2007-06-01", 90000, "9998669852"),
+    (4, "vikas", 30, "vapi", "2020-06-01", 40000, "9824009482"),
+	(5, "raj", 30, "baroda", "2016-01-10", 70000, "9909898099");
 
 delete from employee where eid = 1;
 
@@ -90,4 +96,46 @@ update employee set city = "vapi" where eid = 5;
 
 select eid, name, salary from employee where city = "surat";
 
+-- limit
+select * from employee limit 3;
+
+select * from employee where age>30 limit 4;
+
+select * from employee limit 2 offset 2;
+
+select * from employee where age>25 limit 2 offset 3;
+
+-- like keyword: wild cards -> _ %
+select * from employee where name like "p%";
+
+select * from employee where city like "_h%";
+
+select * from employee where name like "%a%";
+
+select * from employee where name like "_a_";
+
+select * from employee where name like "_a__%";
+
+-- aggregate func: count, sum, avg, min, max
+
+select count(eid) as total_record from employee;
+select count(name) as total_record from employee;
+
+select sum(eid) from employee;
+
+select avg(salary) from employee;
+
+select min(salary) from employee;
+
+select max(salary) from employee;
+
+-- asc / desc
+
+select * from employee order by city asc;
+
+select * from employee order by name asc;
+
+select * from employee order by city desc;
+
+select * from employee order by name desc;
 
