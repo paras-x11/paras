@@ -1,0 +1,37 @@
+SELECT - extracts data from a database
+
+UPDATE - updates data in a database
+
+DELETE - deletes data from a database
+
+INSERT INTO - inserts new data into a database
+
+CREATE DATABASE - creates a new database
+
+ALTER DATABASE - modifies a database
+
+CREATE TABLE - creates a new table
+
+ALTER TABLE - modifies a table
+
+DROP TABLE - deletes a table
+
+CREATE INDEX - creates an index (search key)
+
+DROP INDEX - deletes an index
+
+
+-> for export backup to specific path:
+
+mysqldump -u root -p 'database_name' > D:\paras\Assignment\Module-5 Database\practise\backup.sql
+- database_name is name of database from where we want to take backup;
+
+-> for import this backup to a particular database:
+
+mysql -u root -p 'database_name' < D:\paras\Assignment\Module-5 Database\practise\backup.sql
+- database_name is name of database where we want to store backup;
+
+
+mysqldump -u root -p module5 > D:\paras\Assignment\Module-5 Database\practise\backup.sql
+mysql -u root -p backup < D:\paras\Assignment\Module-5 Database\practise\backup.sql
+

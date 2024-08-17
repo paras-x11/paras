@@ -99,12 +99,12 @@ select * from employee where first_name like "j%";
  
 -- 7. Get department wise maximum salary from employee table order by salary ascending? 
 
--- wrong*** -> select * from employee  where department = "banking" order by salary asc; 
 
 -- 9. Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000 
 
 
 -- 10. Create After Insert trigger on Employee table which insert records in viewtable 
+
 
 -- 11. Create table given below: Salesperson and Customer.
 
@@ -142,11 +142,10 @@ insert into customer values
 select * from customer;
 
 -- 12. Retrieve the below data from above table 
--- 13. All orders for more than $1000. 
--- ?? 
+
+-- 13. All orders for more than $1000.
 
 
- 
 
     
     

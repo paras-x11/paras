@@ -1,5 +1,7 @@
 create database practice;
 
+create database backup;
+
 use practice;
 
 show databases;
@@ -138,4 +140,61 @@ select * from employee order by name asc;
 select * from employee order by city desc;
 
 select * from employee order by name desc;
+	
+
+insert into employee values
+	(6, "vina", 26, "surat", "2014-09-01", 20000, "9922598800"),
+    (7, "jiya", 34, "ahmedabad", "2015-02-14", 85000, "9994869852"),
+    (8, "yug", 32, "valsad", "2017-03-11", 45000, "9824119482"),
+	(9, "sujal", 30, "baroda", "2018-01-10", 75000, "9909458099");
+
+-- and or not
+
+select * from employee where salary<30000 and city="surat";
+
+select * from employee where salary>30000 or city="valsad";
+
+select * from employee where not salary>30000 and city="surat";
+
+select * from employee where not salary<30000 and city="valsad";
+
+-- how to test for null values: is null / is not null
+
+insert into employee (eid,name,age,join_date,mobile_no) values (10, "vikram", 40, "2010-10-10", "9898066666");
+
+update employee set salary=120000 where eid = 10;
+
+select * from employee where city is null;
+
+select * from employee where city is not null;
+
+-- in operator: multiple or
+
+select * from employee where city in ('vapi','surat','ahmedabad');
+
+select * from employee where city not in ('vapi','surat','ahmedabad');
+
+-- between:  and
+
+select * from employee where age between 20 and 30;
+
+select * from employee where age not between 20 and 30;
+
+select * from employee where age between 20 and 30 and city in('surat', 'vapi');
+
+select * from employee where age between 20 and 30 and city not in('surat', 'vapi');
+
+-- concat_ws : concatnation with specific delemeter
+
+SELECT CONCAT_WS("-", "SQL", "Tutorial", "is", "fun!") AS ConcatenatedString;
+
+SELECT CONCAT_WS(", ", eid, name, city, age) AS info FROM employee;
+
+
+
+
+
+
+
+
 
