@@ -42,6 +42,26 @@ delete from student where no='1';
 ALTER TABLE student
 ADD CONSTRAINT pk_student_no PRIMARY KEY (no);
 
+-- product:
+create table product (
+	p_id int primary key,
+    p_name varchar(20) not null,
+    p_price int,
+    p_com int);
+    
+insert into product values
+    (101, 'mother board', 3200, 15),
+    (102, 'key board', 450, 16),
+    (103, 'zip drive', 250, 14),
+    (104, 'speaker', 550, 16),
+    (105, 'monitor', 5000, 11),
+    (106, 'dvd drive', 900, 12),
+    (107, 'cd drive', 800, 12),
+    (108, 'printer', 2600, 13),
+    (109, 'refill cartridge', 350, 13),
+    (110, 'mouse', 250, 12);
+    
+select * from product;
 
 -- employee:
 
