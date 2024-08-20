@@ -75,6 +75,27 @@ CREATE TABLE employee (
     CHECK (age > 21)
 );
 
+CREATE TABLE department (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(30),
+    eid INT,
+    FOREIGN KEY (eid) REFERENCES employee(eid)
+);
+
+INSERT INTO department (dept_id, dept_name, eid) VALUES
+(1, 'Human Resources', 1),
+(2, 'Finance', 2),
+(3, 'Engineering', 3),
+(4, 'Marketing', 4),
+(5, 'Sales', 5),
+(6, 'Customer Support', 6),
+(7, 'Research and Development', 7),
+(8, 'IT', 8),
+(9, 'Legal', 9),
+(10, 'Operations', 10);
+
+delete from department where dept_id = 10;  -- 9
+
 alter table employee add column city varchar(10) after age;
 
 insert into employee (eid,name,age,join_date,mobile_no) values (1, "paras", 22, "2014-01-10", "9898060000");

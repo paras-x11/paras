@@ -99,14 +99,18 @@ select * from employee where first_name like "j%";
  
 -- 7. Get department wise maximum salary from employee table order by salary ascending? 
 
+select max(salary), department from employee group by department having max(salary) > 100000 order by max(salary);
 
 -- 9. Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000 
 
+select first_name, incentive_amount from employee right join incentive on employee.e_id = incentive.emp_ref_id where incentive_amount > 3000;
 
 -- 10. Create After Insert trigger on Employee table which insert records in viewtable 
 
 
 -- 11. Create table given below: Salesperson and Customer.
+
+-- tables: sales_person -> customer
 
 create table sales_person (
 	sno int primary key,
@@ -118,7 +122,7 @@ insert into sales_person values
 	(1001, "peel", "london", 0.12),
 	(1002, "serres", "san jose", 0.13),
     (1004, "motika", "london", 0.11),
-	(1007, "rafkin", "barelona", 0.15),
+	(1007, "rafkin", "barcelona", 0.15),
     (1003, "axerlrod", "new york", 0.10);
     
 select * from sales_person;
@@ -144,8 +148,123 @@ select * from customer;
 -- 12. Retrieve the below data from above table 
 
 -- 13. All orders for more than $1000.
+-- question related data is not available in table.
+
+-- 14. Names and cities of all salespeople in London with commission above 0.12 
+
+select sname, city from sales_person where city = 'london' and comm >= 0.12 ;
+
+-- 15. All salespeople either in Barcelona or in London 
+
+select * from sales_person where city = 'london' or city = 'barcelona';
+
+-- 16. All salespeople with commission between 0.10 and 0.12. (Boundary valuesshould be excluded). 
+
+select * from sales_person where comm between 0.10 and 0.12;
+
+-- 17. All customers excluding those with rating <= 100 unless they are located in Rome 
+
+select * from customer where city = 'rome' and rating <= 100;
+
+-- 18.  Write a SQL statement that displays all the information about all salespeople 
+
+select * from sales_person;
+
+-- tables: sales_man -> orders
+
+create table sales_man (
+	sid int primary key,
+    name varchar(20)not null,
+    city varchar(20) not null,
+    commision float not null);
+    
+insert into sales_man values 
+	(5001, "james hoog", "new york", 0.15),
+	(5002, "nail knite", "paris", 0.13),
+    (5005, "pit alex", "london", 0.11),
+	(5006, "mc lyon", "paris", 0.14),
+    (5007, "paul adam", "rome", 0.13),
+    (5003, "lauson hen", "san jose", 0.12);
+    
+    
+create table orders (
+	order_no int primary key,
+    purchase_amt float(2) not null,
+    order_date date,
+    custmer_id int not null,
+    sid int,
+    foreign key (sid) references sales_man(sid));
+
+insert into orders values 
+	(70001, 150.5,  "2012-10-05", 3005, 5002),
+	(70009, 270.65, "2012-09-05", 3001, 5005),
+	(70002, 65.26,  "2012-10-05", 3002, 5001),
+ 	(70004, 110.5,  "2012-08-05", 3009, 5003),
+	(70007, 948.5,  "2012-09-05", 3005, 5002),
+	(70005, 2400.6, "2012-07-05", 3007, 5001),
+	(70008, 5760,   "2012-09-05", 3002, 5001),
+	(70010, 1983.43,"2012-10-05", 3004, 5006),
+	(70003, 2480.4, "2012-10-05", 3009, 5003),
+	(70012, 250.45, "2012-06-05", 3008, 5002),
+	(70011, 75.29,  "2012-08-05", 3003, 5007),
+	(70013, 3045.6, "2012-04-05", 3002, 5001);
+
+-- 19.  From the following table, write a SQL query to find orders that are delivered by a salesperson with ID. 5001. Return ord_no, ord_date, purch_amt. 
+
+select order_no, order_date, purchase_amt from orders where sid = 5001;
+
+select * from sales_man left join orders on sales_man.sid = orders.sid where orders.sid = 5001;
 
 
+-- table: product
 
+create table product (
+	pro_id int primary key,
+    pro_name varchar(20) not null,
+    pro_price int,
+    pro_com int);
+    
+insert into product values
+    (101, 'mother board', 3200, 15),
+    (102, 'key board', 450, 16),
+    (103, 'zip drive', 250, 14),
+    (104, 'speaker', 550, 16),
+    (105, 'monitor', 5000, 11),
+    (106, 'dvd drive', 900, 12),
+    (107, 'cd drive', 800, 12),
+    (108, 'printer', 2600, 13),
+    (109, 'refill cartridge', 350, 13),
+    (110, 'mouse', 250, 12);
+
+-- 20. From the following table, write a SQL query to select a range of products whose price is in the range Rs.200 to Rs.600. Begin and end values 
+--     are included. Return pro_id, pro_name, pro_price, and pro_com. 
+
+ select pro_id, pro_name, pro_price, pro_com as commision from product where pro_price between 200 and 600;
+  
+ 
+-- 21. From the following table, write a SQL query to calculate the average price for a manufacturer code of 16. Return avg. 
+-- no manufacturer code avaialable ?????
+ 
+select avg(pro_price) from product;
+
+
+-- 22. From the following table, write a SQL query to display the pro_name as 'Item Name' and pro_priceas 'Price in Rs.' 
+ 
+select pro_name as Item_Name, pro_price as Price_in_rs from product;
+ 
+-- 23. From the following table, write a SQL query to find the items whose prices are higher than or equal to $250. Order the result by product price in 
+--     descending, then product name in ascending. Return pro_name and pro_price.
+
+select pro_name, pro_price from product where pro_price >= 250 order by pro_price desc;
+
+select pro_name, pro_price from product where pro_price >= 250 order by pro_name asc;
+
+
+-- 24. From the following table, write a SQL query to calculate average price of the items for each company. Return average price and companycode. 
+
+-- there is no data available about company.
+    
+    
+    
     
     
