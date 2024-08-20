@@ -10,6 +10,8 @@ show tables;
 
 desc student;
 
+ALTER TABLE old_table_name RENAME new_table_name;
+
 -- student: 
 create table student (no int, name varchar(20), age int, dob date, gender varchar(20));
 CREATE TABLE student (
