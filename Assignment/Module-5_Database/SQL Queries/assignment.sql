@@ -118,7 +118,7 @@ create table sales_person (
     city varchar(20) not null,
     comm float not null);
     
-insert into sales_person values 
+insert into sales_person values
 	(1001, "peel", "london", 0.12),
 	(1002, "serres", "san jose", 0.13),
     (1004, "motika", "london", 0.11),
@@ -178,7 +178,7 @@ create table sales_man (
     city varchar(20) not null,
     commision float not null);
     
-insert into sales_man values 
+insert into sales_man values
 	(5001, "james hoog", "new york", 0.15),
 	(5002, "nail knite", "paris", 0.13),
     (5005, "pit alex", "london", 0.11),
