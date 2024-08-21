@@ -113,10 +113,10 @@ update employee set salary = 30000 where age = 22;
 UPDATE employee SET `join_date` = '2012-01-10' WHERE (`eid` = '1');
 
 insert into employee values
-	(2, "rahul", 28, "valsad", "2014-06-01", 50000, "9922778800"),
+    (2, "rahul", 28, "valsad", "2014-06-01", 50000, "9922778800"),
     (3, "pavan", 35, "ahmedabad", "2007-06-01", 90000, "9998669852"),
     (4, "vikas", 30, "vapi", "2020-06-01", 40000, "9824009482"),
-	(5, "raj", 30, "baroda", "2016-01-10", 70000, "9909898099");
+    (5, "raj", 30, "baroda", "2016-01-10", 70000, "9909898099");
 
 delete from employee where eid = 1;
 
@@ -186,10 +186,10 @@ select * from employee order by name desc;
 	
 
 insert into employee values
-	(6, "vina", 26, "surat", "2014-09-01", 20000, "9922598800"),
+    (6, "vina", 26, "surat", "2014-09-01", 20000, "9922598800"),
     (7, "jiya", 34, "ahmedabad", "2015-02-14", 85000, "9994869852"),
     (8, "yug", 32, "valsad", "2017-03-11", 45000, "9824119482"),
-	(9, "sujal", 30, "baroda", "2018-01-10", 75000, "9909458099");
+    (9, "sujal", 30, "baroda", "2018-01-10", 75000, "9909458099");
 
 -- and or not
 
