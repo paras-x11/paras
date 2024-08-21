@@ -3,29 +3,28 @@ use module5;
 -- 1. Create Table Name : Student and Exam 
 create table student(
 	roll_no int primary key not null,
-    name varchar(20) not null,
+   	name varchar(20) not null,
     branch varchar(30));
     
 insert into student values
 	(1, "jay", "computer sciene"),
     (2, "suhani", "electronic and com"),
-    (3, "kriti", "electronic and com");
+  	(3, "kriti", "electronic and com");
 
 create table exam(
 	roll_no int not null,
-    s_code varchar(10)  not null,
-    marks int not null,
-    p_code varchar(5),
-	foreign key(roll_no) references student(roll_no)    
-    );
+   	s_code varchar(10)  not null,
+  	marks int not null,
+	p_code varchar(5),
+	foreign key(roll_no) references student(roll_no));
     
 insert into exam values
 	(1, "cs11", 50, "cs"),
-    (1, "cs12", 60, "cs"),
-    (2, "ec101", 66, "ec"),
-    (2, "ec102", 70, "ec"),
-    (3, "ec101", 45, "ec"),
-    (3, "ec102", 50, "ec");
+	(1, "cs12", 60, "cs"),
+	(2, "ec101", 66, "ec"),
+	(2, "ec102", 70, "ec"),
+	(3, "ec101", 45, "ec"),
+	(3, "ec102", 50, "ec");
 
 select * from student;
 
@@ -39,28 +38,28 @@ desc exam;
 -- 2. Create table given below: Employee and IncentiveTable 
 create table employee(
 	e_id int primary key not null,
-    first_name varchar(20),
-    last_name varchar(20),
-    salary int,
-    joining_date datetime,
-    department varchar(10));
+	first_name varchar(20),
+	last_name varchar(20),
+	salary int,
+	joining_date datetime,
+	department varchar(10));
 
 insert into employee values
 	(1, "john", "abraham", 1000000, "2013-01-01 12:00:00", "banking"),
-    (2, "michael", "clarke", 800000, "2013-01-01 12:00:00", "insurance"),
-    (3, "roy", "thomas", 700000, "2013-02-01 12:00:00", "banking"),
-    (4, "tom", "jose", 600000, "2013-02-01 12:00:00", "insurance"),
-    (5, "jerry", "pinto", 650000, "2013-02-01 12:00:00", "insurance"),
-    (6, "philip", "mathew", 750000, "2013-01-01 12:00:00", "service"),
-    (7, "testname1", "123", 650000, "2013-01-01 12:00:00", "service"),
-    (8, "testname2", "456", 600000, "2013-02-01 12:00:00", "insurance");
+	(2, "michael", "clarke", 800000, "2013-01-01 12:00:00", "insurance"),
+	(3, "roy", "thomas", 700000, "2013-02-01 12:00:00", "banking"),
+	(4, "tom", "jose", 600000, "2013-02-01 12:00:00", "insurance"),
+	(5, "jerry", "pinto", 650000, "2013-02-01 12:00:00", "insurance"),
+	(6, "philip", "mathew", 750000, "2013-01-01 12:00:00", "service"),
+	(7, "testname1", "123", 650000, "2013-01-01 12:00:00", "service"),
+	(8, "testname2", "456", 600000, "2013-02-01 12:00:00", "insurance");
     
 select * from employee;
 
 create table incentive(
 	emp_ref_id int primary key,
-    incentive_date date,
-    incentive_amount int);
+	incentive_date date,
+	incentive_amount int);    
 
 alter table incentive drop primary key;
 
@@ -72,11 +71,11 @@ REFERENCES employee(e_id);
 desc incentive;
     
 insert into incentive values
-		(1, "2013-02-01", 5000),
-        (2, "2013-02-01", 3000),
-        (3, "2013-02-01", 4000),
-        (1, "2013-01-01", 4500),
-        (2, "2013-01-01", 3500);
+	(1, "2013-02-01", 5000),
+	(2, "2013-02-01", 3000),
+	(3, "2013-02-01", 4000),
+	(1, "2013-01-01", 4500),
+	(2, "2013-01-01", 3500);
         
 select * from incentive;
 
@@ -114,34 +113,34 @@ select first_name, incentive_amount from employee right join incentive on employ
 
 create table sales_person (
 	sno int primary key,
-    sname varchar(20)not null,
-    city varchar(20) not null,
-    comm float not null);
+	sname varchar(20)not null,
+	city varchar(20) not null,
+	comm float not null);
     
 insert into sales_person values
 	(1001, "peel", "london", 0.12),
 	(1002, "serres", "san jose", 0.13),
-    (1004, "motika", "london", 0.11),
+	(1004, "motika", "london", 0.11),
 	(1007, "rafkin", "barcelona", 0.15),
-    (1003, "axerlrod", "new york", 0.10);
+	(1003, "axerlrod", "new york", 0.10);
     
 select * from sales_person;
 
 create table customer (
 	cno int primary key,
-    cname varchar(20),
-    city varchar(20),
-    rating int not null,
-    sno int,
-    foreign key (sno) references sales_person(sno));
+	cname varchar(20),
+	city varchar(20),
+	rating int not null,
+	sno int,
+	foreign key (sno) references sales_person(sno));
     
 insert into customer values
 	(201, "hoffman", "london", 100, 1001),
-    (202, "giovanne", "rome", 200, 1003),
-    (203, "liu", "san jose", 300, 1002),
-    (204, "grass", "barcelona", 100, 1002),
-    (206, "clemens", "london", 300, 1007),
-    (207, "pereira", "rome", 100, 1004);
+	(202, "giovanne", "rome", 200, 1003),
+	(203, "liu", "san jose", 300, 1002),
+	(204, "grass", "barcelona", 100, 1002),
+	(206, "clemens", "london", 300, 1007),
+	(207, "pereira", "rome", 100, 1004);
     
 select * from customer;
 
@@ -152,7 +151,7 @@ select * from customer;
 
 -- 14. Names and cities of all salespeople in London with commission above 0.12 
 
-select sname, city from sales_person where city = 'london' and comm >= 0.12 ;
+select sname, city from sales_person where city = 'london' and comm > 0.12 ;
 
 -- 15. All salespeople either in Barcelona or in London 
 
@@ -160,11 +159,11 @@ select * from sales_person where city = 'london' or city = 'barcelona';
 
 -- 16. All salespeople with commission between 0.10 and 0.12. (Boundary valuesshould be excluded). 
 
-select * from sales_person where comm between 0.10 and 0.12;
+select * from sales_person where comm > 0.10 and comm < 0.12;
 
 -- 17. All customers excluding those with rating <= 100 unless they are located in Rome 
 
-select * from customer where city = 'rome' and rating <= 100;
+select * from customer where city = 'rome' and rating <= 100 or city <> 'rome' and rating > 100;
 
 -- 18.  Write a SQL statement that displays all the information about all salespeople 
 
@@ -174,40 +173,41 @@ select * from sales_person;
 
 create table sales_man (
 	sid int primary key,
-    name varchar(20)not null,
-    city varchar(20) not null,
-    commision float not null);
+	name varchar(20)not null,
+	city varchar(20) not null,
+	commision float not null);
     
 insert into sales_man values
 	(5001, "james hoog", "new york", 0.15),
 	(5002, "nail knite", "paris", 0.13),
-    (5005, "pit alex", "london", 0.11),
+	(5005, "pit alex", "london", 0.11),	
 	(5006, "mc lyon", "paris", 0.14),
-    (5007, "paul adam", "rome", 0.13),
-    (5003, "lauson hen", "san jose", 0.12);
+	(5007, "paul adam", "rome", 0.13),
+	(5003, "lauson hen", "san jose", 0.12);
     
     
 create table orders (
 	order_no int primary key,
-    purchase_amt float(2) not null,
-    order_date date,
-    custmer_id int not null,
-    sid int,
-    foreign key (sid) references sales_man(sid));
+	purchase_amt float not null,
+	order_date date,
+	customer_id int not null,
+	sid int,
+	foreign key (sid) references sales_man(sid));
 
-insert into orders values 
-	(70001, 150.5,  "2012-10-05", 3005, 5002),
-	(70009, 270.65, "2012-09-05", 3001, 5005),
-	(70002, 65.26,  "2012-10-05", 3002, 5001),
- 	(70004, 110.5,  "2012-08-05", 3009, 5003),
-	(70007, 948.5,  "2012-09-05", 3005, 5002),
-	(70005, 2400.6, "2012-07-05", 3007, 5001),
-	(70008, 5760,   "2012-09-05", 3002, 5001),
-	(70010, 1983.43,"2012-10-05", 3004, 5006),
-	(70003, 2480.4, "2012-10-05", 3009, 5003),
-	(70012, 250.45, "2012-06-05", 3008, 5002),
-	(70011, 75.29,  "2012-08-05", 3003, 5007),
-	(70013, 3045.6, "2012-04-05", 3002, 5001);
+INSERT INTO orders VALUES 
+    (70001, 150.5,   '2012-10-05', 3005, 5002),
+    (70009, 270.65, '2012-09-05', 3001, 5005),
+    (70002, 65.26,   '2012-10-05', 3002, 5001),
+    (70004, 110.5,   '2012-08-05', 3009, 5003),
+    (70007, 948.5,   '2012-09-05', 3005, 5002),
+    (70005, 2400.6, '2012-07-05', 3007, 5001),
+    (70008, 5760   , '2012-09-05', 3002, 5001),
+    (70010, 1983.43, '2012-10-05', 3004, 5006),
+    (70003, 2480.4, '2012-10-05', 3009, 5003),
+    (70012, 250.45, '2012-06-05', 3008, 5002),
+    (70011, 75.29,   '2012-08-05', 3003, 5007),
+    (70013, 3045.6, '2012-04-05', 3002, 5001);
+
 
 -- 19.  From the following table, write a SQL query to find orders that are delivered by a salesperson with ID. 5001. Return ord_no, ord_date, purch_amt. 
 
@@ -220,9 +220,9 @@ select * from sales_man left join orders on sales_man.sid = orders.sid where ord
 
 create table product (
 	pro_id int primary key,
-    pro_name varchar(20) not null,
-    pro_price int,
-    pro_com int);
+	pro_name varchar(20) not null,
+	pro_price int,
+	pro_com int);
     
 insert into product values
     (101, 'mother board', 3200, 15),
@@ -245,7 +245,8 @@ insert into product values
 -- 21. From the following table, write a SQL query to calculate the average price for a manufacturer code of 16. Return avg. 
 -- no manufacturer code avaialable ?????
  
-select avg(pro_price) from product;
+SELECT AVG(pro_price) FROM product WHERE pro_com = 16;
+
 
 
 -- 22. From the following table, write a SQL query to display the pro_name as 'Item Name' and pro_priceas 'Price in Rs.' 
@@ -259,13 +260,14 @@ select pro_name, pro_price from product where pro_price >= 250 order by pro_pric
 
 select pro_name, pro_price from product where pro_price >= 250 order by pro_name asc;
 
+SELECT pro_name, pro_price FROM product WHERE pro_price >= 250 ORDER BY pro_price DESC, pro_name ASC;
+
+
 
 -- 24. From the following table, write a SQL query to calculate average price of the items for each company. Return average price and companycode. 
 
 -- there is no data available about company.
     
-    
-    
-    
-    
+SELECT pro_com AS Manufacturer_Code, AVG(pro_price) AS Avg_Price FROM product GROUP BY pro_com;
+
     
