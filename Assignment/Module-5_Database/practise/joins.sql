@@ -16,12 +16,12 @@ CREATE TABLE department (
 );
 
 INSERT INTO department (dept_id, dept_name, eid) VALUES
-(1, 'Human Resources', 1),
-(2, 'Finance', 2),
-(3, 'Engineering', 3),
-(4, 'Marketing', 5),
-(5, 'Sales', 8),
-(6, 'IT', 9);
+    (1, 'Human Resources', 1),
+    (2, 'Finance', 2),
+    (3, 'Engineering', 3),
+    (4, 'Marketing', 5),
+    (5, 'Sales', 8),
+    (6, 'IT', 9);
 
 -- inner join:
 -- syntax:

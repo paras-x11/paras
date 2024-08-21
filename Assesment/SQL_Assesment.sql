@@ -1,4 +1,4 @@
-use module5;
+use assesment;
 
 -- tables -> City,  Customer,  Country
 
@@ -9,15 +9,15 @@ create table country (
     country_code varchar(10));
 
 create table city (
-    city_id int primary key,
+	city_id int primary key,
     city_name varchar(20) ,
-    lat int,
+    latitude int,
     longtitude int,
     country_id int,
     foreign key (country_id) references country(country_id));
 
-create table customers(
-    customer_id int primary key,
+create table customer (
+	customer_id int primary key,
     customer_name varchar(20),
     city_id int,
     customer_address varchar(20),

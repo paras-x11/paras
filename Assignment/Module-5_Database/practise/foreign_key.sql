@@ -1,7 +1,7 @@
 use practice;
 
-create table department( 
-	dept_id int primary key, 
+create table department(
+    dept_id int primary key,
     dept_name varchar(10),
     emp_id int,
     foreign key (emp_id) references employee(eid));
@@ -10,12 +10,14 @@ select * from department;
    
 desc department;
     
-insert into department values (1, "HR", 1), 
-	(2, "Accounting", 2), 
+insert into department values
+    (1, "HR", 1),
+    (2, "Accounting", 2),
     (3, "Service", 3);
     
-insert into department values (4, "finance", 1), 
-	(5, "s/w", 2), 
+insert into department values
+    (4, "finance", 1),
+    (5, "s/w", 2),
     (6, "Service", 1);
     
 update department set dept_name="devlopment" where dept_id=6;

@@ -2,7 +2,7 @@ use module5;
 
 -- 1. Create Table Name : Student and Exam 
 create table student(
-	roll_no int primary key not null,
+    roll_no int primary key not null,
    	name varchar(20) not null,
     branch varchar(30));
     
@@ -65,8 +65,7 @@ alter table incentive drop primary key;
 
 ALTER TABLE incentive 
 ADD CONSTRAINT fk_incentive 
-FOREIGN KEY (emp_ref_id) 
-REFERENCES employee(e_id);
+FOREIGN KEY (emp_ref_id) REFERENCES employee(e_id);
 
 desc incentive;
     
@@ -208,6 +207,7 @@ INSERT INTO orders VALUES
     (70011, 75.29,   '2012-08-05', 3003, 5007),
     (70013, 3045.6, '2012-04-05', 3002, 5001);
 
+select * from product;
 
 -- 19.  From the following table, write a SQL query to find orders that are delivered by a salesperson with ID. 5001. Return ord_no, ord_date, purch_amt. 
 

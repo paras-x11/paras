@@ -46,7 +46,7 @@ ADD CONSTRAINT pk_student_no PRIMARY KEY (no);
 
 -- product:
 create table product (
-	p_id int primary key,
+    p_id int primary key,
     p_name varchar(20) not null,
     p_price int,
     p_com int);
