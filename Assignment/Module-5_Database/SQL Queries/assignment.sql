@@ -2,14 +2,14 @@ use module5;
 
 -- 1. Create Table Name : Student and Exam 
 create table student(
-    roll_no int primary key not null,
-   	name varchar(20) not null,
-    branch varchar(30));
+	roll_no int primary key not null,
+	name varchar(20) not null,
+	branch varchar(30));
     
 insert into student values
 	(1, "jay", "computer sciene"),
-    (2, "suhani", "electronic and com"),
-  	(3, "kriti", "electronic and com");
+	(2, "suhani", "electronic and com"),
+	(3, "kriti", "electronic and com");
 
 create table exam(
 	roll_no int not null,

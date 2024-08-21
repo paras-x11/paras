@@ -1,24 +1,24 @@
 use practice;
 
 create table department(
-    dept_id int primary key,
-    dept_name varchar(10),
-    emp_id int,
-    foreign key (emp_id) references employee(eid));
+	dept_id int primary key,
+	dept_name varchar(10),
+	emp_id int,
+	foreign key (emp_id) references employee(eid));
     
 select * from department;
    
 desc department;
     
 insert into department values
-    (1, "HR", 1),
-    (2, "Accounting", 2),
-    (3, "Service", 3);
+	(1, "HR", 1),
+	(2, "Accounting", 2),
+	(3, "Service", 3);
     
 insert into department values
-    (4, "finance", 1),
-    (5, "s/w", 2),
-    (6, "Service", 1);
+	(4, "finance", 1),
+	(5, "s/w", 2),
+	(6, "Service", 1);
     
 update department set dept_name="devlopment" where dept_id=6;
 
@@ -31,7 +31,7 @@ use module5;
 -- 2. Create table given below: Employee and IncentiveTable 
 
 create table employee(
-	e_id int primary key not null,
+    e_id int primary key not null,
     first_name varchar(20),
     last_name varchar(20),
     salary int,
@@ -39,7 +39,7 @@ create table employee(
     department varchar(10));
 
 insert into employee values
-	(1, "john", "abraham", 1000000, "2013-01-01 12:00:00", "banking"),
+    (1, "john", "abraham", 1000000, "2013-01-01 12:00:00", "banking"),
     (2, "michael", "clarke", 800000, "2013-01-01 12:00:00", "insurance"),
     (3, "roy", "thomas", 700000, "2013-02-01 12:00:00", "banking"),
     (4, "tom", "jose", 600000, "2013-02-01 12:00:00", "insurance"),
@@ -51,7 +51,7 @@ insert into employee values
 select * from employee;
 
 create table incentive(
-	emp_ref_id int primary key,
+    emp_ref_id int primary key,
     incentive_date date,
     incentive_amount int);
     
@@ -80,7 +80,7 @@ alter table incentive drop constraint fk_incentive;
 desc incentive;
     
 insert into incentive values
-		(1, "2013-02-01", 5000),
+	(1, "2013-02-01", 5000),
         (2, "2013-02-01", 3000),
         (3, "2013-02-01", 4000),
         (1, "2013-01-01", 4500),
