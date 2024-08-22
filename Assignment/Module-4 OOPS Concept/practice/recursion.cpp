@@ -11,8 +11,6 @@ inline int factorial(int n){
     }
 }
 
-// if at the end this func returns 1 how true ans is printed?
-
 int main(){
     
     int num;

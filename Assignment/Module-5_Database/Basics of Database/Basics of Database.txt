@@ -9,8 +9,7 @@
 9. What is save Point? How to create a save Point write a Query? 
 10. What is trigger and how to create a Trigger in SQL?
 
-
-### 1. What is a Database?
+1. What is a Database?
 A **database** is an organized collection of structured data that is stored electronically. It allows for efficient storage, retrieval, and management of data. Databases are crucial for applications that require handling large amounts of data, ensuring that the data can be accessed, updated, and managed effectively.
 
 ### 2. What is Normalization?
