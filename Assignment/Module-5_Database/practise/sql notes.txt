@@ -35,3 +35,25 @@ mysql -u root -p 'database_name' < D:\paras\Assignment\Module-5 Database\practis
 mysqldump -u root -p module5 > D:\paras\Assignment\Module-5 Database\practise\backup.sql
 mysql -u root -p backup < D:\paras\Assignment\Module-5 Database\practise\backup.sql
 
+
+-> functios:
+
+delimiter //
+create function function_name(variable_name variable_type) returns 'return_type' deterministic
+begin
+	
+end //
+delimiter ;
+
+
+-> example:
+delimiter //
+create function cube_of(num int) returns int deterministic
+begin
+	declare cube1 int;
+    set cube1 = num*num*num;
+	return cube1;
+end //
+delimiter ;
+
+select cube_of(6) as cube6;

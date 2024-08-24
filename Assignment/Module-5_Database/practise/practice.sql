@@ -233,9 +233,69 @@ SELECT CONCAT_WS("-", "SQL", "Tutorial", "is", "fun!") AS ConcatenatedString;
 
 SELECT CONCAT_WS(", ", eid, name, city, age) AS info FROM employee;
 
+-- Function 1:
 
+delimiter //
+create function cube_of(num int) returns int deterministic
+begin
+	declare cube1 int;
+    set cube1 = num*num*num;
+	return cube1;
+end //
+delimiter ;
 
+select cube_of(6) as cube6;
 
+-- func find_age of employee:
+delimiter //
+create function find_age(employee_name varchar(20)) returns int deterministic
+begin
+	declare ages int;
+    select age into ages from employee where name=employee_name;
+    return ages;
+end //
+delimiter ;
+
+select find_age("paras") as age;
+
+-- func get_joining_date from employee;
+delimiter //
+create function get_joining_date(employee_name varchar(20)) returns date deterministic
+begin
+	declare joining_date date;
+    select join_date into joining_date from employee where name=employee_name;
+    return joining_date;
+end //
+delimiter ;
+
+select get_joining_date("vikas"); 
+
+-- func get total marks from marks:
+delimiter //
+create function get_total(student_name varchar(20)) returns int deterministic
+begin
+	declare num int;
+    select total into num from marks where stud_name = student_name;
+    return num;
+end //
+delimiter ;
+
+select get_total("tom") as total;
+
+-- func to get age from dob of employee;
+
+delimiter //
+create function get_age(date_of_birth date) returns int deterministic
+begin
+	declare age int;
+    declare y int;
+    select curdate() into age from employee where date_of_birth = dob;
+    set y = year(age) - year(date_of_birth);
+    return y;
+end //
+delimiter ;
+
+select get_age('1995-07-08');
 
 
 
