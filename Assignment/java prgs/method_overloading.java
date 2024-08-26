@@ -1,5 +1,7 @@
 public class method_overloading {
 
+    // method overriding means same method in diff scopes and overloading means same name but diff parameter in same scope 
+    
     // method overloading can not be performed by changing the return type
 
     static void foo(){
