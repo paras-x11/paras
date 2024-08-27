@@ -88,8 +88,7 @@ select first_name, joining_date, salary from employee;
 
 -- 5. Get all employee details from the employee table order by First_Name Ascending and Salary descending? 
 
-select * from employee order by first_name asc;
-select * from employee order by first_name desc;
+SELECT * FROM employee ORDER BY first_name ASC , salary DESC;
 
 -- 6. Get employee details from employee table whose first name contains ‘J’. 
 
@@ -260,12 +259,11 @@ select pro_name as Item_Name, pro_price as Price_in_rs from product;
 -- 23. From the following table, write a SQL query to find the items whose prices are higher than or equal to $250. Order the result by product price in 
 --     descending, then product name in ascending. Return pro_name and pro_price.
 
-select pro_name, pro_price from product where pro_price >= 250 order by pro_price desc;
-
-select pro_name, pro_price from product where pro_price >= 250 order by pro_name asc;
-
 SELECT pro_name, pro_price FROM product WHERE pro_price >= 250 ORDER BY pro_price DESC, pro_name ASC;
 
+-- select pro_name, pro_price from product where pro_price >= 250 order by pro_price desc;
+
+-- select pro_name, pro_price from product where pro_price >= 250 order by pro_name asc;
 
 
 -- 24. From the following table, write a SQL query to calculate average price of the items for each company. Return average price and companycode. 

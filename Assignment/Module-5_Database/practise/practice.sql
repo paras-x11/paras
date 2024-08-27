@@ -297,6 +297,27 @@ delimiter ;
 
 select get_age('1995-07-08');
 
+-- procedure syntax:
+-- DELIMITER //
+-- CREATE PROCEDURE procedure_name ( [IN|OUT|INOUT] parameter_name parameter_datatype)
+-- BEGIN
+    -- SQL statements to be executed
+-- END //
+-- DELIMITER;
+ -- To run procedure : call procedure_name(parameter);
+
+-- procedure without parameter.
+delimiter $$
+create procedure p1()
+begin
+	select * from course;
+end $$
+delimiter ;
+
+-- call procedure 
+call p1();
+
+
 -- creating procedure without parameter:
 DELIMITER //
 
