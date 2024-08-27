@@ -57,3 +57,17 @@ end //
 delimiter ;
 
 select cube_of(6) as cube6;
+
+
+-> procedures:
+
+DELIMITER //
+
+CREATE PROCEDURE procedure_name()
+BEGIN
+    -- SQL statements go here
+END //
+
+DELIMITER ;
+
+CALL procedure_name;

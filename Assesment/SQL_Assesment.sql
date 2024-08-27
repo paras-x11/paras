@@ -55,7 +55,7 @@ select * from city;
 
 select * from country;
 
-
+-- 1
 SELECT 
     c.country_name AS Country,
     ci.city_name AS City,
@@ -70,7 +70,7 @@ ORDER BY
     c.country_name, ci.city_name, cu.customer_name;
 
 
-
+-- 2
 SELECT 
     c.country_name AS Country,
     ci.city_name AS City,

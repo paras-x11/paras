@@ -297,6 +297,43 @@ delimiter ;
 
 select get_age('1995-07-08');
 
+-- creating procedure without parameter:
+DELIMITER //
+
+CREATE PROCEDURE Show_All_Employee()
+BEGIN
+    SELECT * FROM employee;
+END //
+
+DELIMITER ;
+
+call Show_All_Employee;
+
+-- in for input, out for output for run select query
+
+-- procedure to find age of student eith in parameter:
+
+delimiter //
+create procedure student_age(in sid int)
+begin
+	select age from students where sid = Stud_id;
+end //
+delimiter ;
+
+call student_age(10);
+
+-- proedure to increase salary :
+delimiter //
+create procedure increment(in emp_id int, inout esalary int)
+begin
+	select salary into esalary from employee where emp_id = eid;
+	update employee set salary = salary + 1000 where emp_id = eid;
+end //
+delimiter ;
+
+call increment(1,@esalary);
+select @esalary as salary;           -- in for input, out for output for run select query. 
+
 
 
 
