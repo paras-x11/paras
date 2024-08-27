@@ -56,6 +56,33 @@ select * from city;
 select * from country;
 
 
+SELECT 
+    c.country_name AS Country,
+    ci.city_name AS City,
+    cu.customer_name AS Customer
+FROM 
+    country c
+LEFT JOIN 
+    city ci ON c.country_id = ci.country_id
+LEFT JOIN 
+    customer cu ON ci.city_id = cu.city_id
+ORDER BY 
+    c.country_name, ci.city_name, cu.customer_name;
+
+
+
+SELECT 
+    c.country_name AS Country,
+    ci.city_name AS City,
+    cu.customer_name AS Customer
+FROM 
+    country c
+INNER JOIN 
+    city ci ON c.country_id = ci.country_id
+LEFT JOIN 
+    customer cu ON ci.city_id = cu.city_id
+ORDER BY 
+    c.country_name, ci.city_name, cu.customer_name;
 
 
 

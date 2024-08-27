@@ -106,6 +106,10 @@ select first_name, incentive_amount from employee right join incentive on employ
 -- 10. Create After Insert trigger on Employee table which insert records in viewtable 
 
 
+
+
+
+
 -- 11. Create table given below: Salesperson and Customer.
 
 -- tables: sales_person -> customer
