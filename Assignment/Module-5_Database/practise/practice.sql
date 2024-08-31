@@ -395,7 +395,6 @@ truncate table student2;
 delimiter //
 create trigger update_city
 BEFORE insert on student2 for each row
-
 BEGIN
     if new.city="surat" then set new.city="local";
     end if;
@@ -408,6 +407,162 @@ INSERT INTO student2 (no, name, age, city, gender) VALUES
 (3, 'Charlie', 22, 'Vadodara', 'Male');
 
 select * from student2;
+
+CREATE TABLE Users (
+    UserID INT AUTO_INCREMENT PRIMARY KEY,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Age INT,
+    City VARCHAR(50),
+    RegistrationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO Users (UserID, FirstName, LastName, Age, City) VALUES
+(1, 'Naruto', 'Uzumaki', 25, 'Konoha'),
+(2, 'Sasuke', 'Uchiha', 25, 'Konoha'),
+(3, 'Sakura', 'Haruno', 25, 'Konoha'),
+(4, 'Gojo', 'Satoru', 34, 'Tokyo'),
+(5, 'Yuuji', 'Itadori', 24, 'Tokyo'),
+(6, 'Tanjirou', 'Kamado', 16, 'Kanao'),
+(7, 'Nezuko', 'Kamado', 16, 'Kanao'),
+(8, 'Luffy', 'Monkey', 24, 'Loguetown'),
+(9, 'Zoro', 'Roronoa', 24, 'Loguetown'),
+(10, 'Sanji', 'Vinsmoke', 23, 'Baratie'),
+(11, 'Nami', 'Strawhat', 22, 'Cocoyasi Village'),
+(12, 'Kakashi', 'Hatake', 39, 'Konoha'),
+(13, 'Hinata', 'Hyuga', 25, 'Konoha'),
+(14, 'Shikamaru', 'Nara', 25, 'Konoha'),
+(15, 'Inosuke', 'Hashibira', 16, 'Kanao'),
+(16, 'Zenitsu', 'Agatsuma', 16, 'Kanao'),
+(17, 'Mikasa', 'Ackerman', 21, 'Shiganshina District'),
+(18, 'Eren', 'Yeager', 24, 'Shiganshina District'),
+(19, 'Yusuke', 'Urameshi', 28, 'Tokyo'),
+(20, 'Kurama', 'Kurama', 28, 'Tokyo'),
+(21, 'Hikari', 'Kashima', 23, 'Tokyo'),
+(22, 'Kageyama', 'Tobio', 22, 'Tokyo'),
+(23, 'Kiba', 'Inuzuka', 25, 'Konoha'),
+(24, 'Tenten', 'TenTen', 25, 'Konoha'),
+(25, 'Temari', 'Sabaku', 25, 'Sunagakure'),
+(26, 'Gaara', 'Sabaku', 25, 'Sunagakure'),
+(27, 'Yoshino', 'Kashiwagi', 24, 'Tokyo'),
+(28, 'Kuroko', 'Tetsuya', 25, 'Tokyo'),
+(29, 'Kiyoko', 'Shimizu', 22, 'Tokyo'),
+(30, 'Hinata', 'Shouyou', 21, 'Tokyo');
+
+
+CREATE TABLE deleted_users (
+    UserID INT PRIMARY KEY,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Age INT,
+    City VARCHAR(50)
+);
+
+
+-- trigger for move deleted data to another table
+
+delimiter //
+create trigger move_data_to_deleted_user
+after delete on users for each row
+begin 
+	insert into deleted_users values(old.userid, old.firstname, old.lastname, old.age, old.city);
+end //
+delimiter ;
+
+delete from users where userid = 22;
+
+-- Insert all data from deleted_users back into Users
+INSERT INTO Users (UserID, FirstName, LastName, Age, City)
+SELECT UserID, FirstName, LastName, Age, City
+FROM deleted_users;
+
+
+delete from users where userid in (27, 28, 29);
+
+-- Insert specific records from deleted_users to Users
+INSERT INTO Users (UserID, FirstName, LastName, Age, City)
+SELECT UserID, FirstName, LastName, Age, City
+FROM deleted_users
+WHERE UserID IN (27, 28, 29);  -- Replace with the specific UserID values you want to restore
+
+-- Remove the restored records from deleted_users
+DELETE FROM deleted_users WHERE UserID IN (27, 28, 29);  -- Replace with the specific UserID values you restored
+
+-- Insert specific records with conflict handling
+-- if record alredy existed it dont insert and record is not existing its inserted
+INSERT INTO Users (UserID, FirstName, LastName, Age, City)
+SELECT UserID, FirstName, LastName, Age, City
+FROM deleted_users
+WHERE UserID IN (27,28,29,30)  -- Adjust UserIDs as needed
+ON DUPLICATE KEY UPDATE
+    FirstName = VALUES(FirstName),
+    LastName = VALUES(LastName),
+    Age = VALUES(Age),
+    City = VALUES(City);
+
+
+truncate table deleted_users;
+
+select * from users;
+select * from deleted_users;
+
+-- table for keeping old records after updating the records:
+CREATE TABLE EmployeeUpdateLog (
+    log_id INT AUTO_INCREMENT PRIMARY KEY,
+    eid INT,
+    old_name VARCHAR(20),
+    new_name VARCHAR(20),
+    old_dob DATE,
+    new_dob DATE,
+    old_city VARCHAR(10),
+    new_city VARCHAR(10),
+    old_join_date DATE,
+    new_join_date DATE,
+    old_salary INT,
+    new_salary INT,
+    old_mobile_no VARCHAR(10),
+    new_mobile_no VARCHAR(10),
+    update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- trigger for saving old data after updating employee
+DELIMITER //
+CREATE TRIGGER after_employee_update
+AFTER UPDATE ON employee FOR EACH ROW
+BEGIN
+    INSERT INTO EmployeeUpdateLog (
+        eid, old_name, new_name, old_dob, new_dob, old_city, new_city,
+        old_join_date, new_join_date, old_salary, new_salary,
+        old_mobile_no, new_mobile_no, update_time
+    )
+    VALUES (
+        OLD.eid, OLD.name, NEW.name, OLD.dob, NEW.dob, OLD.city, NEW.city,
+        OLD.join_date, NEW.join_date, OLD.salary, NEW.salary,
+        OLD.mobile_no, NEW.mobile_no, NOW()
+    );
+END //
+DELIMITER ;
+
+
+UPDATE employee SET name = 'parash', city = 'mumbai' WHERE eid = 1;
+
+SELECT * FROM EmployeeUpdateLog;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

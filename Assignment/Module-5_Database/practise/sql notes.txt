@@ -107,3 +107,24 @@ ON table_name
 BEGIN
     -- SQL statements to execute when the trigger is fired
 END;
+
+-> Summary:
+
+BEFORE INSERT: Used to validate or modify new data before it is inserted into the table.
+BEFORE UPDATE: Used to validate or modify existing data before an update is applied to the table.
+BEFORE DELETE: Used to perform actions before a row is deleted, such as archiving data or validating conditions.
+
+- Each type of BEFORE trigger allows you to enforce data integrity and apply business rules before the actual data modification occurs, 
+  ensuring that the data in your tables remains consistent and accurate according to your application's requirements.
+
+AFTER INSERT Trigger: Used for tasks that should occur after a new row has been inserted into the table. Useful for logging, notifications, and related data synchronization.
+AFTER UPDATE Trigger: Used for actions that should happen after a row has been updated. Useful for logging changes, synchronizing related data, and notifications.
+AFTER DELETE Trigger: Used for actions that should occur after a row has been deleted. Useful for archiving data, logging deletions, and notifications.
+
+- Each type of trigger serves different purposes and can be used to maintain data integrity, enforce business rules, and perform necessary actions 
+  based on data modifications.
+
+-> Key Differences Between BEFORE and AFTER Triggers:
+
+Timing: BEFORE triggers execute before the data modification is applied, allowing validation or modification of the data. AFTER triggers execute after the data modification, suitable for logging, notifications, or additional actions that depend on the modification being complete.
+Modification: BEFORE triggers can modify the NEW row values before the change is saved, while AFTER triggers cannot modify the row; they can only act on the completed change.
