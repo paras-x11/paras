@@ -102,12 +102,33 @@ select max(salary), department from employee group by department having max(sala
 
 select first_name, incentive_amount from employee right join incentive on employee.e_id = incentive.emp_ref_id where incentive_amount > 3000;
 
--- 10. Create After Insert trigger on Employee table which insert records in viewtable 
+-- 10. Create After Insert trigger on Employee table which insert records in view table 
+
+create table view(
+	e_id int primary key not null,
+	first_name varchar(20),
+	last_name varchar(20),
+	salary int,
+	joining_date datetime,
+	department varchar(10));
 
 
+delimiter //
+create trigger add_view 
+after insert on employee for each row
+begin
+	insert into view values (new.e_id, new.first_name, new.last_name, new.salary, new.joining_date, new.department);
+end //
+delimiter ;
 
+insert into employee values
+	(11, "naruto", "uzumaki", 1000000, "2013-01-01 12:00:00", "banking"),
+	(12, "gojo", "saturo", 800000, "2013-01-01 12:00:00", "insurance"),
+	(13, "kakashi", "hatake", 700000, "2013-02-01 12:00:00", "banking");
 
+select * from employee;
 
+select * from view;
 
 -- 11. Create table given below: Salesperson and Customer.
 

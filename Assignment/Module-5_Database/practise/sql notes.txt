@@ -35,8 +35,11 @@ mysql -u root -p 'database_name' < D:\paras\Assignment\Module-5 Database\practis
 mysqldump -u root -p module5 > D:\paras\Assignment\Module-5 Database\practise\backup.sql
 mysql -u root -p backup < D:\paras\Assignment\Module-5 Database\practise\backup.sql
 
+-> 'select' keyword for execute function.
+-> 'call' keyword for execute procedure.
 
--> functios:
+
+-> functios: 
 
 delimiter //
 create function function_name(variable_name variable_type) returns 'return_type' deterministic
@@ -92,3 +95,15 @@ END //
 DELIMITER ;
 
 CALL procedure_name;
+
+
+trigger syntax:
+
+CREATE TRIGGER trigger_name
+{BEFORE | AFTER} {INSERT | UPDATE | DELETE}
+ON table_name
+[FOR EACH ROW]
+[WHEN (condition)]
+BEGIN
+    -- SQL statements to execute when the trigger is fired
+END;

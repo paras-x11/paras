@@ -28,10 +28,24 @@
    considered a true relational database management system (RDBMS). These rules include concepts like data being represented in tables, ensuring 
    systematic treatment of null values, maintaining data independence, supporting relational integrity, and more. Some key rules include:
 
-- Information Rule: All information in a relational database is represented explicitly at the logical level and in exactly one way: by values in tables.
-- Systematic Treatment of Null Values: The RDBMS must handle missing information systematically, providing a consistent method for handling null values.
+  Here are E. F. Codd's 12 rules with one-line descriptions:
 
-  
+   1. The Information Rule: All information is represented by data in tables.
+   2. The Guaranteed Access Rule: Every data element is accessible by a unique combination of table name, primary key, and column name.
+   3. Systematic Treatment of Null Values: Nulls must be uniformly treated as unknown or inapplicable.
+   4. Active Online Catalog Based on the Relational Model: The database catalog is stored as tables and can be queried like any other data.
+   5. The Comprehensive Data Sublanguage Rule: The system must support a comprehensive language for data definition, manipulation, and transaction management.
+   6. The View Updating Rule: All theoretically updatable views must be updatable by the system.
+   7. High-Level Insert, Update, and Delete: The system must support set-level operations, not just single-row or single-column.
+   8. Physical Data Independence: Changes in physical storage should not affect how data is accessed.
+   9. Logical Data Independence: Changes to logical structure (like tables) should not affect applications.
+   10. Integrity Independence: Integrity constraints must be stored independently in the catalog, enforceable by the system.
+   11. Distribution Independence: Users should not be aware of the data's distribution across different locations.
+   12. The Nonsubversion Rule: Low-level operations must not bypass integrity constraints set at a higher level.
+
+   Rule 0: The Foundation Rule**: The system must manage the database using only its relational capabilities.
+
+
 5. What is Data Redundancy?
 -> Data redundancy occurs when the same piece of data is stored in multiple places within a database. While it can sometimes be intentional for 
    performance reasons, excessive redundancy can lead to inconsistencies, increased storage costs, and difficulties in maintaining data integrity.

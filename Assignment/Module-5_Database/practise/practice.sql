@@ -353,7 +353,83 @@ end //
 delimiter ;
 
 call increment(1,@esalary);
-select @esalary as salary;           -- in for input, out for output for run select query. 
+select @esalary as salary;           -- in for input, out for output for run select query.
+
+-- trigger syntax:
+
+-- CREATE TRIGGER trigger_name
+-- {BEFORE | AFTER} {INSERT | UPDATE | DELETE}
+-- ON table_name
+-- [FOR EACH ROW]
+-- [WHEN (condition)]
+-- BEGIN
+--     -- SQL statements to execute when the trigger is fired
+-- END;
+
+
+CREATE TABLE student2 (
+    no INT,
+    name VARCHAR(20),
+    age INT,
+    city varchar(20),
+    gender VARCHAR(20)
+);
+
+INSERT INTO student2 (no, name, age, city, gender) VALUES
+(1, 'Alice', 20, 'Ahmedabad', 'Female'),
+(2, 'Bob', 21, 'Surat', 'Male'),
+(3, 'Charlie', 22, 'Vadodara', 'Male'),
+(4, 'Diana', 19, 'Rajkot', 'Female'),
+(5, 'Ethan', 20, 'Bhavnagar', 'Male'),
+(6, 'Fiona', 21, 'Jamnagar', 'Female'),
+(7, 'George', 22, 'Junagadh', 'Male'),
+(8, 'Hannah', 20, 'Gandhinagar', 'Female'),
+(9, 'Ian', 19, 'Anand', 'Male'),
+(10, 'Jasmine', 21, 'Navsari', 'Female');
+
+truncate table student2;
+-- for delete all records of table : 'truncate'
+
+-- trigger to set on insert where new city if added surat should be update to local
+
+delimiter //
+create trigger update_city
+BEFORE insert on student2 for each row
+
+BEGIN
+    if new.city="surat" then set new.city="local";
+    end if;
+END //
+delimiter ;
+
+INSERT INTO student2 (no, name, age, city, gender) VALUES
+(1, 'Alice', 20, 'Ahmedabad', 'Female'),
+(2, 'Bob', 21, 'Surat', 'Male'),
+(3, 'Charlie', 22, 'Vadodara', 'Male');
+
+select * from student2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
