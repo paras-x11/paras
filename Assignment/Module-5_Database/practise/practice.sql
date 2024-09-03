@@ -548,6 +548,46 @@ UPDATE employee SET name = 'parash', city = 'mumbai' WHERE eid = 1;
 
 SELECT * FROM EmployeeUpdateLog;
 
+-- TCl: Savepoint, Rollback, commit
+
+-- for delete savepoint:
+RELEASE SAVEPOINT savepoint_name;
+
+SELECT * FROM student2;
+
+savepoint s;
+
+insert into student2 values (4, "Maki", 25, "Tokyo", "Female"),
+							(5, "Nobara", 23, "Navsari", "Female");
+                            
+savepoint s1;
+
+update student2 set city = "Tokyo" where no = 5;
+
+-- commit;
+-- in MySQL, when you issue a COMMIT statement, all savepoints that were set within the current transaction are automatically released and deleted.
+-- This means that after a COMMIT, you can no longer roll back to any of the savepoints that were created during that transaction.
+
+savepoint s2;
+
+delete from student2 where no = 5;
+
+savepoint s3;
+
+rollback to s;
+
+rollback to s1;
+
+rollback to s2;
+
+rollback to s3;
+
+delete from student2 where no in (4,5);
+
+release savepoint s;
+
+
+
 
 
 
