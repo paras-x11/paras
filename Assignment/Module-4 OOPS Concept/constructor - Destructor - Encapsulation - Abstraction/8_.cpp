@@ -7,11 +7,11 @@ using namespace std;
 
 class address{
     public:
-    string ad;
+    string add;
 
     public:
-    address(string a){
-        ad = a;
+    address(string str){
+        add = str;
     }
 };
 
@@ -36,7 +36,7 @@ class student{
         cout << "Class: " << Class << endl;
         cout << "Roll no.: " << roll_no << endl;
         cout << "Marks: " << marks << endl;
-        cout << "Address: " << a->ad << endl;
+        cout << "Address: " << a->add << endl;
     }
 };
 

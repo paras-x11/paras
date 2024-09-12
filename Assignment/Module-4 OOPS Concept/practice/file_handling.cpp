@@ -42,16 +42,27 @@ int main(){
     fin.open("D:\\paras\\Assignment\\Module-4 OOPS Concept\\practice\\file_handling.cpp");       // for read file data
 
     string line;
+    cout << endl;
     while (getline(fin, line)) {
         cout << line << endl;
     }
 
     fin.close();
 
+    fin.open("D:\\paras\\Assignment\\Module-3 Fundamentals of Programming\\practise\\file_handle.txt");
+
+    string str;
+    cout << endl;
+    while (getline(fin, str)) {
+        cout << str << endl;
+    }
+
+    fin.close();
 
     fin.open("D:\\paras\\Assignment\\Module-4 OOPS Concept\\practice\\file.txt");       // for read file data
     
     string line1;
+    cout << endl;
     while (getline(fin, line1)) {
         cout << line1 << endl;
     }

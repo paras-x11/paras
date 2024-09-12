@@ -14,8 +14,8 @@ void main(){
         for(c=5; c>=r; c--){
             printf("%c ",ch++);
         }
-    ch='A';
-    printf("\n");
+        ch='A';
+        printf("\n");
     }
    
 }

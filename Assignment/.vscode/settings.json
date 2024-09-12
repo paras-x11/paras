@@ -1,6 +1,10 @@
 {
     "java.project.sourcePaths": [
-        "java prgs"
+        "java prgs",
+        "java Assignment"
     ],
-    "java.project.referencedLibraries": []
+    "java.project.referencedLibraries": [],
+    "files.associations": {
+        "iostream": "cpp"
+    }
 }

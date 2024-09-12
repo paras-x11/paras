@@ -10,7 +10,7 @@ interface bicycle{
     
     // all methods of interface is by default abstract.
     // but in abstract class we use abstract keyword for making method abstract.
-    // we cant write body of any method in interface.
+    // we can,t write body of any method in interface.
 }
 
 interface horn{

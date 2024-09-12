@@ -18,7 +18,10 @@ void reverse(char* str, int len, int i, int temp){
 
 void main(){
 
-    char str[10] = "paras";
+    char str[100];
+
+    printf("Enter String: ");
+    gets(str);
 
     int len = strlen(str);
 

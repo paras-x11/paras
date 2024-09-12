@@ -9,7 +9,7 @@ class calc{
     public:
     calc(){
 
-        cout << "enter a: ";
+        cout << "\nenter a: ";
         cin >> a;
 
         cout << "enter b: ";
@@ -43,6 +43,7 @@ class calc{
 
 int main(){
     int ch;
+
     calc c;
 
     while(1){
