@@ -586,6 +586,71 @@ delete from student2 where no in (4,5);
 
 release savepoint s;
 
+-- cursor:
+SELECT * FROM practice.employee;
+
+create table employee_backup(
+	eid int primary key,
+	name varchar(50),
+	city varchar(50),
+	salary int,
+    mobile_no varchar(10));
+    
+DELIMITER //
+
+CREATE PROCEDURE transfer_to_backup()
+BEGIN
+    -- Declare variables to hold the column values
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE var_eid INT;
+    DECLARE var_name VARCHAR(100);
+    declare var_city varchar(50);
+    DECLARE var_salary INT;
+	declare var_mob_no varchar(10);
+    
+    -- Declare a cursor to select the desired fields
+    DECLARE employee_cursor CURSOR FOR
+        SELECT eid, name, city, salary, mobile_no FROM employee;
+
+    -- Declare a CONTINUE HANDLER for the end of the cursor
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    -- Open the cursor
+    OPEN employee_cursor;
+
+    -- Fetch rows from the cursor
+    read_loop: LOOP
+        FETCH employee_cursor INTO var_eid, var_name, var_city, var_salary, var_mob_no;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+
+        -- Insert the selected data into the backup table
+        INSERT INTO employee_backup (eid, name, city, salary, mobile_no)
+        VALUES (var_eid, var_name, var_city, var_salary, var_mob_no);
+    END LOOP;
+
+    -- Close the cursor
+    CLOSE employee_cursor;
+END //
+
+DELIMITER ;
+
+drop procedure transfer_to_backup;
+
+call transfer_to_backup;
+
+insert into employee values (11, "suhani", "2000-01-01", "banglore", "2024-01-01", 22000, "9529927278");
+
+truncate employee_backup;
+
+select * from employee_backup;
+    
+
+
+    
+
+
 
 
 

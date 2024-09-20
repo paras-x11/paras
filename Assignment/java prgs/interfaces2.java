@@ -27,7 +27,7 @@ class CellPhone{
     }
 }
 
-class SmartPhone extends CellPhone implements camera, WiFi{
+class SmartPhone1 extends CellPhone implements camera, WiFi{
     public void takeSnap(){
         System.out.println("Taking Snap... ");
     }
@@ -37,10 +37,10 @@ class SmartPhone extends CellPhone implements camera, WiFi{
     }
 
     // if we want override default method we can and this overridden method is executed.
-    // @Override
-    // public void record4KVideo(){
-    //     System.out.println("Taking Snap nd Then Reording 4K Video...");
-    // }
+    @Override
+    public void record4KVideo(){
+        System.out.println("Taking Snap nd Then Reording 4K Video...");
+    }
 
     public String[] getNetworks(){
         System.out.println("Getting list of networks: ");
@@ -56,7 +56,7 @@ class SmartPhone extends CellPhone implements camera, WiFi{
 public class interfaces2 {
     public static void main(String[] args) {
 
-        SmartPhone s = new SmartPhone();
+        SmartPhone1 s = new SmartPhone1();
 
         s.callNumber(98980);
         s.pickCall();

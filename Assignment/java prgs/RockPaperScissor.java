@@ -1,7 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
 
-@SuppressWarnings("unused")
 public class RockPaperScissor{
     public static void main(String[] args) {
 		

@@ -1,25 +1,26 @@
-class parent {
+
+class parent1 {
 
     public
     int x;
 
-    parent(){
+    parent1(){
         System.out.println("i am parent class default constructor.");
         System.out.println();
     }
 
-    parent(int x){
+    parent1(int x){
         System.out.println("i am parent class one parameter constructor with value of x: " + x);
         System.out.println();
     }
 
-    parent(int x, int y){
+    parent1(int x, int y){
         System.out.println("i am parent class two parameter constructor with value of x: " + x);
         System.out.println();
     }
 }
 
-class child_1 extends parent {
+class child_1 extends parent1 {
     public 
     int y;
 
@@ -79,7 +80,7 @@ class child_2 extends child_1 {
 public class ConstructerInheritance {
     @SuppressWarnings("unused")
     public static void main(String[] args) {
-        // parent p = new parent();
+        // parent1 p = new parent1();
 
         // child_1 c1 = new child_1();
         

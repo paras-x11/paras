@@ -1,4 +1,3 @@
-
 abstract class parent{
     public parent(){
         System.out.println("i am the constructor of parent class.");

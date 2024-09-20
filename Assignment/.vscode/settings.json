@@ -1,7 +1,7 @@
 {
     "java.project.sourcePaths": [
         "java prgs",
-        "java Assignment"
+        "java_Assignment"
     ],
     "java.project.referencedLibraries": [],
     "files.associations": {

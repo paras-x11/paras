@@ -1,5 +1,6 @@
 // Write a Java program that takes a year from user and print whether that year is a leap year or not.
 
+
 import java.util.Scanner;
 
 public class Q3 {

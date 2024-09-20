@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
-class circle{
+class circle1{
     public int radius;
 
-    circle(int r){
+    circle1(int r){
         this.radius = r;
     }
 
@@ -16,7 +16,7 @@ class circle{
     }
 }
 
-class cylinder extends circle{
+class cylinder extends circle1{
     public int height;
 
     cylinder(int r, int h){

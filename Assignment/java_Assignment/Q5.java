@@ -1,5 +1,6 @@
 // Write a program in Java to input 5 numbers from keyboard and find their sum and average using for loop. 
 
+
 import java.util.Scanner;
 
 public class Q5 {
