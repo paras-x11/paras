@@ -25,5 +25,5 @@ In this we can protect our data by using access specifier/modifier.
 
 3 types they are:-
 1.public: you can used public data any where in the program.
-2.private: you can't the data directly in other class or function for that you need get and set function to use it
+2.private: you can't use the data directly in other class or function for that you need get and set function to use it
 3.protected :it can be used in the child class only.

@@ -1,6 +1,5 @@
 Friend Function:
-A special function that can access the private member of a class as if it is a
-friend of that class called as friend function.
+A special function that can access the private member of a class as if it is a friend of that class called as friend function.
 A keyword friend is appended before the name of the function to specify the complier that it is a special function or a friend of that class.
 It can be declared in any access mode.
 It can be defined inside or outside the class.

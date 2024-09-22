@@ -1,6 +1,6 @@
 Template: 
-It is similar to a blueprint that creates a generic class or a function that reduces code 
-duplication and includes independent writing of a code of any particular type.
+It is similar to a blueprint that creates a generic class or a function that reduces code duplication and includes independent writing
+of a code of any particular type.
 syntax:
 template<parameter list><declaration
 
@@ -27,8 +27,7 @@ close a file:
     stream_object.close();  eg:ofile.close();    
     
 Exception handling:
-An exception is a situation where a program produces an unexpected error during the execution
-of the program.
+An exception is a situation where a program produces an unexpected error during the execution of the program.
 Exception handling is a technique that separates error handling code from the main code of the program and thereby makes it easier for the user to read and write the code. it transfers the control from one point of a program to another.
 
 c++ uses following 3 keywords to handle exceptions:

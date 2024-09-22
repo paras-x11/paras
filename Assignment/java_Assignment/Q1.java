@@ -1,6 +1,5 @@
 // Write a Java program to Take three numbers from the user and print the greatest number.
 
-
 import java.util.Scanner;
 
 public class Q1 {
