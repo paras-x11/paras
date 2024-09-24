@@ -86,19 +86,23 @@ if __name__ == "__main__":
         elif 'open stackoverflow' in query:
             webbrowser.open("stackoverflow.com")   
 
-
         elif 'play music' in query:
-            music_dir = 'D:\\Non Critical\\songs\\Favorite Songs2'
-            songs = os.listdir(music_dir)
-            print(songs)    
-            os.startfile(os.path.join(music_dir, songs[0]))
+            music_dir = r'D:\\paras\\Assignment\\python\\Jarvis'  # Path to the directory
+            music_file = 'Play_date.mp3'  # Your music file
+            full_music_path = os.path.join(music_dir, music_file)  # Full path to the music file
+
+            # Check if the music file exists before attempting to play it
+            if os.path.exists(full_music_path):
+                os.startfile(full_music_path)  # Play the music file
+            else:
+                speak("Sorry, I couldn't find the music file.")
 
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")    
             speak(f"Sir, the time is {strTime}")
 
         elif 'open code' in query:
-            codePath = "C:\\Users\\Haris\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+            codePath = ""
             os.startfile(codePath)
 
         elif 'email to harry' in query:
