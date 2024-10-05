@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "java (build)",
+            "paths": [
+                "${workspace}"
+            ],
+            "isFullBuild": true,
+            "group": "build",
+            "problemMatcher": [],
+            "label": "java (build): Build Workspace",
+            "detail": "$(tools) Build all the Java projects in workspace."
+        },
+        {
+            "label": "Generate Javadoc",
+            "type": "shell",
+            "command": "javadoc",
+            "args": [
+                "-d",
+                "D:/paras/Assignment/java prgs/java_docs",  // Output folder for the Javadoc
+                "-sourcepath",
+                "D:/paras/Assignment/java prgs",  // Path to your source files
+                "D:/paras/Assignment/java prgs/java_docs/DynamicMethodDispatch_Clone.java"  //now every time i want to specify path for file 
+                // (je file nu java doc generate karvu hoy e file no path ahiya copy krvo)
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": [],
+            "detail": "$(tools) Generate Javadoc for the Java project"
+        }
+    ]
+}

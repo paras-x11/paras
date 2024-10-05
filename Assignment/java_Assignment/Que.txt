@@ -41,13 +41,11 @@ Number of digits in the number: 6
 • Write A Java Program to take two Array input from user and sort them in 
 ascending or descending order as per user’s choice 
 
-• Write a java program to make addition, Subtraction and multiplication of two 
-matrix using 2-D Array 
+• Write a java program to make addition, Subtraction and multiplication of two matrix using 2-D Array 
 
 • Write a java program Find out length of string without using inbuilt function 
  
-• Write a java program to reverse a string and check that the string is palindrome or 
-not. 
+• Write a java program to reverse a string and check that the string is palindrome or not. 
  
 
 
@@ -181,7 +179,5 @@ each data type.
 
 • Create a class to print an integer and a character with two methods having 
 the same name but different sequence of the integer and the character 
-parameters. For 
- 
-example, if the parameters of the first method are of the form (int n, char c), then 
+parameters. For example, if the parameters of the first method are of the form (int n, char c), then 
 that of the second method will be of the form (char c, int n). 

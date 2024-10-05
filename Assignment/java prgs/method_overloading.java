@@ -20,6 +20,7 @@ public class method_overloading {
     static void foo(int a, int b, int c){
         System.out.println("Good morning " + a + " bro!");
         System.out.println("Good morning " + b + " bro!"); 
+        System.out.println("Good morning " + c + " bro!"); 
     }
 
     static void change(int a){

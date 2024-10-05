@@ -15,8 +15,8 @@ inline void cube(int a, int b){
 
 int main(){
     
-    int a, b;
-
+    int a, b; 
+    
     cout << "Enter a: ";
     cin >> a;
 
