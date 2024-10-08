@@ -2,10 +2,10 @@
 # https://replit.com/@codewithharry/02-Day2-Application-of-Python#4.%20Flappy%20Bird%20Game/4.%20flappy%20bird.py
 # pip install pyaudio
 
-import pyttsx3 #pip install pyttsx3
-import speech_recognition as sr #pip install speechRecognition
+import pyttsx3  # pip install pyttsx3
+import speech_recognition as sr  # pip install speechRecognition
 import datetime
-import wikipedia #pip install wikipedia
+import wikipedia  # pip install wikipedia
 import webbrowser
 import os
 import smtplib
@@ -23,19 +23,20 @@ def speak(audio):
 
 def wishMe():
     hour = int(datetime.datetime.now().hour)
-    if hour>=0 and hour<12:
+    if hour >= 0 and hour < 12:
         speak("Good Morning!")
 
-    elif hour>=12 and hour<18:
-        speak("Good Afternoon!")   
+    elif hour >= 12 and hour < 18:
+        speak("Good Afternoon!")
 
     else:
-        speak("Good Evening!")  
+        speak("Good Evening!")
 
     speak("I am Jarvis Sir. Please tell me how may I help you.")
 
+
 def takeCommand():
-    #It takes microphone input from the user and returns string output
+    # It takes microphone input from the user and returns string output
 
     r = sr.Recognizer()
     with sr.Microphone() as source:
@@ -44,15 +45,16 @@ def takeCommand():
         audio = r.listen(source)
 
     try:
-        print("Recognizing...")    
+        print("Recognizing...")
         query = r.recognize_google(audio, language='en-in')
         print(f"User said: {query}\n")
 
     except Exception as e:
-        # print(e)    
-        print("Say that again please...")  
+        # print(e)
+        print("Say that again please...")
         return "None"
     return query
+
 
 def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
@@ -62,10 +64,11 @@ def sendEmail(to, content):
     server.sendmail('youremail@gmail.com', to, content)
     server.close()
 
+
 if __name__ == "__main__":
     wishMe()
     while True:
-    # if 1:
+        # if 1:
         query = takeCommand().lower()
 
         # Logic for executing tasks based on query
@@ -84,12 +87,13 @@ if __name__ == "__main__":
             webbrowser.open("google.com")
 
         elif 'open stackoverflow' in query:
-            webbrowser.open("stackoverflow.com")   
+            webbrowser.open("stackoverflow.com")
 
         elif 'play music' in query:
             music_dir = r'D:\\paras\\Assignment\\python\\Jarvis'  # Path to the directory
             music_file = 'Play_date.mp3'  # Your music file
-            full_music_path = os.path.join(music_dir, music_file)  # Full path to the music file
+            # Full path to the music file
+            full_music_path = os.path.join(music_dir, music_file)
 
             # Check if the music file exists before attempting to play it
             if os.path.exists(full_music_path):
@@ -98,7 +102,7 @@ if __name__ == "__main__":
                 speak("Sorry, I couldn't find the music file.")
 
         elif 'the time' in query:
-            strTime = datetime.datetime.now().strftime("%H:%M:%S")    
+            strTime = datetime.datetime.now().strftime("%H:%M:%S")
             speak(f"Sir, the time is {strTime}")
 
         elif 'open code' in query:
@@ -109,11 +113,11 @@ if __name__ == "__main__":
             try:
                 speak("What should I say?")
                 content = takeCommand()
-                to = "pavanrana469@gmail.com"    
+                to = "pavanrana469@gmail.com"
                 sendEmail(to, content)
                 speak("Email has been sent!")
             except Exception as e:
                 print(e)
-                speak("Sorry my friend. I am not able to send this email")    
+                speak("Sorry my friend. I am not able to send this email")
         else:
             print("No query matched")

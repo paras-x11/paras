@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selector</title>
+    <style>
+        body{                                               /* Element Selector (tag selector) */
+            background-color: antiquewhite;
+        }
+
+        h1{                        
+            color: red;
+        }
+
+        div{
+            background-color: rgb(215, 235, 250);
+        }
+
+        #red{                                               /* ID Selector */
+            background-color: red;
+            color: white;
+        }
+
+        .lightseagreen{                                     /* Class Selector */
+            background-color: lightseagreen;
+        }
+
+        .blue, h3{                                           /*  grouping selector  */
+            background-color: yellow;
+            color: rgb(0, 0, 0);
+        }
+
+        p.pink{                             /* only affects paragraph with pink class */
+            background-color: palevioletred;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1> This is my CSS Selector page</h1>
+        
+        <p class="pink">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, odio sequi sed ut ex voluptatem soluta autem accusantium laborum incidunt dolorem? Id harum quibusdam beatae repellat architecto sint dolore soluta eius numquam. Reiciendis, distinctio!</p>
+        
+        <h1>This is another h1</h1>
+        
+        <p class="pink">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem atque illo amet aliquid, labore aperiam veritatis illum delectus cumque harum et assumenda explicabo maxime numquam iure odio incidunt, omnis optio! Beatae ipsum repellat culpa.</p>
+
+        <div id="red"> I am inner div : red bg</div><br>
+
+        <span class="blue">First Span</span>
+        <span class="blue">Second Span</span>
+        <span class="blue">Third Span</span><br>
+
+        <h3> I am h3 </h3>
+
+        <section class="pink"> last section </section><br><hr>
+
+        <div class="lightseagreen">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui, adipisci iusto assumenda pariatur sunt in expedita hic quas nesciunt obcaecati odio eius perferendis. Ullam delectus, illum eveniet dolores iusto ex perspiciatis tempora aliquam animi.
+        </div>
+    </div>
+    
+</body>
+</html>
