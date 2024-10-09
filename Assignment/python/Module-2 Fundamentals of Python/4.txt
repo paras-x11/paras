@@ -1,0 +1,25 @@
+4. How memory is managed in Python? 
+
+-> Python's memory management:
+
+1. Heap and Stack:
+   - Heap Memory: Python uses a private heap to store all objects and data structures.
+   - Stack Memory: Used for function calls to store local variables and parameters.
+
+2. Memory Manager:
+   - A built-in memory manager handles allocation and deallocation of memory for objects.
+
+3. Reference Counting:
+   - Each object maintains a reference count. When it reaches zero (no references), the memory can be reclaimed.
+
+4. Garbage Collection:
+   - A cyclic garbage collector identifies and collects objects that are no longer reachable, even if they reference each other.
+
+5. Memory Pools:
+   - Small objects are stored in specialized memory pools to optimize speed and reduce fragmentation.
+
+6. Fragmentation:
+   - Python's memory management strategies aim to minimize fragmentation, which occurs when allocated memory is wasted.
+
+7. Implementation Variations:
+   - Different Python implementations (like CPython and PyPy) may use different memory management techniques.
