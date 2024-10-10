@@ -27,12 +27,18 @@
             width: 100%;
 
             /* margin: 20px; */                           /* box sizing matters padding and border only */
-            /* margin-top: 100px; */
+            /* margin-top: 100px; */                      /* if we add margin it will out of box */
 
             border: 5px solid black;
             padding: 15px;
 
             box-sizing: border-box;                         /* this 'border-box' will automatically set child in parent */
+            /* this content width and height includes content + padding + border */
+            
+            /* Key Differences:
+
+            Content-box: Width and height do not include padding and border.
+            Border-box: Width and height include padding and border, making layout management easier. */
         }
 
     </style>
