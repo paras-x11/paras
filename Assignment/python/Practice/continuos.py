@@ -1,4 +1,4 @@
-import pywhatkit as kit
+import pywhatkit as kit # type: ignore
 import time
 
 # Define the phone number (including country code)
