@@ -18,7 +18,7 @@ class Personal_Info{
 
 class Menu : public Personal_Info{
     public:
-    int p, b, s, r, bi, price, quantity, total_amount;
+    int total_amount;
 
     public:
     void showMenu(){
