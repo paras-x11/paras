@@ -90,7 +90,7 @@ if __name__ == "__main__":
             webbrowser.open("stackoverflow.com")
 
         elif 'play music' in query:
-            music_dir = r'D:\\paras\\Assignment\\python\\Jarvis'  # Path to the directory
+            music_dir = r'D:\\paras\\Assignment\\Python\\Jarvis'  # Path to the directory
             music_file = 'Play_date.mp3'  # Your music file
             # Full path to the music file
             full_music_path = os.path.join(music_dir, music_file)

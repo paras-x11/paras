@@ -4,7 +4,7 @@ import cv2
 face_cascade = cv2.CascadeClassifier(r'D:\\paras\\Assignment\\python\\Face Recognition\\haarcascade_frontalface_default.xml')
 
 # Reading the Input Image (you can change this to p1.png or rdj.jpg as needed)
-image_path = r'D:\\paras\\Assignment\\python\\Face Recognition\\prs.jpg'  # Change to rdj.jpg if needed
+image_path = r'D:\\paras\\Assignment\\python\\Face Recognition\\p1.png'  # Change to rdj.jpg if needed
 image = cv2.imread(image_path)
 
 # Check if the image was loaded successfully
