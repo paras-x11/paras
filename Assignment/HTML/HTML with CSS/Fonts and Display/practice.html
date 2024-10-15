@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+
+        body {
+            font-family: "Baloo Bhai 2", cursive, sans-serif; /* Set a default font */
+        }
+
+        header {
+            height: 100px;
+            background: black;
+            color: whitesmoke;
+            text-align: right;
+            padding: 10px; /* Add some padding for better spacing */
+        }
+        
+        header nav{
+            display: inline-block;
+            padding: 24px 32px;
+            font-size: 20px;
+        }
+
+        main {
+            display: flex; /* Use Flexbox for layout */
+            height: 75vh; /* Set height for the main area */
+        }
+
+        .left {
+            background: red;
+
+            display: inline-block;
+            height: 75vh;
+            width: 50%; /* Left div takes half the width */
+            padding: 20px; /* Add padding for content spacing */
+
+            /* display: none; */
+            /* visibility: hidden; */
+        }
+
+        .right {
+            background: green;
+
+            display: inline-block;
+            height: 75vh;
+            width: 50%; /* Right div takes half the width */
+            padding: 20px; /* Add padding for content spacing */
+        }
+        footer{
+            background-color: black;
+            color: whitesmoke;
+            padding: 40px;
+
+            text-transform: uppercase;
+        }
+
+        .center{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>Home</nav>
+        <nav>About</nav>
+        <nav>Contact</nav>
+    </header>
+    <main>
+        <div class="left">
+            <h1>RED</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore suscipit cumque nisi saepe est autem?</p>
+        </div><div class="right">                
+            <h1>GREEN</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ut fuga fugit consectetur consequuntur laboriosam beatae doloremque!</p>
+        </div>
+    </main>
+    <footer class="center">
+        Copyright &copy; Practice - All right reserved
+        
+    </footer>
+</body>
+</html>

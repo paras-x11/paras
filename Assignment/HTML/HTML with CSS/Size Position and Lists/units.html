@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Units Example</title>
+    <style>
+        html {
+            font-size: 20px; /* Setting the root font size to 20px */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        /* Example using em */
+        .em-example {
+            font-size: 2em; /* 2 times the font size of the parent element */
+            background-color: lightblue;
+            padding: 10px;
+        }
+
+        /* Example using rem */
+        .rem-example {
+            font-size: 2rem; /* 2 times the root element (html) font size */
+            background-color: lightgreen;
+            padding: 10px;
+        }
+
+        /* Example using vh (viewport height) */
+        .vh-example {
+            height: 50vh; /* 50% of the viewport height */
+            background-color: lightcoral;
+            padding: 10px;
+        }
+
+        /* Example using vw (viewport width) */
+        .vw-example {
+            width: 50vw; /* 50% of the viewport width */
+            background-color: lightgoldenrodyellow;
+            padding: 10px;
+        }
+
+        /* Example using % */
+        .percent-example {
+            width: 50%; /* 50% of the parent element's width */
+            background-color: lightpink;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS Units Examples</h1>
+
+    <div class="em-example" style="font-size: 16px;">
+        This div uses <code>em</code>: Font size is 2em (2 times the parent's font size of 16px).
+        <!-- Here, the parent element has a font size of 16px, so 2em equals 32px. -->
+    </div>
+
+    <div class="rem-example">
+        This div uses <code>rem</code>: Font size is 2rem (2 times the root font size of 20px).
+        <!-- Here, the root element's font size (html) is 20px, so 2rem equals 40px. -->
+    </div>
+
+    <div class="vh-example">
+        This div uses <code>vh</code>: Height is 50vh (50% of the viewport height).
+    </div>
+
+    <div class="vw-example">
+        This div uses <code>vw</code>: Width is 50vw (50% of the viewport width).
+    </div>
+
+    <div class="percent-example">
+        This div uses <code>%</code>: Width is 50% of the parent element's width.
+    </div>
+
+</body>
+</html>
