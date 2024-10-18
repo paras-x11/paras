@@ -12,7 +12,6 @@
 # Dynamic: Can grow or shrink in size.
 
  
-
 # You can reverse a list in Python using several methods:
 
 # 1. Using `reverse()` Method (in-place):
