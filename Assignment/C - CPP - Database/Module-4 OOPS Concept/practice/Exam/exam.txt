@@ -1,0 +1,11 @@
+1. wap to copy string from one string to another string without using string func.
+2. wap to read and write data from the file.
+
+3. wap to swap 2 num using friend func.
+4. wap of two 1d matrix addition using op. overloading.
+
+--------------------------------------------------------------------------
+
+5. WAP c prg giving employee number, name , basic salary, insert the data into external file and give file name emp.txt
+
+6. implement func overriding 

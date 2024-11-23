@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Sizing</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1{
+            background: red;
+
+            height: 480px;
+            width: 340px;
+
+            margin: 20px;
+            padding: 15px;
+        }
+        
+        .box2{
+            background: aqua;
+
+            height: 50px;
+            width: 100%;
+
+            /* margin: 20px; */                           /* box sizing matters padding and border only */
+            /* margin-top: 100px; */                      /* if we add margin it will out of box */
+
+            border: 5px solid black;
+            padding: 15px;
+
+            box-sizing: border-box;                         /* this 'border-box' will automatically set child in parent */
+            /* this content width and height includes content + padding + border */
+            
+            /* Key Differences:
+
+            Content-box: Width and height do not include padding and border.
+            Border-box: Width and height include padding and border, making layout management easier. */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime aspernatur architecto unde quod nemo suscipit, esse nisi fugit facilis enim possimus vitae harum non beatae? Illum alias quas expedita dicta assumenda nam, ullam iste autem repellat quam eveniet mollitia sunt molestias et ut ducimus? Laboriosam.
+
+        <div class="box2">
+            Lorem ipsum dolor sit amet.
+        </div>
+    </div>
+</body>
+</html>

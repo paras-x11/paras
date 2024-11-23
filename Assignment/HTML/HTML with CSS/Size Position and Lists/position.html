@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <style>
+        @font-face {
+            font-family: 'Alegreya Sans SC'; /* Use the font name */
+            src: url('fonts/AlegreyaSansSC-Regular.ttf') format('truetype'); /* Adjust the path */
+            font-weight: normal; /* You can add other weights if you have them */
+            font-style: normal; /* Adjust if you have italic styles */
+        }
+
+        body {
+            font-family: 'Alegreya Sans SC', sans-serif; /* Fallback font */
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        li{
+            display: inline;
+        }
+         
+        header{
+            background: black;
+            color: aliceblue;
+            height: 70px;
+        }
+        p{
+            text-align: center;
+            border: 2px solid red;
+        }
+
+        .container{
+            background-color: aqua;
+            height: 50vh;
+            width: 50vw;
+            margin: auto;
+            padding: 0px 40px;
+            /* position: relative;  */
+            /* Set position relative to allow absolute positioning of children */
+        }
+
+        .box1{
+            height: 200px;
+            width: 200px;
+            background-color: chartreuse;
+            /* position: static; */           /* default position: top bottom left right z-index has no effect */ 
+            position: absolute;                 /* if i give position: relative; to .container box1 takes position inside container otherwise(if box1's position is relative) it will take place according to scrren */
+            top: 0;
+            right: 0;                                                         
+        }
+        .box2{
+            height: 200px;
+            width: 200px;
+            background-color: crimson; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore adipisci perferendis alias! Ut atque id, dolores hic nostrum pariatur deleniti ad repudiandae quo est commodi enim, quasi labore placeat dolore tenetur quisquam natus tempora, voluptatibus officia!</p>
+            <div class="box1">
+                I am Box 1.
+            </div>
+            <div class="box2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, error maiores cumque laboriosam eius, non mollitia, alias omnis provident ea ullam voluptate tenetur impedit!</div>
+        </div>
+    </main>
+</body>
+</html>

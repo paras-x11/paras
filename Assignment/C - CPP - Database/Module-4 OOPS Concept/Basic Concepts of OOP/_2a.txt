@@ -1,0 +1,25 @@
+2. What is OOP? List OOP concepts.
+
+-> Object-oriented programming (OOP) is a computer programming model that organizes software design around data, or objects,
+   rather than functions and logic. An object can be defined as a data field that has unique attributes and behavior.
+
+-> OOP concepts:
+
+-> Class: A blueprint or template for creating objects. It defines the properties (attributes) and behaviors (methods) 
+   that objects of the class should have.
+
+-> Object: An instance of a class. It is a concrete entity created based on the class blueprint, 
+   with its own unique state (attributes) and behavior (methods).
+
+-> Encapsulation: The bundling of data (attributes) and methods (functions or procedures) that operate on the data into a single unit (class). 
+   Encapsulation hides the internal state of an object from the outside world and only exposes a public interface for interacting with it.
+
+-> Inheritance: A mechanism where a new class (subclass or derived class) is derived from an existing class (superclass or base class). 
+   The subclass inherits the attributes and methods of the superclass, allowing code reuse and extending the functionality of the existing class.
+
+-> Polymorphism: The ability of different objects to respond to the same message or method call in different ways. 
+   Polymorphism allows methods to be written to manipulate objects of a specific class but also applies to objects of its subclasses.
+
+-> Abstraction: The process of hiding complex implementation details and showing only the essential features of the object. 
+   Abstraction focuses on what an object does rather than how it does it, enabling simplified and more manageable code.
+

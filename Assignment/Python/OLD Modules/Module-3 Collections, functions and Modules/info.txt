@@ -1,0 +1,54 @@
+Here’s a tabular comparison of Python data collections in Word-friendly format:
+
+
+| Collection   | Definition                             | Mutable/Immutable | Order       | Duplicates         | Use Case                                      |
+|--------------|----------------------------------------|-------------------|-------------|--------------------|------------------------------------------------|
+| List         | Ordered collection of items            | Mutable           | Ordered     | Allowed            | When you need a changeable, ordered collection. |
+| Tuple        | Ordered collection of items            | Immutable         | Ordered     | Allowed            | When you need an unchangeable, ordered collection. |
+| Set          | Unordered collection of unique items   | Mutable           | Unordered   | Not Allowed        | When you need unique items without concern for order. |
+| Dictionary   | Collection of key-value pairs          | Mutable           | Unordered   | Keys: Not Allowed, Values: Allowed | When you need key-value pairs for fast lookups. |
+
+-> Methods:
+
+List: 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort'
+Tuple: 'count', 'index'
+Set: 'add', 'clear', 'copy', 'difference', 'difference_update', 'discard', 'intersection', 'intersection_update', 'isdisjoint', 'issubset', 'issuperset', 'pop', 'remove', 'symmetric_difference', 'symmetric_difference_update', 'union', 'update'
+Dict: 'clear', 'copy', 'fromkeys', 'get', 'items', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values'
+
+### List Methods
+- append(x): Add x to the end
+- clear(): Remove all items
+- copy(): Return a shallow copy
+- count(x): Count occurrences of x
+- extend(iterable): Append elements from iterable
+- index(x): Get index of first x
+- insert(i, x): Insert x at index i
+- pop([i]): Remove and return item at index i
+- remove(x): Remove first occurrence of x
+- reverse(): Reverse the list
+- sort(): Sort the list in place
+
+### Tuple Methods
+- count(x): Count occurrences of x
+- index(x): Get index of first x
+
+### Set Methods
+- add(x): Add element x
+- clear(): Remove all items
+- copy(): Return a shallow copy
+- discard(x): Remove x if present
+- remove(x): Remove x; raise error if not found
+- pop(): Remove and return an arbitrary element
+- union(*others): Combine with other sets
+- intersection(*others): Common elements
+- difference(*others): Elements not in others
+
+### Dictionary Methods
+- clear(): Remove all items
+- copy(): Return a shallow copy
+- get(key): Get value for key, default if not found
+- items(): Key-value pairs as tuples
+- keys(): All keys
+- pop(key): Remove key and return value
+- update(other): Update with key-value pairs from other
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float</title>
+    <style>
+        * {
+            margin: 0; /* सभी elements ka margin reset karna */
+            padding: 0; /* सभी elements ka padding reset karna */
+        }
+
+        .box1 {
+            height: 120px; /* Box 1 ki height */
+            width: 120px; /* Box 1 ki width */
+            background-color: red; /* Box 1 ka background color */
+            float: right; /* Box 1 ko right side float karna */
+        }
+
+        .box2 {
+            height: 120px; 
+            width: 120px; 
+            background-color: blue;
+            float: right; /* Box 2 ko bhi right side float karna */
+            clear: right; /* Box 2 ko Box 1 ke right side ke paas nahi aane dega */
+            /* Iska matlab hai ki Box 2 Box 1 ke neeche chale jayega kyunki clear: right; 
+               ye ensure karta hai ki Box 2 ke right side me koi floated element nahi hoga. */
+            /* Agar 'clear: both;' use kiya jaye, toh Box 2 bhi Box 1 ke neeche chale jayega,
+               chahe Box 1 ka float kuch bhi ho. Ye isliye hota hai kyunki 'clear: both;' 
+               kisi bhi floated element ke neeche start hone ko force karta hai. */
+            /* Agar 'clear' completely hata diya jaye, toh Box 2 Box 1 ke right side me aa jayega,
+               kyunki dono boxes floated elements hain aur wo horizontally align honge. */
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">Box 1</div>
+    <div class="box2">Box 2</div>
+</body>
+</html>

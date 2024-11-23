@@ -1,0 +1,53 @@
+17. WAP to show difference between Structure and Union.  
+
+
+-> Structure (struct):
+
+    - Memory Allocation:
+
+        Allocates memory for all members.
+        Size is the sum of the sizes of all members plus any padding for alignment.
+
+    - Access:
+
+        All members can be accessed independently and simultaneously.
+        Each member has its own unique memory address.
+
+    - Use Case:
+
+        Suitable for storing multiple pieces of related data.
+        Example: Representing a person with name, age, address.
+
+    - Syntax:
+
+        struct Person {
+            char name[50];
+            int age;
+        };
+
+
+-> Union (union):
+
+    - Memory Allocation:
+
+        Allocates memory for the largest member only.
+        Size is determined by the size of the largest member.
+
+    - Access:
+
+        Only one member can be used at a time.
+        All members share the same memory location.
+
+    - Use Case:
+
+        Suitable for saving memory when different types are used exclusively.
+        Example: Handling different data types in a variant type.
+
+
+    - Syntax:
+
+        union Variant {
+            int intValue;
+            float floatValue;
+            char stringValue[20];
+        };

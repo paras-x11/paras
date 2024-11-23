@@ -1,0 +1,169 @@
+KBC
+For creating a KBC game in Python, here’s a basic structure you can use:
+
+### 1. Question Structure
+- **Questions**: Each question should have four answer options (A, B, C, D).
+- **Levels**: Questions can be divided into levels of difficulty—easy, medium, hard.
+
+### 2. Winning Amounts
+Here's a breakdown of the winning amounts you could assign per question:
+
+| Question Number | Winning Amount |
+|-----------------|----------------|
+| 1               | 1,000          |
+| 2               | 2,000          |
+| 3               | 3,000          |
+| 4               | 5,000          |
+| 5               | 10,000         |
+| 6               | 20,000         |
+| 7               | 40,000         |
+| 8               | 80,000         |
+| 9               | 1,60,000       |
+| 10              | 3,20,000       |
+| 11              | 6,40,000       |
+| 12              | 12,50,000      |
+| 13              | 25,00,000      |
+| 14              | 50,00,000      |
+| 15              | 1 Crore        |
+
+### 3. Lifelines
+Include lifelines like:
+- **50:50** (removes two incorrect answers)
+- **Audience Poll** (simulated percentages for each option)
+- **Phone a Friend** (provides a hint)
+
+### 4. Game Flow
+1. Display each question and answer options.
+2. Get the user’s answer and check if it's correct.
+3. Update the prize amount based on the correct answer.
+4. Offer lifelines at certain levels.
+
+Let me know if you need tips on a specific part of the structure!
+
+Here's a set of sample questions you could use, along with answer options and correct answers for each. You can modify or add to these as needed!
+
+### Questions Set
+
+#### Question 1 (₹1,000)
+- **Question**: Who is known as the "Father of the Nation" in India?
+  - **A. Jawaharlal Nehru**
+  - **B. Mahatma Gandhi**
+  - **C. Sardar Patel**
+  - **D. Subhas Chandra Bose**
+  - **Answer**: B
+
+#### Question 2 (₹2,000)
+- **Question**: What is the capital city of France?
+  - **A. Rome**
+  - **B. Berlin**
+  - **C. Paris**
+  - **D. Madrid**
+  - **Answer**: C
+
+#### Question 3 (₹3,000)
+- **Question**: Who wrote the famous Harry Potter series?
+  - **A. J.R.R. Tolkien**
+  - **B. George R.R. Martin**
+  - **C. J.K. Rowling**
+  - **D. C.S. Lewis**
+  - **Answer**: C
+
+#### Question 4 (₹5,000)
+- **Question**: What is the chemical symbol for water?
+  - **A. H2O**
+  - **B. CO2**
+  - **C. NaCl**
+  - **D. O2**
+  - **Answer**: A
+
+#### Question 5 (₹10,000)
+- **Question**: Who was the first woman Prime Minister of India?
+  - **A. Indira Gandhi**
+  - **B. Sarojini Naidu**
+  - **C. Pratibha Patil**
+  - **D. Sushma Swaraj**
+  - **Answer**: A
+
+#### Question 6 (₹20,000)
+- **Question**: Which planet is known as the "Red Planet"?
+  - **A. Earth**
+  - **B. Mars**
+  - **C. Jupiter**
+  - **D. Saturn**
+  - **Answer**: B
+
+#### Question 7 (₹40,000)
+- **Question**: Who invented the telephone?
+  - **A. Alexander Graham Bell**
+  - **B. Thomas Edison**
+  - **C. Nikola Tesla**
+  - **D. Albert Einstein**
+  - **Answer**: A
+
+#### Question 8 (₹80,000)
+- **Question**: Which continent is known as the "Dark Continent"?
+  - **A. Africa**
+  - **B. Asia**
+  - **C. South America**
+  - **D. Antarctica**
+  - **Answer**: A
+
+#### Question 9 (₹1,60,000)
+- **Question**: What is the national sport of Japan?
+  - **A. Football**
+  - **B. Sumo Wrestling**
+  - **C. Cricket**
+  - **D. Baseball**
+  - **Answer**: B
+
+#### Question 10 (₹3,20,000)
+- **Question**: What is the hardest natural substance on Earth?
+  - **A. Gold**
+  - **B. Iron**
+  - **C. Diamond**
+  - **D. Silver**
+  - **Answer**: C
+
+#### Question 11 (₹6,40,000)
+- **Question**: Which country gifted the Statue of Liberty to the United States?
+  - **A. Germany**
+  - **B. Canada**
+  - **C. France**
+  - **D. Italy**
+  - **Answer**: C
+
+#### Question 12 (₹12,50,000)
+- **Question**: Who painted the famous artwork "Starry Night"?
+  - **A. Vincent van Gogh**
+  - **B. Pablo Picasso**
+  - **C. Leonardo da Vinci**
+  - **D. Michelangelo**
+  - **Answer**: A
+
+#### Question 13 (₹25,00,000)
+- **Question**: The Grand Canyon is located in which U.S. state?
+  - **A. California**
+  - **B. Arizona**
+  - **C. Nevada**
+  - **D. New Mexico**
+  - **Answer**: B
+
+#### Question 14 (₹50,00,000)
+- **Question**: In which year did India gain independence from Britain?
+  - **A. 1947**
+  - **B. 1950**
+  - **C. 1945**
+  - **D. 1937**
+  - **Answer**: A
+
+#### Question 15 (₹1 Crore)
+- **Question**: What is the official language of Brazil?
+  - **A. Spanish**
+  - **B. English**
+  - **C. Portuguese**
+  - **D. French**
+  - **Answer**: C
+
+This set covers general knowledge and provides increasing difficulty. Let me know if you need more questions or tips on handling the game logic!
+
+======================================================================================================================================================================================

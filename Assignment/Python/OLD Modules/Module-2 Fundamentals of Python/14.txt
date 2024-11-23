@@ -1,0 +1,55 @@
+14. What are negative indexes and why are they used?  
+
+-> Negative indexes in Python allow you to access elements from the end of a sequence, such as lists, tuples, or strings. 
+
+For example:
+
+In a list:
+
+    my_list = [10, 20, 30, 40, 50]:
+
+    my_list[-1] gives 50 (last element)
+    my_list[-2] gives 40 (second last element)
+
+    -> Reasons for Using Negative Indexes:
+        - Ease of Access: Quickly access elements near the end without calculating positive indexes.
+        - Readability: Enhances code clarity when retrieving the last few elements.
+        - Convenience in Slicing: Works seamlessly with slicing, like my_list[-3:] for the last three elements.
+
+
+Negative Step in range():
+
+    In the context of the range() function, using a negative step allows you to iterate through a sequence from right to left 
+    (or in reverse order). Here’s a brief explanation:
+
+    When you specify a negative step in range(), you define how much to decrement the value with each iteration.
+    This allows you to create a sequence that counts downwards.
+
+    Example:
+
+    for i in range(5, 0, -1):  # Starts at 5, ends before 0, steps by -1
+        print(i)
+
+    Output:
+
+    5
+    4
+    3
+    2
+    1
+
+    -> Benefits of Using Negative Indexes in range():
+
+        - Backward Iteration: Easily generate sequences in reverse order.
+        - Simplified Logic: Avoids manual calculations of start and end points when iterating backward.
+
+    Summary:
+
+        - Right to Left Iteration: Using a negative step iterates through the range in reverse order, effectively counting down from a specified 
+          starting point to just above the ending point.
+        
+        - This is useful for scenarios where you want to work with elements from the end of a list or to implement countdowns.
+    
+    
+
+

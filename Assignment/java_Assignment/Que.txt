@@ -1,0 +1,183 @@
+--> Basic : 
+
+• Write a Java program to Take three numbers from the user and print the greatest number.
+
+• Write a Java program that takes the user to provide a single character from the alphabet. Print Vowel or Consonant, depending on the user input.
+  If the user input is not a letter (between a and z or A and Z), or is a string of length > 1, print an error message. 
+
+• Write a Java program that takes a year from user and print whether that year is a leap year or not.
+
+- Write a program in Java to display the first 10 natural numbers using while loop. 
+
+• Write a program in Java to input 5 numbers from keyboard and find their sum and average using for loop. 
+
+• Write a program in Java to display the pattern like right angle triangle with a number. 
+1 
+12 
+123 
+1234 
+12345 
+
+• Write a program in Java to make such a pattern like right angle triangle with number increased by 1 The pattern like: 
+ 
+1 
+2 3 
+4 5 6 
+7 8 9 10 
+ 
+• Write a Java program that reads a positive integer and count the number of digits the number. 
+Input an integer number less than ten billion: 125463 
+Number of digits in the number: 6 
+
+• Write a Java program to print numbers between 1 to 100 which are divisible by 3, 5 and by both. 
+
+
+-->> Array: 
+
+• Write a java program to find out the max number from given array using function 
+
+• Write a java program to find out the 2nd max number from given array using function. 
+
+• Write A Java Program to take two Array input from user and sort them in 
+ascending or descending order as per user’s choice 
+
+• Write a java program to make addition, Subtraction and multiplication of two matrix using 2-D Array 
+
+• Write a java program Find out length of string without using inbuilt function 
+ 
+• Write a java program to reverse a string and check that the string is palindrome or not. 
+ 
+
+
+-->> OOPS : 
+
+• Create a class to print the area of a square and a rectangle. The class has two methods 
+with the same name but different number of parameters. The method for printing 
+area of a rectangle has two parameters which are length and breadth respectively 
+while the other method for printing area of square has one parameter which is side 
+of square. 
+
+• Create a class with a method that prints "This is a parent class" and its subclass with 
+another method that prints "This is child class". Now, create an object for each of 
+the class and call 1 - method of parent class by object of parent class 2 - method of 
+child class by object of child class 3 - method of parent class by object of child class 
+
+• Create a class named 'Member' having the following members: 
+1. Data members 
+2. Name 
+3. Age 
+4. Phone number 
+5. Address 
+6. Salary 
+It also has a method named 'printSalary' which prints the salary of the members. 
+ 
+• Create a class named 'Rectangle' with two data members 'length' and 'breadth' and 
+two methods to print the area and perimeter of the rectangle respectively. Its 
+constructor having parameters for length and breadth is used to initialize the length 
+and breadth of the rectangle. Let class 'Square' inherit the 'Rectangle' class with its 
+constructor having a parameter for its side (suppose s) calling the constructor of its 
+parent class as 'super (s, s)'. Print the area and perimeter of a rectangle and a square. 
+
+• Write a program to print the area and perimeter of a triangle having sides of 3, 4 and 
+5 units by creating a class named 'Triangle' without any parameter in its constructor. 
+
+• Print the sum, difference and product of two complex numbers by creating a class 
+named 'Complex' with separate methods for each operation whose real and 
+imaginary parts are entered by user. 
+
+• Create an abstract class 'Parent' with a method 'message'. It has two subclasses each 
+having a method with the same name 'message' that prints "This is first subclass" 
+and "This is second subclass" respectively. Call the methods 'message' by creating 
+an object for each subclass. 
+
+• Create an abstract class 'Bank' with an abstract method 'getBalance'. $100, $150 and 
+$200 are deposited in banks A, B and C respectively. 'BankA', 'BankB' and 'BankC'are 
+subclasses of class 'Bank', each having a method named 'getBalance'. Call this 
+method by creating an object of each of the three classes. 
+
+• We have to calculate the percentage of marks obtained in three subjects (each out of 
+100) by student A and in four subjects (each out of 100) by student B. Create an 
+abstract class 'Marks' with an abstract method 'getPercentage'. It is inherited by two 
+other classes 'A' and 'B' each having a method with the same name which returns the 
+percentage of the students. The constructor of student A takes the marks in three 
+subjects as its parameters and the marks in four subjects as its parameters for student 
+B. Create an object for each of the two classes and print the percentage of marks for 
+both the students. 
+
+• Write a program to print the factorial of a number by defining a method named 
+'Factorial'. Factorial of any number n is represented by n! And is equal to 1*2*3*. 
+*(n-1) *n.E.g.- 
+4! = 1*2*3*4 = 24 
+3! = 3*2*1 = 6       2! = 2*1 = 2 Also, 1! = 1        0! = 0 
+
+• We have to calculate the area of a rectangle, a square and a circle. Create an abstract 
+class 'Shape' with three abstract methods namely 'RectangleArea' taking two 
+parameters, 'SquareArea' and 'CircleArea' taking one parameter each. The 
+parameters of 'RectangleArea' are its length and breadth, that of 'SquareArea' is its 
+side and that of 'CircleArea' is its radius. Now create another class 'Area' containing 
+all the three methods 'RectangleArea', 'SquareArea' and 'CircleArea' for printing the 
+area of rectangle, square and circle respectively. Create an object of class 'Area' and 
+call all the three methods. 
+ 
+• Write a program which will ask the user to enter his/her marks (out of 100). Define a 
+method that will display grades according to the marks entered as below: 
+Marks Grade : 
+1-100 A 
+1-90 B 
+1-80 B 
+1-70 C 
+1-60 D 
+41-50 DD40   Fail 
+
+• Create a class named 'Shape' with a method to print "This is this is shape". Then 
+create two other classes named 'Rectangle', 'Circle' inheriting the Shape class, both 
+having a method to print "This is rectangular shape" and "This is circular shape" 
+respectively. Create a subclass 'Square' of 'Rectangle' having a method to print 
+"Square is a rectangle". Now call the method of 'Shape' and 'Rectangle' class by the 
+object of 'Square' class. 
+
+
+-->>String: 
+
+• Write a Java program to count the letters, spaces, numbers and other characters of 
+an input string. 
+
+• Write a Java program to print the ASCII value of a given character. 
+
+• Write a Java program that accepts an integer (n) and computes the value of 
+n+nn+nnn. Input number: 5 
+5 + 55 + 555 
+
+• Write a Java program to display the system time. 
+
+• W.A.J.P to get the character at the given index within the String. Original String = 
+Tops Technologies! The character at position 0 is T, The character at position 10 is 
+o 
+
+• W.A.J.P to concatenate a given string to the end of another string. 
+
+• W.A.J.P to compare a given string to the specified character sequence. Comparing 
+topsint.com and topsint.com: true Comparing Topsint.com and topsint.com: false 
+
+• W.A.J.P to check whether a given string ends with the contents of another string. 
+"Java Exercises" ends with "se"? False "Java Exercise" ends with "se"? True 
+
+• W.A.J.P to check whether a given string starts with the contents of another string. 
+Red is favorite color. Starts with Red? True Orange is also my favorite color. Starts 
+with Red? False I3. 
+
+• W.A.J.P to find all interleaving of given strings. 
+The given strings are: WX YZ 
+The interleaving strings are: YWZX WYZX YWXZ WXYZ YZWX WYXZ 
+
+• W.A.J.P to find the second most frequent character in a given string. The given string 
+is: successes The second most frequent char in the string is: c 
+
+• Create a class named 'Print Number' to print various numbers of different data types 
+by creating different methods with the same name 'printn' having a parameter for 
+each data type. 
+
+• Create a class to print an integer and a character with two methods having 
+the same name but different sequence of the integer and the character 
+parameters. For example, if the parameters of the first method are of the form (int n, char c), then 
+that of the second method will be of the form (char c, int n). 

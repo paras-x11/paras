@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1{
+            background: red;
+
+            padding: 10px;
+            height: 10vh;                /* here height is too small so min height set to 50vh is executed. */
+            width: 100vw;                /* here width is too large so max width set to 70vw is executed. */
+
+            min-height: 50vh;
+            max-height: 70vh;
+            min-width: 50vw;
+            max-width: 70vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <h1>i am div</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique deserunt reiciendis quaerat tempore. Omnis.
+        </p>
+    </div>
+</body>
+</html>

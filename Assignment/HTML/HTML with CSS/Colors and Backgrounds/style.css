@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.red{
+    background-color: red;
+} 
+
+.green{
+    background-color: green;
+}
+
+.third{
+    height: 1650px;
+    width: 850px;
+    border: 2px solid red;
+    background-image: url(assets/cap2\(small\).jpg);
+    background-repeat: no-repeat;
+    /* background-size: contain; */
+    background-position: top center;
+    background-attachment: scroll;
+
+}
+
+/*
+The background-repeat property Can any of:
+
+repeat-x → repeat in horizon direction
+repeat-y → repeat in vertical direction
+no-repeat → image not repeat                                -- See more possible values at MDN docs
+*/
+
+/*
+The background-size property Can be following:
+
+Cover → fits & no empty space remains
+Contain → fits & image is fully visible
+auto → Display in original size
+{ width } set width of height will be set automatically
+*/
+
+/*
+The background-position property: sets the starting position of a background image.
+
+div1{  background-position: left top;  }*/
+
+/*
+The background-attachment property: Defines image a Scrolable /non-scrollable character of a background
+
+div2{  background-attachment: fixed;  } */
+
+/*
+The background shorthand: A single property to set multiple background properties.
+
+div 3{
+    background: red url('img png') no-repeat fixed right top;
+}
+
+these properties must be in oreder given*/
+
+/* The sequence of the shorthand properties in your background declaration is correct. Here's the general order:
+
+Background color (e.g., red)
+Background image (e.g., url('image.png'))
+Background repeat (e.g., no-repeat)
+Background attachment (e.g., fixed)
+Background position (e.g., right top) */

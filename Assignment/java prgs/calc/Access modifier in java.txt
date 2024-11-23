@@ -1,0 +1,15 @@
+
+                Access Levels:
+
+Modifier    Class   Package     Subclass    World
+public	      Y        Y	       Y	      Y
+protected	  Y	       Y	       Y	      N
+no modifier	  Y	       Y	       N	      N
+private	      Y	       N	       N          N 
+
+
+no modifier = default
+
+//for checking in same class ans same package go to access_modifier.java in calc
+
+// for world and subclass go to access_modifier_check.java in java prgs

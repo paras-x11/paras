@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Positioning Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Basic font for the body */
+            height: 200vh; /* Make the body taller for scrolling */
+        }
+
+        .container {
+            background-color: lightgray; /* Background color for the container */
+            height: 300px; /* Fixed height for the container */
+            width: 80%; /* Width of the container */
+            margin: 20px auto; /* Center the container with margin */
+            position: relative; /* Establishes a positioning context for absolute children */
+            border: 2px solid #000; /* Border around the container */
+            z-index: 1; /* Establishes a stacking context; child elements will respect this */
+        }
+
+        .static-box {
+            background-color: coral; /* Background color for the static box */
+            height: 100px; /* Fixed height for the static box */
+            width: 100px; /* Fixed width for the static box */
+            /* Default positioning (static); stays in the document flow */
+            /* It will appear in the normal flow of the document */
+        }
+
+        .relative-box {
+            background-color: lightblue; /* Background color for the relative box */
+            height: 100px; /* Fixed height for the relative box */
+            width: 100px; /* Fixed width for the relative box */
+            position: relative; /* This will offset the box relative to its original position */
+            top: 20px; /* Moves down 20 pixels from its original position */
+            left: 30px; /* Moves right 30 pixels from its original position */
+            z-index: 2; /* Higher z-index than .static-box, so it appears above it */
+        }
+
+        .absolute-box {
+            background-color: lightgreen; /* Background color for the absolute box */
+            height: 100px; /* Fixed height for the absolute box */
+            width: 100px; /* Fixed width for the absolute box */
+            position: absolute; /* This removes it from the normal document flow */
+            top: 10px; /* Positions 10 pixels from the top of the nearest positioned ancestor (container) */
+            right: 10px; /* Positions 10 pixels from the right of the nearest positioned ancestor */
+            z-index: 3; /* Highest z-index, so it appears on top of both other boxes */
+        }
+
+        .fixed-box {
+            background-color: gold; /* Background color for the fixed box */
+            height: 100px; /* Fixed height for the fixed box */
+            width: 100px; /* Fixed width for the fixed box */
+            position: fixed; /* Fixed positioning relative to the viewport */
+            bottom: 20px; /* Positions 20 pixels from the bottom of the viewport */
+            left: 20px; /* Positions 20 pixels from the left of the viewport */
+            z-index: 4; /* Highest z-index of all; stays on top during scrolling */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="static-box">Static Box</div>
+        <div class="relative-box">Relative Box</div>
+        <div class="absolute-box">Absolute Box</div>
+    </div>
+    <div class="fixed-box">Fixed Box</div>
+</body>
+</html>

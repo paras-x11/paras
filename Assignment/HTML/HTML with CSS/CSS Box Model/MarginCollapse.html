@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin Collapse</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1{
+            background: red;
+
+            margin: 20px;
+            padding: 15px;
+        }
+        
+        .box2{
+            background: aqua;
+
+            margin: 30px;
+            padding: 15px;
+        }
+
+        /* In margin collapse, the greater margin between adjacent elements determines the spacing, while the smaller margin is ignored. */
+        /* Margin collapse primarily occurs with block-level elements under specific conditions. */
+    </style>
+</head>
+<body>
+    
+    <div class="box1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit distinctio placeat dolorum qui, nobis, soluta eveniet eaque adipisci doloribus facilis exercitationem odit porro voluptates dicta quos vitae hic eligendi obcaecati repudiandae esse animi provident! Ducimus sapiente aut quae commodi quasi, voluptates doloremque!
+    </div>
+
+    <div class="box2">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga doloribus voluptatem architecto numquam tenetur veritatis ex eligendi aliquid rem sint ad officiis necessitatibus ipsa quae beatae illo in, incidunt minima reprehenderit amet porro quas. Nam facere voluptatum illum numquam molestiae neque, distinctio provident atque! Nemo tenetur quo perspiciatis? Tenetur, a veniam?
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+3. What is the difference between OOP and POP?
+
+-> In summary, OOP provides a more structured and intuitive way to manage complex systems by modeling real-world entities, 
+   while POP is more straightforward and better suited for simpler, linear tasks.
+
+-> difference between OOP & POP:
+
+Program Structure	   Based on objects and classes.	
+                     Based on functions and procedures.
+
+Data and Functions	Data and functions are encapsulated within objects.	
+                     Data and functions are separate; functions operate on data.
+
+Modularity	         Promotes modularity through the use of classes and objects.	
+                     Achieves modularity through functions and procedures.
+
+Code Reusability	   High, due to inheritance and polymorphism.	
+                     Limited, reusability depends on the function structure.
+
+Complexity Management	Better suited for managing complex, large-scale applications.	
+                        Can become difficult to manage as program size increases.
+
+Encapsulation	      Yes, objects encapsulate data and methods.	
+                     No, data and methods are not encapsulated together.
+
+Inheritance	         Supports inheritance, allowing new classes to derive from existing ones.	
+                     Does not support inheritance directly.
+
+Polymorphism	      Supports polymorphism, allowing methods to behave differently based on the object.	
+                     No direct support for polymorphism.
+
+Abstraction	         Supports abstraction through abstract classes and interfaces.	
+                     Limited abstraction; primarily through function calls.
+
+Design Approach     	Focuses on modeling real-world entities and their interactions.	
+                     Focuses on a sequence of tasks or procedures to be executed.
+
+Typical Use Cases	   Large, complex software systems, such as enterprise applications.	
+                     Smaller programs, scripting, and tasks with straightforward logic.
+
+Example Languages	   Java, C++, Python, Ruby.	
+                     C, Pascal, Fortran, BASIC.

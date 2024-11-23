@@ -1,0 +1,130 @@
+SELECT - extracts data from a database
+
+UPDATE - updates data in a database
+
+DELETE - deletes data from a database
+
+INSERT INTO - inserts new data into a database
+
+CREATE DATABASE - creates a new database
+
+ALTER DATABASE - modifies a database
+
+CREATE TABLE - creates a new table
+
+ALTER TABLE - modifies a table
+
+DROP TABLE - deletes a table
+
+CREATE INDEX - creates an index (search key)
+
+DROP INDEX - deletes an index
+
+
+-> for export backup to specific path:
+
+mysqldump -u root -p 'database_name' > D:\paras\Assignment\Module-5 Database\practise\backup.sql
+- database_name is name of database from where we want to take backup;
+
+-> for import this backup to a particular database:
+
+mysql -u root -p 'database_name' < D:\paras\Assignment\Module-5 Database\practise\backup.sql
+- database_name is name of database where we want to store backup;
+
+
+mysqldump -u root -p module5 > D:\paras\Assignment\Module-5 Database\practise\backup.sql
+mysql -u root -p backup < D:\paras\Assignment\Module-5 Database\practise\backup.sql
+
+-> 'select' keyword for execute function.
+-> 'call' keyword for execute procedure.
+
+
+-> functios: 
+
+delimiter //
+create function function_name(variable_name variable_type) returns 'return_type' deterministic
+begin
+	
+end //
+delimiter ;
+
+
+-> example:
+delimiter //
+create function cube_of(num int) returns int deterministic
+begin
+	declare cube1 int;
+    set cube1 = num*num*num;
+	return cube1;
+end //
+delimiter ;
+
+select cube_of(6) as cube6;
+
+
+-> procedures:
+
+-- procedure syntax:
+-- DELIMITER //
+-- CREATE PROCEDURE procedure_name ( [IN|OUT|INOUT] parameter_name parameter_datatype)
+-- BEGIN
+    -- SQL statements to be executed
+-- END //
+-- DELIMITER;
+ -- To run procedure : call procedure_name(parameter);
+
+-- procedure without parameter:
+delimiter $$
+create procedure p1()
+begin
+	select * from course;
+end $$
+delimiter ;
+
+-- call procedure 
+call p1();
+
+
+DELIMITER //
+
+CREATE PROCEDURE procedure_name()
+BEGIN
+    -- SQL statements go here
+END //
+
+DELIMITER ;
+
+CALL procedure_name;
+
+
+trigger syntax:
+
+CREATE TRIGGER trigger_name
+{BEFORE | AFTER} {INSERT | UPDATE | DELETE}
+ON table_name
+[FOR EACH ROW]
+[WHEN (condition)]
+BEGIN
+    -- SQL statements to execute when the trigger is fired
+END;
+
+-> Summary:
+
+BEFORE INSERT: Used to validate or modify new data before it is inserted into the table.
+BEFORE UPDATE: Used to validate or modify existing data before an update is applied to the table.
+BEFORE DELETE: Used to perform actions before a row is deleted, such as archiving data or validating conditions.
+
+- Each type of BEFORE trigger allows you to enforce data integrity and apply business rules before the actual data modification occurs, 
+  ensuring that the data in your tables remains consistent and accurate according to your application's requirements.
+
+AFTER INSERT Trigger: Used for tasks that should occur after a new row has been inserted into the table. Useful for logging, notifications, and related data synchronization.
+AFTER UPDATE Trigger: Used for actions that should happen after a row has been updated. Useful for logging changes, synchronizing related data, and notifications.
+AFTER DELETE Trigger: Used for actions that should occur after a row has been deleted. Useful for archiving data, logging deletions, and notifications.
+
+- Each type of trigger serves different purposes and can be used to maintain data integrity, enforce business rules, and perform necessary actions 
+  based on data modifications.
+
+-> Key Differences Between BEFORE and AFTER Triggers:
+
+Timing: BEFORE triggers execute before the data modification is applied, allowing validation or modification of the data. AFTER triggers execute after the data modification, suitable for logging, notifications, or additional actions that depend on the modification being complete.
+Modification: BEFORE triggers can modify the NEW row values before the change is saved, while AFTER triggers cannot modify the row; they can only act on the completed change.

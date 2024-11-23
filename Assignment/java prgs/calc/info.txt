@@ -1,0 +1,9 @@
+calc is a package.
+packages works only on class files. if in calc folder(package) .java file is not available it will still work with class files
+in other folders like 'java prgs' -> UsingPackage.java
+
+
+
+if i want to run prg in this calc folder :
+javac -d . *.java    then,
+java calc/'fileName' -> java calc/Sum
