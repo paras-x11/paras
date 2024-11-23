@@ -8,7 +8,7 @@
  
 
 import os
-os.chdir("Python\\Practice\\class work")
+os.chdir("Python\\Practice\\class work") 
 # print(os.getcwd())
 
 with open("task_1.txt", 'w+') as f:                     # for create and write file:
