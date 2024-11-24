@@ -1,0 +1,21 @@
+1. Why Django should be used for web-development? Explain how you can create a project in Django?  
+
+2. How to check installed version of django?  
+
+3. Explain what does django-admin.py make messages command is used for?  
+
+4. What is Django URLs?make program to create django urls  
+
+5. What is a QuerySet?Write program to create a new Post object in database:  
+
+6. Mention what command line can be used to load data into Django?  
+
+7. Explain what does django-admin.py make messages command is used for?  
+
+8. Make Django application to demonstrate following things o There will be 2 modules(Admin,Product manager) o Admin can add product name 
+(ex.Product id and product name) ex. (1, Samsung), (2, Apple)...etc. Data should store in  
+
+9. Product_mst table with product id as primary key o Admin can add product subcategory details Like (Product price, product image, 
+Product model, product Ram) data should store in Product_sub_cat table o Admin can get product name as foreign key from 
+product_mst table in product_sub_category_details page Admin can view, update and delete all registered details of product manager can 
+search product on search bar and get all details about product.  
