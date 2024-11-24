@@ -1,5 +1,5 @@
-python is oops lang.
-python is secure lang.
+java is oops lang.
+java is secure lang.
 yes now ok
-ok python. how are you
-hello python
+ok java. how are you
+hello java
