@@ -2,7 +2,7 @@
 from pypdf import PdfReader
 
 # Method: PdfReader("filename") - Opens a PDF file.
-reader = PdfReader("example.pdf")
+reader = PdfReader("sample-1.pdf")
 
 # Method: .pages - List of all pages in the PDF.
 first_page = reader.pages[0]
@@ -14,7 +14,7 @@ print(f"Text from the first page:\n{text}")
 # PdfWriter example: Creating and modifying a PDF
 from pypdf import PdfWriter, PdfReader
 
-reader = PdfReader("example.pdf")
+reader = PdfReader("sample-1.pdf")
 writer = PdfWriter()
 
 # Method: .add_page(page) - Adds a page to the writer.
@@ -40,11 +40,11 @@ from pypdf import PdfMerger
 merger = PdfMerger()
 
 # Method: .append(file) - Appends a PDF file to the merger.
-merger.append("file1.pdf")
-merger.append("file2.pdf")
+merger.append("sample-1.pdf")
+merger.append("sample-2.pdf")
 
 # Method: .merge(position, file) - Merges pages from another PDF at a specific position.
-merger.merge(1, "file3.pdf")
+merger.merge(1, "sample-3.pdf")
 
 # Method: .write(file) - Writes the merged PDF to a new file.
 with open("merged_output.pdf", "wb") as output_file:
