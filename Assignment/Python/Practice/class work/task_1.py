@@ -1,3 +1,12 @@
+# create file:
+
+# java is oops lang.
+# java is secure lang.
+
+# q1: fine oops is exis in this file or not
+# q2: file line number which contains lang. word
+# q3: replace java with python
+
 import os
 os.chdir("D:\paras\Assignment\Python\Practice\class work")
 # print(os.getcwd())
