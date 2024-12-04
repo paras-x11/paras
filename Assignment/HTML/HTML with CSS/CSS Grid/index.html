@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Grid</title>
+
+    
+    <style>
+        /* CSS Grid properties:
+    
+        -> Container Properties
+        1. display: grid           Enables a grid container.
+        2. grid-template-rows      Defines the row structure of the grid.        
+        3. grid-template-columns   Defines the column structure of the grid.      
+        4. grid-template-areas     Names grid areas for layout design.
+        5. gap                     Sets space between grid items (both rows and columns).
+        6. row-gap                 Sets space between rows.
+        7. column-gap              Sets space between columns.
+        8. justify-items           Aligns items horizontally within their grid cells.
+        9. align-items             Aligns items vertically within their grid cells.
+        10. place-items            Shorthand for align-items and justify-items.
+        11. justify-content        Aligns the entire grid container horizontally.
+        12. align-content          Aligns the entire grid container vertically.
+        13. place-content          Shorthand for align-content and justify-content.
+        14. grid-auto-rows         Defines default row sizes for auto-generated rows.
+        15. grid-auto-columns      Defines default column sizes for auto-generated columns.
+        16. grid-auto-flow         Controls the item placement order (row, column, dense).
+        
+        -> Item Properties
+        1. grid-column     Specifies the column start and end positions.
+        2. grid-row        Specifies the row start and end positions.
+        3. grid-area       Assigns an item to a named grid area or defines start/end for rows and columns.
+        4. justify-self    Aligns an item horizontally within its cell.
+        5. align-self      Aligns an item vertically within its cell.
+        6. place-self      Shorthand for align-self and justify-self. */
+
+        .container{
+            display: grid;
+            background-color: yellow;
+            height: 56vh;
+            /* grid-template-columns: 55px 455px auto; */
+            /* grid-column-gap: 9px;
+            grid-row-gap: 9px; */
+            grid-gap: 3px 10px;      /* 1st: row, 2nd: column */
+            
+            /* grid-template-columns: 550px auto;
+            grid-template-rows: 200px 100px 50px 25px; */
+
+            grid-template-columns: auto auto auto auto;
+        
+        }
+
+        .item{
+            background-color: aquamarine;
+            border: 2px solid rgb(255, 0, 0);
+        }
+        .item1{ 
+            background-color: aquamarine;
+            border: 2px solid rgb(255, 0, 0);
+            grid-column: 1/ span 3;
+        }
+        
+        .item4{ 
+            background-color: aquamarine;
+            border: 2px solid rgb(255, 0, 0);
+            grid-row: 2/ span 2;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item, item1">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item, item4">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10 </div>
+    </div>
+</body>
+</html>
