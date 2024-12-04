@@ -18,7 +18,7 @@ if __name__ == '__main__':
     # root.maxsize(1250, 680)
     root.maxsize(1920, 1080)
     root.title("Billing Software")
-    icon_path = "Tkinter_assesment/Billing System/logo.ico"
+    icon_path = "D:\paras\Assesment\Tkinter_Assesment\Billing System\logo.ico"
     load_icon(icon_path)
 
     # Root Grid Configuration for dynamic resizing
@@ -32,7 +32,7 @@ if __name__ == '__main__':
 # 1. Header Frames (1st)
     first_frame = Frame(root, bg="#074463", borderwidth=5, relief=GROOVE, pady=2)
     first_frame.grid(row=0, column=0, sticky="nsew")
-    Label(first_frame, text="Billing Software", font=("Times New Roman", 24, "bold"), borderwidth=5, 
+    Label(first_frame, text="Billing Software - Tkinter GUI", font=("Times New Roman", 24, "bold"), borderwidth=5, 
           relief=FLAT, bg="#074463", fg="white").pack(fill=X, pady=2)
 
 
