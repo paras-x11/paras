@@ -16,5 +16,5 @@ query.execute("INSERT INTO students (name, age, grade) VALUES (?, ?, ?)", ('Jay 
 conn.commit()
 conn.close()
 
-print("\n-> Student added succesfully.")
+print("\n-> Student added succesfully.") 
 

@@ -27,4 +27,4 @@
 27. What is Instantiation in terms of OOP terminology?  
 28. What is used to check whether an object o is an instance of class A? 
 29. What relationship is appropriate for Course and Faculty?  
-30. What relationship is appropriate for Student and Person?
+30. What relationship is appropriate for Student and Person? 
