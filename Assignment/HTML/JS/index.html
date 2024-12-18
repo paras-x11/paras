@@ -4,26 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello, JS</title>
-    <script src="script.js"></script>
     <style>
-        .first{
-            height: 70px;
-            width: 100%;
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            border: 2px solid red;
+            margin: 3px 0;
+            padding: 9px;
             background: cyan;
+        }
+        .bg-primary{
+            background-color: blueviolet;
+        }
+        .text-success{
+            color: white;
         }
     </style>
 </head>
 <body>
     <h1>Hello world, This is JavaScript</h1>
     
-    <div class="first">
-        <button>Click Me</button>
+    <div id="firstContainer" class="container">
+        <button id="click">Click Me</button> <br> <br>
+        <p>this is paragraph which is a best para in all multiverse</p>
     </div>
 
-    <p>i am paragraph</p>
-
-    <div class="second">
-        i am second Div
+    <div id="secondContainer" class="container">
+        <p>this is paragraph</p>
     </div>
+
+    <script>
+        // DOM Manipulation
+        let elem = document.getElementById('click')
+        console.log(elem);
+
+        let elemClass = document.getElementsByClassName('container')
+        console.log(elemClass);
+
+        // elemClass[0].style.backgroundColor = 'yellow'
+        elemClass[0].classList.add('bg-primary')
+        elemClass[0].classList.add('text-success')
+
+        console.log(elem.innerHTML)
+
+
+    </script>
 </body>
 </html>
