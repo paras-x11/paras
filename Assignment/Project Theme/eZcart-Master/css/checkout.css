@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-
+ 
 /******************************
 
 [Table of Contents]
@@ -811,10 +811,43 @@ section
 	padding-left: 34px;
 	padding-top: 20px;
 }
-.billing_options
-{
-	margin-top: 29px;
+.billing_options {
+    margin-top: 29px;
+    display: flex;
+    flex-direction: column; /* Keeps both options stacked vertically */
+    gap: 10px; /* Adds spacing between options */
 }
+
+.billing_options div {
+    display: flex;
+    align-items: center; /* Ensures checkbox and text are vertically aligned */
+    gap: 8px; /* Adds spacing between the checkbox and text */
+}
+
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    display: inline-block; /* Ensures proper alignment */
+}
+
+label {
+    display: flex;
+    align-items: center; /* Ensures label content is centered */
+    gap: 8px;
+    cursor: pointer; /* Makes the label clickable */
+}
+
+label img {
+    display: none; /* Hides the image unless required */
+}
+
+span {
+    font-size: 14px;
+    line-height: 1.5;
+    display: inline-block; /* Ensures proper alignment with the checkbox */
+}
+
 .regular_checkbox
 {
 	display: none;
@@ -915,66 +948,62 @@ section
 	font-size: 18px !important;
 	font-weight: 600 !important;
 }
-.payment_options
-{
-	margin-top: 41px;
+.payment_options {
+    margin-top: 41px;
+    display: flex;
+    flex-direction: column; /* Keep payment options stacked vertically */
+    gap: 15px; /* Space between each payment option group */
 }
-.regular_radio
-{
-	position: relative;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	-ms-appearance: none;
-	-o-appearance: none;
-	appearance: none;
-	width: 16px;
-	height: 16px;
-	border: solid 1px #b7b7b7;
-	border-radius: 50%;
-	outline: none;
-	background: #FFFFFF;
-	cursor: pointer;
+
+.payment_options div {
+    display: flex;
+    align-items: center; /* Align radio button and text vertically */
+    gap: 10px; /* Space between the radio button, text, and icons */
 }
-.regular_radio:checked::after
-{
-	display: block;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	-o-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	width: 4px;
-	height: 4px;
-	background: #b7b7b7;
-	border-radius: 50%;
-	content: '';
+
+.regular_radio {
+    appearance: none; /* Remove default radio button styling */
+    width: 16px;
+    height: 16px;
+    border: 1px solid #b7b7b7;
+    border-radius: 50%; /* Make the radio button circular */
+    background-color: #fff;
+    margin: 0; /* Remove any browser-specific margin */
+    cursor: pointer;
+    position: relative;
 }
-.regular_radio + label
-{
-	font-size: 14px;
-	text-transform: uppercase;
-	color: #232323;
-	vertical-align: middle;
-	margin-left: 10px;
-	margin-bottom: 0.6rem;
+
+.regular_radio:checked::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: #b7b7b7;
+    border-radius: 50%; /* Inner circle for checked state */
 }
-.payment_option
-{
-	display: inline-block;
-	-webkit-transform: translateY(-3px);
-	-moz-transform: translateY(-3px);
-	-ms-transform: translateY(-3px);
-	-o-transform: translateY(-3px);
-	transform: translateY(-3px);
-	margin-right: 7px;
+
+.regular_radio + label {
+    font-size: 14px;
+    color: #232323;
+    cursor: pointer;
+    margin: 0; /* Remove any margin that pushes it below */
+    vertical-align: middle;
 }
-.visa
-{
-	margin-left: 14px;
+
+.payment_option {
+    display: inline-block;
+    margin-left: 10px; /* Add spacing from the label */
+    vertical-align: middle;
 }
+
+.visa {
+    margin-left: 14px; /* Spacing for the visa icon */
+}
+
 .cart_total_button
 {
 	width: 100%;
