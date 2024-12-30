@@ -1,10 +1,20 @@
 import tkinter as tk
 from tkinter import messagebox
 import sqlite3
+import os
+
+# Change directory (Optional, if needed)
+os.chdir("D:\\paras\\Assignment\\Python\\Tkinter")
 
 # Connect to the database
 def get_db_connection():
     conn = sqlite3.connect('todo_list.db')
+    conn.execute('''
+        CREATE TABLE IF NOT EXISTS tasks (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            task TEXT NOT NULL
+        )
+    ''') 
     return conn
 
 # Function to refresh the task list from the database
@@ -20,8 +30,8 @@ def refresh_task_list():
 
 # Function to add a new task
 def add_task():
-    task = task_entry.get()
-    if task != "":
+    task = task_entry.get().strip()
+    if task:
         conn = get_db_connection()
         cursor = conn.cursor()
         cursor.execute('INSERT INTO tasks (task) VALUES (?)', (task,))
@@ -50,21 +60,25 @@ def delete_task():
 root = tk.Tk()
 root.title("To-Do List App")
 
+# Add padding to make the UI look better
+root.geometry("400x450")
+root.configure(padx=20, pady=70)
+
 # Entry widget to add a task
 task_entry = tk.Entry(root, width=40)
 task_entry.pack(pady=10)
 
 # Add Task Button
-add_button = tk.Button(root, text="Add Task", command=add_task)
-add_button.pack(pady=10)
+add_button = tk.Button(root, text="Add Task", command=add_task, bg="lightblue", width=15)
+add_button.pack(pady=5)
 
 # Listbox to display tasks
-task_listbox = tk.Listbox(root, width=40, height=10)
+task_listbox = tk.Listbox(root, width=40, height=10, selectmode=tk.SINGLE)
 task_listbox.pack(pady=10)
 
 # Delete Task Button
-delete_button = tk.Button(root, text="Delete Task", command=delete_task)
-delete_button.pack(pady=10)
+delete_button = tk.Button(root, text="Delete Task", command=delete_task, bg="lightcoral", width=15)
+delete_button.pack(pady=5)
 
 # Refresh task list on startup
 refresh_task_list()
