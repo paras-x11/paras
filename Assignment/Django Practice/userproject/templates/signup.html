@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Sign Up</title>
     <!-- Link to Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -63,11 +63,12 @@
     </div>
     {% endfor %}
     {% endif %}
+    
     <div class="container my-5">
         <div class="login-container">
-            <h2>Login</h2><br>
+            <h2>Sign Up</h2><br>
 
-            <form method="post" action="{% url 'login' %}">
+            <form method="post" action="{% url 'signup' %}">
                 {% csrf_token %}
                 
                 <div class="mb-3">
@@ -79,19 +80,35 @@
                 </div>
                 
                 <div class="mb-3">
-                    <label for="{{ form.password.id_for_label }}" class="form-label">Password</label>
-                    {{ form.password }}  <!-- Renders the input field for password -->
-                    {% for error in form.password.errors %}
+                    <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+                    {{ form.email }}  <!-- Renders the input field for email -->
+                    {% for error in form.email.errors %}
+                        <div class="alert alert-danger">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                
+                <div class="mb-3">
+                    <label for="{{ form.password1.id_for_label }}" class="form-label">Password</label>
+                    {{ form.password1 }}  <!-- Renders the input field for password -->
+                    {% for error in form.password1.errors %}
+                        <div class="alert alert-danger">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                
+                <div class="mb-3">
+                    <label for="{{ form.password2.id_for_label }}" class="form-label">Confirm Password</label>
+                    {{ form.password2 }}  <!-- Renders the input field for password confirmation -->
+                    {% for error in form.password2.errors %}
                         <div class="alert alert-danger">{{ error }}</div>
                     {% endfor %}
                 </div>
 
-                <button type="submit" class="btn-login">Login</button>
+                <button type="submit" class="btn-login">Sign Up</button>
             </form>
         </div>
 
         <div class="back-login-link">
-            <p><a href="/signup">Don't have an account? Sign Up</a></p>
+            <p><a href="/login">Back to login</a></p>
         </div>
     </div>
 

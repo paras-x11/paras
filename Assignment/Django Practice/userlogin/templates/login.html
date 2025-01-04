@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login Page</title>
     <!-- Link to Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -23,8 +23,20 @@
             padding: 40px;
         }
 
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
         .form-label {
             font-weight: bold;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            box-shadow: none;
+            margin-bottom: 20px;
         }
 
         .btn-login {
@@ -42,15 +54,33 @@
             transition: background-color 0.3s;
         }
 
-        .back-login-link {
+        .text-center {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .text-center a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .text-center a:hover {
+            text-decoration: underline;
+        }
+
+        .back-home-link {
             text-align: center;
             margin-top: 20px;
         }
 
-        .back-login-link a {
+        .back-home-link a {
             color: #007bff;
             font-size: 16px;
             text-decoration: none;
+        }
+
+        .back-home-link a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -63,40 +93,39 @@
     </div>
     {% endfor %}
     {% endif %}
-    <div class="container my-5">
+
+    <div class="container">
         <div class="login-container">
-            <h2>Login</h2><br>
+            <h2>Login</h2>
 
-            <form method="post" action="{% url 'login' %}">
+            <form method="post" action="/login">
                 {% csrf_token %}
-                
                 <div class="mb-3">
-                    <label for="{{ form.username.id_for_label }}" class="form-label">Username</label>
-                    {{ form.username }}  <!-- Renders the input field for username -->
-                    {% for error in form.username.errors %}
-                        <div class="alert alert-danger">{{ error }}</div>
-                    {% endfor %}
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username" required>
                 </div>
-                
                 <div class="mb-3">
-                    <label for="{{ form.password.id_for_label }}" class="form-label">Password</label>
-                    {{ form.password }}  <!-- Renders the input field for password -->
-                    {% for error in form.password.errors %}
-                        <div class="alert alert-danger">{{ error }}</div>
-                    {% endfor %}
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Enter password" required>
                 </div>
-
                 <button type="submit" class="btn-login">Login</button>
             </form>
+
+            <div class="text-center mt-3">
+                <p>Don't have an account? <a href="#">Sign Up</a></p>
+                <p><a href="#">Forgot Password?</a></p>
+            </div>
         </div>
 
-        <div class="back-login-link">
-            <p><a href="/signup">Don't have an account? Sign Up</a></p>
-        </div>
+        <!-- Back to Home Link -->
+        {% comment %} <div class="back-home-link">
+            <p><a href="/index">Back to Home</a></p>
+        </div> {% endcomment %}
     </div>
 
     <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>
