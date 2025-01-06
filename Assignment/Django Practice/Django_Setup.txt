@@ -49,7 +49,7 @@ Choosing Between Global vs Virtual Environment
 
 -> in your project directory:
    - mkdir static
-   - mkdir template
+   - mkdir templates
 
 --------------------------------------------------------------------------------------------------------
 
