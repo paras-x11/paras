@@ -21,7 +21,11 @@ from home import views
 urlpatterns = [
     path('', views.index, name="index"),
     path('index', views.index, name="index"),
+    path('userform', views.userform, name="userform"),
+    path('signup', views.signup_user, name="signup_user"),
     path('login', views.login_user, name="login"),
     path('logout', views.logout_user, name="logout"),
     path('adduser', views.adduser, name="adduser"),
+    path('edituser/<id>', views.edituser, name="edituser"),
+    path('deleteuser/<id>', views.deleteuser, name="deleteuser"),
 ]
