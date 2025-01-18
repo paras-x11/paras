@@ -20,5 +20,6 @@ from home import views
 
 urlpatterns = [
     path("", views.index, name="home"),
-    path("index", views.index, name="home"),
+    path("_1", views._1, name="_1"),
+    path("doc_profile", views.doc_profile, name="doc_profile"),
 ]
