@@ -41,7 +41,7 @@ def updateStudent(request):
         print(uname, email, phone)
 
         if not uname or not email or not phone:
-            return HttpResponse("Please Enter All The Details")
+            return HttpResponse("Details can't be empty - Try Again")
         else:
             if id:
                 st = Student.objects.get(pk=id)
