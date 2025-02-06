@@ -7,6 +7,11 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', views.index, name="index"),
     path('index', views.index, name="index"),
+    path('addStudent', views.addStudent, name="addStudent"),
+    path('viewStudent', views.viewStudent, name="viewStudent"),
+    path('edit', views.edit, name="edit"),
+    path('updateStudent', views.updateStudent, name="updateStudent"),
+    path('deleteStudent', views.deleteStudent, name="deleteStudent"),
 ]
 
 
