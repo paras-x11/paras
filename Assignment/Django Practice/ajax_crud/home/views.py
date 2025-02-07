@@ -56,3 +56,9 @@ def deleteStudent(request):
     st = Student.objects.get(pk=id)
     st.delete()
     return HttpResponse("Student Deleted Succesfully")
+
+def searchStudent(request):
+    data = request.GET.get('data')
+    print(data)
+    allStudents = Student.objects.filter(username__startswith=data)
+    return JsonResponse({"allStudents" : list(allStudents.values())})

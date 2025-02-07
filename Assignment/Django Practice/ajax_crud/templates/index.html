@@ -23,6 +23,7 @@
                 }
                 $("#tdata").html(row)
             })
+
         }
 
         function addStudent(){
@@ -39,7 +40,9 @@
                 $("#phone").val("")
 
                 viewStudent()
+                $("#upbtn").hide()
             })
+
         }
 
         function editStudent(uid){
@@ -76,7 +79,28 @@
 
         function deletStudent(uid){
             $.get("/deleteStudent", { uid }, function(rt){
+                $("#id").val("")
+                $("#uname").val("")
+                $("#uname").val("")
+                $("#email").val("")
+                $("#phone").val("")
                 viewStudent()
+                $("#smbtn").show()
+                $("#upbtn").hide()
+
+            })
+
+        }
+
+        function searchStudent(){
+            var data = $("#search").val()
+            var row = "";
+
+            $.get("/searchStudent", {data}, function(rt){
+                for ( var i in rt.allStudents ){
+                    row = row + "<tr><td>" + rt.allStudents[i].id +" </td><td>" + rt.allStudents[i].username +" </td><td>" + rt.allStudents[i].email +" </td><td>" + rt.allStudents[i].phone + "</td><td> <button type='button' onclick='editStudent( "+ rt.allStudents[i].id +" )' class='btn btn-primary text-center'>Edit</button>" + "</td><td> <button type='button' onclick='deletStudent( "+ rt.allStudents[i].id +" )' class='btn btn-danger'>Delete</button> </td></tr>"
+                }
+                $("#tdata").html(row)
             })
         }
 
@@ -113,6 +137,7 @@
 
             <div class="col-7 card mt-5 p-5">
                 <h2 align="center">Student Details</h2><hr>
+                <input type="text" placeholder=" Search..." onkeyup="searchStudent()" name="search" id="search">
                 <table class="table">
                     <tr>
                         <thead>

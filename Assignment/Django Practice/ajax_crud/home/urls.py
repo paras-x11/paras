@@ -12,6 +12,7 @@ urlpatterns = [
     path('edit', views.edit, name="edit"),
     path('updateStudent', views.updateStudent, name="updateStudent"),
     path('deleteStudent', views.deleteStudent, name="deleteStudent"),
+    path('searchStudent', views.searchStudent, name="searchStudent"),
 ]
 
 
