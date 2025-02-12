@@ -68,17 +68,22 @@ def logout_user(request):
 def forgot_password(request):
     return render(request, "login.html")
 
+@login_required(login_url="login_user")
 def profile(request):
     return render(request, "profile.html")
 
+@login_required(login_url="login_user")
 def society_members(request):
     return render(request, "members.html")
 
+@login_required(login_url="login_user")
 def society_watchmens(request):
     return render(request, "watchmens.html")
 
+@login_required(login_url="login_user")
 def notice(request):
     return render(request, "notice.html")
 
+@login_required(login_url="login_user")
 def events(request):
     return render(request, "events.html")

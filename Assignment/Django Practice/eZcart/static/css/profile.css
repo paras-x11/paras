@@ -1,640 +1,536 @@
-/* Base Styles */
+/* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-h1,
-h3 {
-    margin: 0;
-    font-weight: 600;
-}
-
-/* Header Section */
-.header {
-    background-color: #000;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
-
-.header h1 {
-    font-size: 28px;
-}
-
-.header p {
-    font-size: 14px;
-    margin-top: 5px;
-}
-
-/* Profile Container */
-.profile-container {
     display: flex;
-    max-width: 1200px;
-    margin: 20px auto;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-/* Sidebar */
-.sidebar {
-    width: 250px;
-    background-color: #f1f1f1;
-    border-right: 1px solid #ddd;
-    display: flex;
+    min-height: 100vh;
     flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-    transition: width 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
 }
 
-.sidebar img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-
-.sidebar h2 {
-    font-size: 18px;
-    margin: 10px 0;
-    color: #333;
-}
-
-.sidebar p {
-    font-size: 14px;
-    color: #777;
-}
-
-.sidebar ul {
-    width: 100%;
-    margin-top: 20px;
-}
-
-.sidebar li {
-    padding: 15px;
-    text-align: center;
-    font-size: 16px;
-    color: #333;
-    cursor: pointer;
-    border-bottom: 1px solid #ddd;
-    transition: background-color 0.3s ease;
-}
-
-.sidebar li:hover,
-.sidebar li.active {
-    background-color: #000;
-    color: #fff;
-}
-
-.sidebar .logout-btn {
-    padding: 10px;
-    margin-top: auto;
-    background-color: #d9534f;
+header {
+    background-color: #343a40;
     color: white;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-}
-
-.sidebar .logout-btn:hover {
-    background-color: #c9302c;
-}
-
-/* Content Section */
-.content {
-    flex: 1;
-    padding: 20px;
-}
-
-.content h3 {
-    font-size: 20px;
-    color: #000;
-    margin-bottom: 10px;
-}
-
-.content p {
-    font-size: 14px;
-    color: #555;
-}
-
-.content .order-card {
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background-color: #fafafa;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.content .order-card h4 {
-    font-size: 16px;
-    margin: 0;
-}
-
-.content .order-card button {
-    padding: 8px 15px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.content .order-card button:hover {
-    background-color: #444;
-}
-
-/* Mobile View */
-@media (max-width: 768px) {
-    .profile-container {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        width: 100%;
-        border-right: none;
-        display: none;
-    }
-
-    .sidebar img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .sidebar ul {
-        display: flex;
-        justify-content: space-evenly;
-        padding: 0;
-    }
-
-    .sidebar li {
-        padding: 10px;
-        font-size: 14px;
-        display: inline-block;
-    }
-
-    .content {
-        padding: 10px;
-    }
-
-    /* Header for mobile */
-    .header h1 {
-        font-size: 24px;
-    }
-
-    /* Mobile Navbar */
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        background-color: #000;
-        color: #fff;
-        padding: 10px 20px;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-    }
-
-    .navbar .toggle-btn {
-        font-size: 24px;
-        cursor: pointer;
-    }
-
-    .navbar .navbar-links {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navbar .navbar-links.show {
-        display: flex;
-    }
-
-    .navbar .navbar-links li {
-        padding: 10px;
-        font-size: 16px;
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid #ddd;
-    }
-}
-
-#address {
-    font-family: Arial, sans-serif;
-}
-
-h3 {
-    font-size: 24px;
-    color: #333;
-}
-
-#address-list {
-    margin-bottom: 20px;
-}
-
-.address-card {
-    background-color: #f9f9f9;
-    padding: 15px;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-    border-radius: 8px;
-}
-
-.address-card p {
-    font-size: 14px;
-    color: #555;
-}
-
-.address-card button {
-    margin-top: 10px;
-    padding: 8px 15px;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.edit-btn {
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 4px;
-}
-
-.edit-btn:hover {
-    background-color: #0056b3;
-}
-
-.delete-btn {
-    background-color: #d9534f;
-    color: #fff;
-    border-radius: 4px;
-    margin-left: 10px;
-}
-
-.delete-btn:hover {
-    background-color: #c9302c;
-}
-
-.add-btn {
-    background-color: #28a745;
-    color: white;
     padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.add-btn:hover {
-    background-color: #218838;
-}
-
-#address-form {
-    display: none;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     width: 100%;
-    max-width: 400px;
-    margin: auto;
+    /* Ensure header spans full width */
 }
 
-#address-form label {
-    font-size: 14px;
-    color: #333;
-}
 
-#address-form input {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
 
-#address-form button {
-    padding: 10px 15px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-right: 10px;
-}
-
-#address-form button:hover {
-    background-color: #0056b3;
-}
-
-#address-form button[type="button"] {
-    background-color: #6c757d;
-}
-
-#address-form button[type="button"]:hover {
-    background-color: #5a6268;
-}
-
-#settings {
-    font-family: Arial, sans-serif;
-}
-
-h3 {
+/* Logo Styling */
+header .logo {
+    font-size: 1.8rem;
+    flex: 1;
+    /* Take up the remaining space */
+    text-align: center;
+    /* Center the text */
+    color: #ff5733;
     font-size: 24px;
-    color: #333;
+    /* Adjust logo font size */
+    font-weight: bold;
+
 }
 
-#profile-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-    margin: auto;
+/* User Options (Buttons) */
+header .user-options {
+    display: flex;
+    align-items: center;
 }
 
-#profile-form label {
-    font-size: 14px;
-    color: #333;
-}
-
-#profile-form input,
-#profile-form select {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-#profile-form button {
-    padding: 10px 15px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
+/* Button Styling */
+header .btn {
+    background: none;
+    /* Remove background if needed */
     border: none;
+    /* Remove border */
+    padding: 8px;
+    /* Adjust button size */
     cursor: pointer;
-    border-radius: 4px;
-    margin-right: 10px;
-}
-
-#profile-form button:hover {
-    background-color: #0056b3;
-}
-
-#profile-form button[type="button"] {
-    background-color: #6c757d;
-}
-
-#profile-form button[type="button"]:hover {
-    background-color: #5a6268;
-}
-
-#settings {
-    font-family: Arial, sans-serif;
-}
-
-h3 {
-    font-size: 24px;
+    font-size: 18px;
+    /* Icon size */
     color: #333;
+    /* Button text color */
 }
 
-#profile-info {
-    font-size: 16px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-    color: #333;
-}
-
-#profile-info p {
-    margin: 15px 0;
-    font-weight: 500;
-    color: #555;
-}
-
-#profile-info strong {
+/* Optional: Add hover effect for buttons */
+header .btn:hover {
     color: #007bff;
 }
 
-#profile-info button {
-    padding: 10px 20px;
-    background-color: #007bff;
+
+#sidebar {
+    width: 250px;
+    background: #212529;
     color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
+    position: fixed;
+    top: 60px;
+    left: -250px;
+    bottom: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 999;
+    overflow-y: auto;
+    height: calc(100vh - 60px);
+    /* Ensure sidebar takes full height minus header */
 }
 
-#profile-info button:hover {
-    background-color: #0056b3;
+#sidebar.active {
+    left: 0;
 }
 
-#profile-info h4 {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 10px;
-    font-weight: 600;
+#sidebar h2 {
+    text-align: start;
+    padding: 20px 20px 20px 40px;
+    background-color: #343a40;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
-#edit-profile-btn {
-    padding: 10px 20px;
-    background-color: #007bff;
+#sidebar .nav-link {
     color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 4px;
-}
-
-#edit-profile-btn:hover {
-    background-color: #0056b3;
-}
-
-#profile-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-    margin: auto;
-}
-
-#profile-form label {
-    font-size: 14px;
-    color: #333;
-}
-
-#profile-form input,
-#profile-form select {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-#profile-form button {
-    padding: 10px 15px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-right: 10px;
-}
-
-#profile-form button:hover {
-    background-color: #0056b3;
-}
-
-#profile-form button[type="button"] {
-    background-color: #6c757d;
-}
-
-#profile-form button[type="button"]:hover {
-    background-color: #5a6268;
-}
-
-
-#wishlist {
-    font-size: 16px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 800px;
-    margin: auto;
-    color: #333;
-}
-
-#wishlist h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    font-weight: 600;
-    color: #333;
-}
-
-#wishlist-items {
-    margin-bottom: 20px;
-}
-
-.wishlist-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background-color: #fafafa;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.wishlist-item-img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
-.wishlist-item-info {
-    flex: 1;
-    margin-left: 15px;
-}
-
-.wishlist-item-info h4 {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.wishlist-item-info p {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 10px;
-}
-
-.wishlist-item-actions {
-    display: flex;
-    align-items: center;
-}
-
-.wishlist-item button {
-    padding: 8px 15px;
-    background-color: #d9534f;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
+    display: block;
     transition: background-color 0.3s ease;
 }
 
-.wishlist-item button:hover {
-    background-color: #c9302c;
-}
-
-
-/* Add this to your existing CSS */
-.button-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Space between buttons */
-    margin-top: 20px;
-}
-
-.back-to-home, .logout-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
+#sidebar .nav-link:hover {
+    background-color: #495057;
     border-radius: 5px;
 }
 
-.logout-btn {
-    background-color: #dc3545; /* Red for logout */
+#content {
+    flex-grow: 1;
+    padding: 30px;
+    margin-left: 0;
+    transition: all 0.3s ease-in-out;
+    margin-top: 80px;
+}
+
+#content.active {
+    margin-left: 250px;
+}
+
+#toggle-btn {
+    background-color: #212529;
+    color: white;
+    border: none;
+    padding: 8px 13px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+#toggle-btn:hover {
+    background-color: #495057;
+    border-radius: 5px;
+}
+
+.user-options {
+    display: flex;
+    align-items: center;
+}
+
+.user-options .btn {
+    color: white;
+    background-color: transparent;
+    border: none;
+    margin-left: 15px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.user-options .btn:hover {
+    background-color: #495057;
+    border-radius: 5px;
+}
+
+footer {
+    background: #343a40;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    width: 100%;
+}
+
+/* Modal Styles */
+.modal-header {
+    background: #343a40;
+    color: white;
+}
+
+.modal-footer {
+    background: #f8f9fa;
+}
+
+.modal-body {
+    font-size: 1rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        bottom: 0;
+    }
+
+    #sidebar.active {
+        left: 0;
+    }
+
+    #content {
+        margin-left: 0;
+        padding: 20px;
+        overflow-x: hidden;
+        /* Prevent horizontal scrolling */
+        width: 100%;
+    }
+
+    #toggle-btn {
+        font-size: 1.5rem;
+    }
+
+    #sidebar .nav-link {
+        padding: 12px 20px;
+        font-size: 1.1rem;
+    }
+
+    .user-options {
+        margin-left: auto;
+    }
+
+    footer {
+        position: relative;
+    }
+
+    .card-img-top {
+        width: 100%;
+        /* Make profile image responsive */
+        height: auto;
+    }
+}
+
+/* For larger screens (i.e., tablets or desktops) */
+@media (min-width: 769px) {
+    #sidebar {
+        width: 250px;
+    }
+}
+
+/* Modal Forms Styles */
+.modal-body form .form-group {
+    margin-bottom: 15px;
+}
+
+.modal-body form .form-control {
+    border-radius: 5px;
+    box-shadow: none;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.modal-body form button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.modal-body form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Edit Profile Modal */
+#editProfileModal .modal-header {
+    background-color: #343a40;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#editProfileModal .modal-body {
+    background-color: #f8f9fa;
+}
+
+#editProfileModal .modal-footer {
+    background-color: #f8f9fa;
+}
+
+#editProfileModal .modal-footer .btn {
+    border-radius: 5px;
+}
+
+/* Edit Address Modal */
+#editAddressModal .modal-header {
+    background-color: #343a40;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#editAddressModal .modal-body {
+    background-color: #f8f9fa;
+}
+
+#editAddressModal .modal-footer {
+    background-color: #f8f9fa;
+}
+
+#editAddressModal .modal-footer .btn {
+    border-radius: 5px;
+}
+
+/* Add Address Modal */
+#addAddressModal .modal-header {
+    background-color: #343a40;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#addAddressModal .modal-body {
+    background-color: #f8f9fa;
+}
+
+#addAddressModal .modal-footer {
+    background-color: #f8f9fa;
+}
+
+#addAddressModal .modal-footer .btn {
+    border-radius: 5px;
+}
+
+/* Address List Style */
+/* Address Section */
+#address {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#address h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#address .list-group-item {
+    position: relative;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+#address .list-group-item button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#address .list-group-item .btn-warning {
+    right: 10px;
+}
+
+#address .list-group-item .btn-danger {
+    right: 75px;
+}
+
+#address .list-group-item button:hover {
+    opacity: 0.9;
+}
+
+#address .btn-primary {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#address .btn-primary:hover {
+    background-color: #0056b3;
 }
 
 
+/* Settings Section */
+#settings .list-group-item {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+#settings button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#settings .btn-outline-warning {
+    border-color: #ffc107;
+    color: #ffc107;
+}
+
+#settings .btn-outline-warning:hover {
+    background-color: #ffc107;
+    color: white;
+}
+
+#settings .btn-danger {
+    border-color: #dc3545;
+    color: white;
+}
+
+#settings .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+#settings button:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+/* Profile Card Styling */
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 350px;
+    width: 100%;
+    background: #fff;
+    padding: 25px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    position: relative;
+}
+
+.profile-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 36%;
+    width: 100%;
+    background-color: #4070f4;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+/* Profile Image */
+.profile-card .image {
+    position: relative;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    background-color: #4070f4;
+    padding: 4px;
+    margin-top: 15px;
+}
+
+.profile-card .image .profile-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+/* Profile Info */
+.profile-card .text-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+    margin-top: 15px;
+}
+
+.profile-card .text-data .name {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.profile-card .text-data .email {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Social Media Buttons */
+.profile-card .media-buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.profile-card .media-buttons .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    margin: 0 8px;
+    background-color: #4070f4;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.profile-card .media-buttons .link:hover {
+    background-color: #0056b3;
+}
+
+/* Edit Profile Button */
+.profile-card .profile-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4070f4;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.profile-card .profile-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-card {
+        max-width: 90%;
+    }
+}
