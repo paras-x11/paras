@@ -1,53 +1,89 @@
 <!-- profile.html -->
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}Profile | Digital Society{% endblock %}
-{% block style%}
-<script>
-    /* Profile Styling */
-form {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  textarea {
-    resize: none;
-  }
-  
-</script>
-{%endblock style%}
+
 {% block content %}
 <div class="container">
-  <h1 class="mb-4">Your Profile</h1>
-
-  <form method="post">
-    {% csrf_token %}
-    <div class="row">
-      <div class="col-md-6">
-        <div class="mb-3">
-          <label for="name" class="form-label">Full Name</label>
-          <input type="text" class="form-control" id="name" name="name" value="{{ user.name }}">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="mb-3">
-          <label for="email" class="form-label">Email Address</label>
-          <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}">
-        </div>
-      </div>
+  <div class="profile-card">
+    <!-- Profile Image -->
+    <div class="image">
+      <img src="images/profile.jpg" alt="User Profile Image" class="profile-img" />
     </div>
 
-    <div class="mb-3">
-      <label for="address" class="form-label">Address</label>
-      <textarea class="form-control" id="address" name="address" rows="3">{{ user.address }}</textarea>
+    <!-- Profile Info -->
+    <div class="text-data">
+      <span class="name" id="profile-name">{{ request.user.username }}</span>
     </div>
 
-    <div class="mb-3">
-      <label for="phone" class="form-label">Phone Number</label>
-      <input type="text" class="form-control" id="phone" name="phone" value="{{ user.phone }}">
+    <div class="details">
+      <ul>
+        <li>
+          <i class="fas fa-envelope"></i>
+          <span id="profile-email">{{ request.user.email }}</span>
+        </li>
+        <li><i class="fas fa-phone"></i> +1 555-555-5555</li>
+        <li><i class="fas fa-link"></i> www.support@ezcart.com</li>
+        <li><i class="fas fa-map"></i> 123 Main Street, Anytown, USA</li>
+      </ul>
     </div>
 
-    <button type="submit" class="btn btn-primary">Save Changes</button>
-  </form>
+    <!-- Edit Profile Button -->
+    <button class="profile-btn" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+      Edit Profile
+    </button>
+  </div>
 </div>
+
+<!-- Edit Profile Modal -->
+<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ user.name }}" />
+          </div>
+          <br />
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" />
+          </div>
+          <br />
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" class="form-control" id="phone" name="phone" value="{{ user.phone }}" />
+          </div>
+          <br />
+
+          <div class="form-group">
+            <label for="address">Address</label>
+            <textarea class="form-control" id="address" name="address" rows="3">
+{{ user.address }}</textarea>
+          </div>
+          <br />
+
+          <div class="form-group">
+            <label for="profile_image">Profile Image</label>
+            <input type="file" class="form-control-file" id="profile_image" name="profile_image" />
+          </div>
+          <br />
+
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
