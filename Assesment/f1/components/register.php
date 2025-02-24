@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
     // Check if an image is uploaded
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         $image = $_FILES['image']['name'];
-        $image = filter_var($image, FILTER_SANITIZE_STRING);  // Clean the image name
+        $image = filter_var($image, FILTER_SANITIZE_FULL_SPECIAL_CHARS);  // Clean the image name
         $ext = pathinfo($image, PATHINFO_EXTENSION); // Get the file extension
         $rename = unique_id() . '.' . $ext;  // Generate a unique file name
 

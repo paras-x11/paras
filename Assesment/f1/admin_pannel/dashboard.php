@@ -30,11 +30,6 @@ $select_profile = $conn->prepare("SELECT * FROM `sellers` WHERE id = ?");
 $select_profile->execute([$seller_id]);
 $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
 
-// Get product count
-$select_products = $conn->prepare("SELECT * FROM `products` WHERE seller_id = ?");
-$select_products->execute([$seller_id]);
-$number_of_products = $select_products->rowCount();
-
 // Get order count
 $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE seller_id = ?");
 $select_orders->execute([$seller_id]);
@@ -120,18 +115,26 @@ $number_of_orders = $select_orders->rowCount();
             <!-- Unread Messages -->
             <div class="box">
                 <?php
-                $select_message = $conn->prepare("SELECT * FROM `message` WHERE receiver_id = ? AND status = 'unread'");
-                $select_message->execute([$seller_id]);
-                $number_of_msg = $select_message->rowCount();
+                $select_msg = $conn->prepare("SELECT COUNT(*) AS total_messages From `message` WHERE receiver_id = ?");
+                $select_msg->execute([$seller_id]);
+                $fetch_msg = $select_msg->fetch(PDO::FETCH_ASSOC);
+                $number_of_msg = $fetch_msg['total_messages'] ?? 0;
                 ?>
-                <h3><?= $number_of_msg; ?></h3>
+                <h3><?= htmlspecialchars($number_of_msg); ?></h3>
                 <p>Unread Messages</p>
                 <a href="admin_message.php" class="btn">See Messages</a>
             </div>
 
             <!-- Products Added -->
             <div class="box">
-                <h3><?= $number_of_products; ?></h3>
+                <?php
+                    // Get total product count
+                    $select_products = $conn->prepare("SELECT COUNT(*) AS total_products FROM `products` WHERE seller_id = ?");
+                    $select_products->execute([$seller_id]);
+                    $fetch_products = $select_products->fetch(PDO::FETCH_ASSOC);
+                    $number_of_products = $fetch_products['total_products'] ?? 0;
+                ?>
+                <h3><?= htmlspecialchars($number_of_products); ?></h3>
                 <p>Products Added</p>
                 <a href="add_product.php" class="btn">Add Product</a>
             </div>
@@ -139,12 +142,13 @@ $number_of_orders = $select_orders->rowCount();
             <!-- Active Products -->
             <div class="box">
                 <?php
-                // Fetch active products count for the seller
-                $select_active_products = $conn->prepare("SELECT * FROM `products` WHERE seller_id = ? AND status = 'active'");
-                $select_active_products->execute([$seller_id]);
-                $number_of_active_products = $select_active_products->rowCount();
+                    // Get active product count
+                    $select_active_products = $conn->prepare("SELECT COUNT(*) AS total_active FROM `products` WHERE seller_id = ? AND status = 'active'");
+                    $select_active_products->execute([$seller_id]);
+                    $fetch_active_products = $select_active_products->fetch(PDO::FETCH_ASSOC);
+                    $number_of_active_products = $fetch_active_products['total_active'] ?? 0;
                 ?>
-                <h3><?= $number_of_active_products; ?></h3>
+                <h3><?= htmlspecialchars($number_of_active_products); ?></h3>
                 <p>Active Products</p>
                 <a href="view_product.php" class="btn">View Active Products</a>
             </div>
@@ -152,11 +156,13 @@ $number_of_orders = $select_orders->rowCount();
             <!-- Deactive Products -->
             <div class="box">
                 <?php
-                $select_deactive_products = $conn->prepare("SELECT * FROM `products` WHERE seller_id = ? AND status = 'inactive'");
-                $select_deactive_products->execute([$seller_id]);
-                $number_of_deactive_products = $select_deactive_products->rowCount();
+                    // Get inactive product count
+                    $select_deactive_products = $conn->prepare("SELECT COUNT(*) AS total_inactive FROM `products` WHERE seller_id = ? AND status = 'inactive'");
+                    $select_deactive_products->execute([$seller_id]);
+                    $fetch_deactive_products = $select_deactive_products->fetch(PDO::FETCH_ASSOC);
+                    $number_of_deactive_products = $fetch_deactive_products['total_inactive'] ?? 0;
                 ?>
-                <h3><?= $number_of_deactive_products; ?></h3>
+                <h3><?= htmlspecialchars($number_of_deactive_products); ?></h3>
                 <p>Deactive Products</p>
                 <a href="view_product.php" class="btn">View Deactive Products</a>
             </div>

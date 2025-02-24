@@ -12,7 +12,7 @@ if (isset($_SESSION['user_id'])) {
     $user = $select_user->fetch(PDO::FETCH_ASSOC);
     
     if ($user['role'] == 'user') {
-        header('Location: ../user_pannel/product_list.php');
+        header('Location: ../user_pannel/shop.php');
     } else {
         header('Location: ../admin_pannel/dashboard.php');
     }
@@ -28,7 +28,7 @@ if (isset($_SESSION['seller_id'])) {
     if ($seller['role'] == 'seller') {
         header('Location: ../admin_pannel/dashboard.php');
     } else {
-        header('Location: ../user_pannel/product_list.php');
+        header('Location: ../user_pannel/shop.php');
     }
     exit();
 }
@@ -57,7 +57,7 @@ if (isset($_POST['submit'])) {
             setcookie('user_id', $user['id'], time() + (86400 * 30), "/");
 
             // Redirect based on role
-            header('Location: ../user_pannel/product_list.php');
+            header('Location: ../user_pannel/shop.php');
             exit();
         } else {
             $warning_msg[] = 'Incorrect password.';
@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
             if ($seller['role'] == 'seller') {
                 header('Location: ../admin_pannel/dashboard.php');
             } else {
-                header('Location: ../user_pannel/product_list.php');
+                header('Location: ../user_pannel/shop.php');
             }
             exit();
         } else {

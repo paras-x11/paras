@@ -153,7 +153,7 @@ $inactive_products = $select_inactive_products->fetchAll(PDO::FETCH_ASSOC);
                             <p><?= htmlspecialchars($product['description'] ?? 'No description available'); ?></p>
                             <p>Price: $<?= htmlspecialchars($product['price'] ?? 0); ?></p>
                             <p>Status: <?= htmlspecialchars($product['status'] ?? 'Not Available'); ?></p>
-                            <a href="update_product.php?id=<?= urlencode($product['id']); ?>" class="btn">Update</a>
+                            <a href="update_product.php?product_id=<?= urlencode($product['id']); ?>" class="btn">Update</a>
                             <a href="change_status.php?id=<?= urlencode($product['id']); ?>&status=inactive" class="btn" onclick="return confirm('Are you sure you want to deactivate this product?');">Deactivate</a>
                         </div>
                     <?php endforeach; ?>
@@ -174,7 +174,7 @@ $inactive_products = $select_inactive_products->fetchAll(PDO::FETCH_ASSOC);
                             <p><?= htmlspecialchars($product['description'] ?? 'No description available'); ?></p>
                             <p>Price: $<?= htmlspecialchars($product['price'] ?? 0); ?></p>
                             <p>Status: <?= htmlspecialchars($product['status'] ?? 'Not Available'); ?></p>
-                            <a href="update_product.php?id=<?= urlencode($product['id']); ?>" class="btn">Update</a>
+                            <a href="update_product.php?product_id=<?= urlencode($product['id']); ?>" class="btn">Update</a>
                             <a href="change_status.php?id=<?= urlencode($product['id']); ?>&status=active" class="btn" onclick="return confirm('Are you sure you want to activate this product?');">Activate</a>
                         </div>
                     <?php endforeach; ?>

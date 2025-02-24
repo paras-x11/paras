@@ -242,7 +242,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <div class="profile-action-links">
-            <a href="<?= $user_type == 'seller' ? '../admin_pannel/dashboard.php' : '../user_pannel/product_list.php' ?>" class="action-btn">Back to Home</a>
+            <a href="<?= $user_type == 'seller' ? '../admin_pannel/dashboard.php' : '../user_pannel/shop.php' ?>" class="action-btn">Back to Home</a>
             <a href="../components/logout.php" class="action-btn">Logout</a>
         </div>
 
