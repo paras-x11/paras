@@ -23,10 +23,14 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', views.index, name="index"),
     path('index', views.index, name="index"),
+    path('doctors', views.doctors, name="doctors"),
     path('about', views.about, name="about"),
     path('services', views.services, name="services"),
     path('contact', views.contact, name="contact"),
     path('appointment', views.appointment, name="appointment"),
+    path('testimonial', views.testimonial, name="testimonial"),
+    path('signup_user', views.signup_user, name="signup_user"),
+    path('login_user', views.login_user, name="login_user"),
 ]
 
 if settings.DEBUG:
