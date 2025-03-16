@@ -1,5 +1,5 @@
 """
-URL configuration for employee_api project.
+URL configuration for Library_api project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -15,11 +15,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from api.views import *
 
-
 urlpatterns = [
-    path("employees", getEmployees, name="employees"),
-    path("addEmployees", addEmployees, name="employees")
+    path('getBooks', getBooks, name="getbooks"),
+    path('addBook', addBook, name="addBook"),
+    path('updateBook/<id>', updateBook, name="updateBook"),
+    path('deleteBook/<id>', deleteBook, name="deleteBook"),
 ]

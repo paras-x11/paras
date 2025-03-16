@@ -1,5 +1,5 @@
 """
-URL configuration for student_api project.
+URL configuration for employee_api project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -15,13 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from api.views import *
 
-urlpatterns = [
-    path('getStudents', getStudents, name="students" ),
-    path('addStudent', addStudent, name="students" ),
-    path('updateStudent', updateStudent, name="students"),
-    path('deleteStudent', deleteStudent, name="students")
 
+urlpatterns = [
+    path("employees", getEmployees, name="getEmployees"),
+    path("addEmployee", addEmployee, name="addEmployee"),
+    path("updateEmployee/<id>", updateEmployee, name="updateEmployee"),
+    path("deleteEmployee/<id>", deleteEmployee, name="deleteEmployee"),
 ]
