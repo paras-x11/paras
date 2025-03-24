@@ -46,3 +46,32 @@ def deleteBook(request, id):
         return Response({'status':'200', 'data':s_book.data, 'message':"Book Deleted"})
     except Exception as e:
         return Response({'status':'202', 'errors':str(e), 'message':"Something Went Wrong"})
+    
+@api_view(['GET'])
+def getBook(request, id):
+    try:
+        book = Book.objects.get(pk=id)
+        s_book = BookSerializer(book)
+        return Response({'status':'200', 'data':s_book.data, 'message':f"Book Found: {book}"})
+    except Exception as e:
+        return Response({'status':'202', 'errors':str(e), 'message':"Something Went Wrong"})
+
+@api_view(['GET'])
+def getBookByAuthor(request, a_id):
+    try:
+        author = Author.objects.get(pk=a_id)
+        books = Book.objects.filter(author=author)
+        s_books = BookSerializer(books, many=True)
+        return Response({'status':'200', 'data':s_books.data, 'message':""})
+    except Exception as e:
+        return Response({'status':'202', 'errors':str(e), 'message':"Something Went Wrong"})
+
+@api_view(['GET'])
+def getBookByPublication(request, p_id):
+    try:
+        publication = Publication.objects.get(pk=p_id)
+        books = Book.objects.filter(publication=publication)
+        s_books = BookSerializer(books, many=True)
+        return Response({'status':'200', 'data':s_books.data, 'message':""})
+    except Exception as e:
+        return Response({'status':'202', 'errors':str(e), 'message':"Something Went Wrong"})

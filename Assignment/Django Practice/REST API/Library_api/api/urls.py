@@ -20,7 +20,10 @@ from api.views import *
 
 urlpatterns = [
     path('getBooks', getBooks, name="getbooks"),
+    path('getBook/<id>', getBook, name="getbook"),
     path('addBook', addBook, name="addBook"),
     path('updateBook/<id>', updateBook, name="updateBook"),
     path('deleteBook/<id>', deleteBook, name="deleteBook"),
+    path('getBookByAuthor/<a_id>', getBookByAuthor, name="getBookByAuthor"),
+    path('getBookByPublication/<p_id>', getBookByPublication, name="getBookByPublication"),
 ]

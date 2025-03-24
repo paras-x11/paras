@@ -71,7 +71,7 @@ class Order(models.Model):
     def subtotal(self):
         return sum(item.sub_total() for item in self.order_items.all())  # Dynamic subtotal calculation
     
-# OrderItem Model (new)
+# OrderItem Model 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="order_items")
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
