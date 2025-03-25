@@ -3,8 +3,17 @@ from django.urls import path
 from api.views import *
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
+    # Authentication and User Endpoints
+    path('getUsers/', getUsers, name='getUsers'),
+    path('registerUser/', registerUser, name='registerUser'),
+    path('loginUser/', obtain_auth_token, name="loginUser"),
+    path('logout', logoutUser, name='logoutUser'),
+    path('getUserProfile', getUserProfile, name='getUserProfile'),
+    path('updateUserProfile', updateUserProfile, name='updateUserProfile'),
+
     # Category Endpoints
     path('getCategories', getCategories, name='getCategories'),
     path('getCategory/<int:id>/', getCategory, name='getCategory'),
@@ -34,13 +43,6 @@ urlpatterns = [
     path('getOrder/<int:id>/', getOrder, name='getOrder'),
     # path('updateOrderStatus/<int:id>/', updateOrderStatus, name='updateOrderStatus'),
     # path('cancelOrder/<int:id>/', cancelOrder, name='cancelOrder'),
-
-    # Authentication and User Endpoints
-    # path('register', registerUser, name='registerUser'),
-    # path('login', loginUser, name='loginUser'),
-    # path('logout', logoutUser, name='logoutUser'),
-    # path('getUserProfile', getUserProfile, name='getUserProfile'),
-    # path('updateUserProfile', updateUserProfile, name='updateUserProfile'),
 
     # Search and Filter Endpoints
     # path('searchProducts', searchProducts, name='searchProducts'),

@@ -12,6 +12,66 @@ from api.models import *
 
 # Create your views here.
 
+@api_view(['POST'])
+def registerUser(request):
+    try:
+        s_user = UserSerializer(data=request.data)
+        if not s_user.is_valid():
+            return Response({"data_errors": s_user.errors}, status=status.HTTP_400_BAD_REQUEST)
+        user = s_user.save()
+        token, _ = Token.objects.get_or_create(user=user)
+
+        return Response({"message": "User registered successfully!","token": token.key}, status=status.HTTP_201_CREATED)
+
+    except Exception as e:
+        return Response({'errors': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+@api_view(['GET'])
+@permission_classes([IsAdminUser])
+def getUsers(request):
+    try:
+        users = User.objects.all()
+        s_users = UserSerializer(users, many=True)
+        return Response({"Users": s_users.data}, status=status.HTTP_200_OK)
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def logoutUser(request):
+    try:
+        request.user.auth_token.delete()  # Delete the token
+        return Response({"message": "Successfully logged out."}, status=status.HTTP_200_OK)
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getUserProfile(request):
+    try:
+        user_data = UserSerializer(request.user).data
+        return Response({"User": user_data}, status=status.HTTP_200_OK)
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
+def updateUserProfile(request):
+    try:
+        s_user = UserSerializer(request.user, data=request.data, partial=True)
+
+        if not s_user.is_valid():
+            return Response({"errors": s_user.errors}, status=status.HTTP_400_BAD_REQUEST)
+
+        s_user.save()  
+        return Response({ "User": s_user.data, "message": "Profile updated successfully!" }, status=status.HTTP_200_OK)
+
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+
 # < ================================== > CATEGORIES < ==================================================================================
 @api_view(['GET'])
 def getCategories(request):

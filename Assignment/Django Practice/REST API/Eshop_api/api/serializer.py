@@ -1,11 +1,20 @@
 
 from rest_framework import serializers
 from api.models import *
+from rest_framework.authtoken.models import Token
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email']
+        fields = ['id', 'username', 'email', 'password'] 
+        extra_kwargs = {'password': {'write_only': True}} 
+
+    def create(self, validated_data):
+        user = User.objects.create(username = validated_data['username'], email = validated_data['email'])
+        user.set_password(validated_data['password'])
+        user.save()
+        Token.objects.create(user=user)
+        return user
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -48,7 +57,7 @@ class CartItemSerializer(serializers.ModelSerializer):
         resp['product'] = ProductSerializer(instance.product).data
         return resp
 
-# OrderItem Serializer (Includes product details, excludes full Order object)
+
 class OrderItemSerializer(serializers.ModelSerializer):
     product = ProductSerializer(read_only=True)  # Nested Product Data (no recursion here)
 
@@ -56,21 +65,19 @@ class OrderItemSerializer(serializers.ModelSerializer):
         model = OrderItem
         fields = ['id', 'product', 'qty', 'sub_total']
 
-    # Custom method to include the subtotal for each item
     def get_sub_total(self, obj):
         return obj.sub_total()
 
-# Main Order Serializer (Includes order items but does NOT serialize itself recursively)
+
 class OrderSerializer(serializers.ModelSerializer):
     order_items = OrderItemSerializer(many=True, read_only=True)  # Avoids recursion
-    user = UserSerializer(read_only=True)  # Includes user details
-    total_price = serializers.SerializerMethodField()  # Dynamic price calculation
+    user = UserSerializer(read_only=True) 
+    total_price = serializers.SerializerMethodField()  
 
     class Meta:
         model = Order
         fields = ['id', 'user', 'total_price', 'payment_type', 'shipping_address', 'created_at', 'order_items']
 
-    # Dynamically calculate total price using the model method
     def get_total_price(self, obj):
         return obj.total_order_price()
 
