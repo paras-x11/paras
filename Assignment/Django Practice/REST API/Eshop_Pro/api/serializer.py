@@ -17,7 +17,41 @@ class UserSerializer(serializers.ModelSerializer):
         token, _ = Token.objects.get_or_create(user=user)               # Ensure only one token per user
         return user
 
-class Categoryserializer(serializers.ModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = "__all__"
+
+class ProductSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Product
+        fields = "__all__"
+
+    def to_representation(self, instance):
+        resp = super().to_representation(instance)
+        resp['category'] = CategorySerializer(instance.category).data
+        return resp
+
+class CartSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Cart
+        fields = "__all__"
+
+    def to_representation(self, instance):
+        resp = super().to_representation(instance)
+        resp['user'] = UserSerializer(instance.user).data
+        return resp
+    
+class CartItemSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = CartItem
+        fields = "__all__"
+    
+    def to_representation(self, instance):
+        resp = super().to_representation(instance)
+        resp['cart'] = CartSerializer(instance.cart).data
+        resp['product'] = ProductSerializer(instance.product).data
+        return resp 
