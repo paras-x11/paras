@@ -13,4 +13,6 @@ urlpatterns = [
     path("products/", ProductAPI.as_view()),
     path("cart/", CartAPI.as_view()),
     path("cart/items/", CartItemAPI.as_view()),
+    path("orders/", OrderAPI.as_view()),
+    path("order/items", OrderItemAPI.as_view()),
 ]

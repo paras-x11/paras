@@ -227,3 +227,91 @@ class CartItemAPI(APIView):
 
         except Exception as e:
             return Response({"error": str(e)}, status=500)
+        
+
+class OrderAPI(APIView):
+    authentication_classes = [SessionAuthentication, TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        try:
+            order_id = request.query_params.get('id')
+            if order_id:
+                order = Order.objects.get(pk=order_id)
+                s_order = OrderSerializer(order)
+                return Response({"order": s_order.data}, status=status.HTTP_200_OK)
+            
+            orders = Order.objects.filter(user=request.user)
+            if not orders.exists():
+                return Response({'message': 'No Orders Yet!'}, status=status.HTTP_200_OK)
+            
+            s_orders = OrderSerializer(orders, many=True)
+            return Response({"orders": s_orders.data}, status=status.HTTP_200_OK)
+        except Exception as e:
+             return Response({'errors': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+    def post(self, request):
+        try:
+            cart, created = Cart.objects.get_or_create(user=request.user)
+
+            if cart.cart_items.count() == 0:
+                return Response({"message":"Cart is empty!"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            
+            payment_id = request.data.get('payment_id', None)
+            payment_type = request.data.get('payment_type', 'cash on delivery')
+            shipping_address_id = request.data.get('shipping_address', 1)            
+            try:
+                shipping_address = Address.objects.get(id=shipping_address_id)
+            except Address.DoesNotExist:
+                return Response({"error": "Invalid shipping address."}, status=status.HTTP_404_NOT_FOUND)
+            
+            total_price = cart.total_cart_price()
+
+            order = Order.objects.create(
+                user=request.user, 
+                total_price=total_price, 
+                payment_id=payment_id, 
+                payment_type=payment_type, 
+                shipping_address=shipping_address)
+
+            for cart_item in cart.cart_items.all():
+                OrderItem.objects.create(
+                    order=order, 
+                    product=cart_item.product, 
+                    qty=cart_item.qty,
+                    price_at_purchase=cart_item.product.productPrice)
+            
+            cart.cart_items.all().delete()
+
+            s_order = OrderSerializer(order)
+            return Response({ "message": "Order placed successfully", "data": s_order.data }, status=status.HTTP_201_CREATED)
+        
+        except Exception as e:
+             return Response({'errors': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+class OrderItemAPI(APIView):
+    authentication_classes = [SessionAuthentication, TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        try:
+            order_id = request.query_params.get('id')
+
+            if order_id:
+                try:
+                    order = Order.objects.get(pk=order_id, user=request.user)
+                except Order.DoesNotExist:
+                    return Response({"error": "Order not found."}, status=status.HTTP_404_NOT_FOUND)
+
+                order_items = OrderItem.objects.filter(order=order)
+            else:
+                order_items = OrderItem.objects.filter(order__user = request.user)
+            if not order_items.exists():
+                return Response({"message": "No Order Items found."}, status=status.HTTP_200_OK)
+
+            s_order_items = OrderItemSerializer(order_items, many=True)
+            return Response({"order_items": s_order_items.data}, status=status.HTTP_200_OK)
+
+        except Exception as e:
+            return Response({'errors': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
