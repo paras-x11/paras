@@ -38,9 +38,10 @@ urlpatterns = [
     path('clearCart', clearCart, name='clearCart'),
 
     # Order Endpoints
-    path('getOrders', getOrders, name='getOrders'),
+    path('getOrders', getOrders, name='getOrders'),                 # for admin
+    path('getOrder/<int:id>/', getOrder, name='getOrder'),          # for admin
     path('createOrder', createOrder, name='createOrder'),
-    path('getOrder/<int:id>/', getOrder, name='getOrder'),
+    path('getOrdersByUser', getOrdersByUser, name='getOrdersByUser'),
     # path('updateOrderStatus/<int:id>/', updateOrderStatus, name='updateOrderStatus'),
     # path('cancelOrder/<int:id>/', cancelOrder, name='cancelOrder'),
 

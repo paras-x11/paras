@@ -179,7 +179,7 @@ def deleteProduct(request, id):
 @permission_classes([IsAuthenticated])
 def getCart(request):
     try:
-        cart = get_object_or_404(Cart, user=request.user)
+        cart, create = Cart.objects.get_or_create(user=request.user)
         s_cart = CartSerializer(cart)
         return Response({ 'cart': s_cart.data }, status=status.HTTP_200_OK)
     except Cart.DoesNotExist:
@@ -271,20 +271,29 @@ def clearCart(request):
 # < ================================== > ORDERS < ==================================================================================
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated, IsAdminUser])
 def getOrders(request):
-    orders = Order.objects.filter(user=request.user)
+    orders = Order.objects.all()
     if not orders.exists():
             return Response({'message': 'No Orders Yet!'}, status=status.HTTP_200_OK)
     s_orders = OrderSerializer(orders, many=True)
     return Response(s_orders.data)   
            
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated, IsAdminUser])
 def getOrder(request, id):
     order =get_object_or_404(Order, pk=id)
     s_order = OrderSerializer(order)
-    return Response(s_order.data)              
+    return Response(s_order.data)    
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getOrdersByUser(request):
+    orders = Order.objects.filter(user=request.user)
+    if not orders.exists():
+            return Response({'message': 'No Orders Yet!'}, status=status.HTTP_200_OK)
+    s_orders = OrderSerializer(orders, many=True)
+    return Response(s_orders.data)  
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])

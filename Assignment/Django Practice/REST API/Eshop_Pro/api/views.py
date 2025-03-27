@@ -4,9 +4,10 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication
-from rest_framework import status
+from rest_framework import generics, status
 from api.models import *
 from api.serializer import *
+
 
 # Create your views here.
 @api_view(['GET'])
@@ -237,7 +238,7 @@ class OrderAPI(APIView):
         try:
             order_id = request.query_params.get('id')
             if order_id:
-                order = Order.objects.get(pk=order_id)
+                order = Order.objects.get(pk=order_id, user=request.user)
                 s_order = OrderSerializer(order)
                 return Response({"order": s_order.data}, status=status.HTTP_200_OK)
             
@@ -289,6 +290,24 @@ class OrderAPI(APIView):
         except Exception as e:
              return Response({'errors': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+
+class OrderAdminAPI(generics.ListCreateAPIView):
+    authentication_classes = [SessionAuthentication, TokenAuthentication]
+    permission_classes = [IsAdminUser]
+
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+    def get(self, request, *args, **kwargs):                             # alternate: id thi get krva mate a 'generics.RetrieveAPIView'use kri nvo class banvo pde lookup_field use krine
+        # If 'id' is provided in the URL, retrieve a specific order
+        order_id = kwargs.get('id')
+        if order_id:
+            order = get_object_or_404(Order, id=order_id)
+            serializer = self.get_serializer(order)
+            return Response(serializer.data)
+
+        # Otherwise, return the full list of orders
+        return super().get(request, *args, **kwargs)
 
 class OrderItemAPI(APIView):
     authentication_classes = [SessionAuthentication, TokenAuthentication]

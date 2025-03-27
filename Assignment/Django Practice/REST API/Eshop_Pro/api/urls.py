@@ -15,4 +15,6 @@ urlpatterns = [
     path("cart/items/", CartItemAPI.as_view()),
     path("orders/", OrderAPI.as_view()),
     path("order/items", OrderItemAPI.as_view()),
+    path("orders/all/", OrderAdminAPI.as_view()),                   # for admin
+    path("orders/all/<int:id>/", OrderAdminAPI.as_view()),          # for admin
 ]
