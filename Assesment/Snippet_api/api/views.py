@@ -118,3 +118,69 @@ def deleteSnippet(request, id):
         
     except Exception as e:
         return Response({"errors": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def postComment(request, s_id):
+    try:
+        snippet = get_object_or_404(Snippet, pk=s_id)
+        s_comment = CommentSerializer(data=request.data)
+        if not s_comment.is_valid():
+            return Response({"status":"400", "errors":s_comment.errors, "message":"Validation failed!, check input!"}, status=status.HTTP_400_BAD_REQUEST)
+        s_comment.save(user=request.user, snippet=snippet)
+        return Response({"message":f"Comment Added Successfully on {snippet.id}: {snippet}", "data":s_comment.data}, status=status.HTTP_201_CREATED)
+    except Exception as e:
+        return Response({"errors": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def getCommentsBySnippet(request, s_id):
+    try:
+        snippet = get_object_or_404(Snippet, pk=s_id)
+        comments = Comment.objects.filter(snippet=snippet)
+        s_comments = CommentSerializer(comments, many=True)
+        return Response({"message":f"Comments on {snippet.id}: {snippet}", "data":s_comments.data}, status=status.HTTP_201_CREATED)
+    except Exception as e:
+        return Response({"errors": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)   
+    
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def getCommentsByUser(request):
+    try:
+        comments = Comment.objects.filter(user=request.user)
+        s_comments = CommentSerializer(comments, many=True)
+        return Response({"message":f"Comments of {request.user}", "data":s_comments.data}, status=status.HTTP_201_CREATED)
+    except Exception as e:
+        return Response({"errors": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)   
+    
+@api_view(["PATCH"])
+@permission_classes([IsAuthenticated])
+def updateComment(request, c_id):
+    try:
+        comment = get_object_or_404(Comment, pk=c_id)
+        snippet = comment.snippet
+        s_comment = CommentSerializer(comment, data=request.data)
+        if not s_comment.is_valid():
+            return Response({"status":"400", "errors":s_comment.errors, "message":"Validation failed!, check input!"}, status=status.HTTP_400_BAD_REQUEST)
+        s_comment.save()
+        return Response({"message":f"Comment Updated Successfully on {snippet.id}: {snippet}", "data":s_comment.data}, status=status.HTTP_201_CREATED)
+    except Exception as e:
+        return Response({"errors": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+@api_view(['DELETE'])
+# @permission_classes([IsAuthenticated])
+def deleteComment(request, c_id): 
+    try:
+        comment = get_object_or_404(Comment, pk=c_id)
+        snippet = comment.snippet
+        if request.user != comment.user and not request.user.is_superuser:
+            return Response({"message": "You do not have permission to delete this snippet."}, status=status.HTTP_403_FORBIDDEN)
+        
+        s_comment = CommentSerializer(comment)
+        comment.delete()
+        return Response({"message":f"Comment Deleted Successfully on {snippet.id}: {snippet}", "data":s_comment.data}, status=status.HTTP_201_CREATED)
+    except Exception as e:
+        return Response({"errors": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    

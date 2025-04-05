@@ -39,7 +39,11 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = '__all__'
-
+        extra_kwargs = {
+            'user': {'read_only': True},
+            'snippet': {'read_only': True},
+        }
+        
     def to_representation(self, instance):
         resp = super().to_representation(instance)
         resp['user'] = UserSerializer(instance.user).data

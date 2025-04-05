@@ -20,4 +20,4 @@ class Comment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Comment on {self.snippet.title}"
+        return f"Comment: {self.text}, on {self.snippet.title}"

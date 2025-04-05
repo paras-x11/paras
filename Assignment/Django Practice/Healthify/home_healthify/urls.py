@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from home import views
+from home_healthify import views
 from django.conf import settings
 from django.conf.urls.static import static
 
