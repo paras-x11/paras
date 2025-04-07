@@ -18,17 +18,32 @@ class SnippetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Snippet
         fields = "__all__"
+        read_only_fields = ['user']
+
+    def create(self, validated_data):
+        request = self.context.get('request')
+        if request and request.user:
+            validated_data['user'] = request.user
+        else:
+            raise serializers.ValidationError("User not found in context.")
+        return super().create(validated_data)
 
     def to_representation(self, instance):
+        # print("Instance in to_representation:", instance)  # Debug: Check instance
         resp = super().to_representation(instance)
         resp['user'] = UserSerializer(instance.user).data
+        # print("Serialized Response:", resp)  # Debug: Output serialized data
         return resp
 
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = '__all__'
-
+        extra_kwargs = {
+            'user': {'read_only': True},
+            'snippet': {'read_only': True},
+        }
+        
     def to_representation(self, instance):
         resp = super().to_representation(instance)
         resp['user'] = UserSerializer(instance.user).data
