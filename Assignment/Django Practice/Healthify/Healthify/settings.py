@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'home_healthify',
+    'home',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -74,10 +74,21 @@ WSGI_APPLICATION = 'Healthify.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'default' : {
+        'ENGINE' : 'django.db.backends.mysql',
+		'NAME': 'healthify',
+		'USER': 'root',
+		'PASSWORD': 'root1',
+		'HOST':'localhost',
+		'PORT':'3306',
     }
 }
 
@@ -127,3 +138,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/img/'
 MEDIA_ROOT =  BASE_DIR / "static/img" 
+
+
+AUTH_USER_MODEL = 'home.User'

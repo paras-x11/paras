@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}Doctor Profile {% endblock title %}
+
+{% block css %}
+  <style>
+    .container{
+      padding: 40px;
+      /* background-color: #f0f8ff; */
+    }
+
+    .doctor-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 10px;
+      background-color: #f0f0f0;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/387/387561.png');
+      background-size: cover;
+      background-position: center;
+    }
+    .nav-tabs .nav-link.active {
+      color: #007bff !important;
+      font-weight: 500;
+    }
+  </style>
+{% endblock css %}
+
+
+{% block body %}
+
+<div class="container mt-5 mb-4">
+  <div class="row g-4 align-items-center">
+    <div class="col-md-2 text-center">
+      <div class="doctor-img mx-auto"></div>
+    </div>
+    <div class="col-md-7">
+      <h3 class="mb-1">Dr. Craig Booth, DDS</h3>
+      <p class="text-muted mb-2">Dentistry</p>
+      <p>Dr. Craig Booth, DDS is a dentistry practitioner in Unalaska, AK.</p>
+      <div>
+        <strong>Iliuliuk Family & Health Services</strong><br>
+        34 Lavelle Ct, Unalaska, AK 99685
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <button class="btn btn-outline-danger mb-2"><i class="fas fa-phone-alt me-2"></i>(907) 581-1202</button>
+      <div>
+        <button class="btn btn-outline-secondary btn-sm me-2"><i class="fa-regular fa-star"></i> Review</button>
+        <button class="btn btn-outline-secondary btn-sm"><i class="fa-regular fa-heart"></i> Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <ul class="nav nav-tabs mt-4" id="profileTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#overview">Overview</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#experience">Experience</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#insurance">Insurance</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#ratings">Ratings</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#about">About Me</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#location">Locations</button>
+    </li>
+  </ul>
+
+  <!-- Tab Content -->
+  <div class="tab-content p-3 border border-top-0 rounded-bottom shadow-sm" id="profileTabContent">
+    <div class="tab-pane fade show active" id="overview">
+      <h5>Overview</h5>
+      <p>This doctor specializes in general and cosmetic dentistry. Experienced in patient care and oral health improvement.</p>
+    </div>
+    <div class="tab-pane fade" id="experience">
+      <h5>Experience</h5>
+      <p>Practicing for over 10 years in various dental institutions.</p>
+    </div>
+    <div class="tab-pane fade" id="insurance">
+      <h5>Insurance Accepted</h5>
+      <ul>
+        <li>Delta Dental</li>
+        <li>MetLife</li>
+        <li>UnitedHealthcare</li>
+      </ul>
+    </div>
+    <div class="tab-pane fade" id="ratings">
+      <h5>Ratings & Reviews</h5>
+      <p>No reviews yet. Be the first to leave a review.</p>
+    </div>
+    <div class="tab-pane fade" id="about">
+      <h5>About Me</h5>
+      <p>Enthusiastic about helping patients with their dental health and ensuring a comfortable treatment experience.</p>
+    </div>
+    <div class="tab-pane fade" id="location">
+      <h5>Clinic Location</h5>
+      <p>Iliuliuk Family & Health Services, 34 Lavelle Ct, Unalaska, AK 99685</p>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

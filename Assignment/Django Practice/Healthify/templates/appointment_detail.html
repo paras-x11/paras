@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block title %}Appointment Detail{% endblock title %}
+
+{% block css %}
+<style>
+    .appointment_detail_body {
+        font-family: 'Open Sans', sans-serif;
+        margin: 0;
+        padding: 0px;
+        background: #f0f8ff; /* Do not change */
+    }
+
+    .ap_header {
+        background-color: #0077b6;
+        color: white;
+        padding: 20px 40px;
+        text-align: center;
+    }
+
+    .ap_header h1 {
+        margin: 0;
+        font-size: 2.2rem;
+    }
+
+    .ap_container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-title {
+        border-left: 4px solid #0077b6;
+        padding-left: 12px;
+        margin-bottom: 20px;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #023047;
+    }
+
+    .info-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .info-card {
+        flex: 1 1 300px;
+        padding: 20px;
+        background: #f9f9f9;
+        border-left: 4px solid #00a8e8;
+        border-radius: 8px;
+    }
+
+    .info-card h3 {
+        margin-top: 0;
+        color: #023047;
+    }
+
+    .info-card p {
+        margin: 10px 0 0;
+        color: #495057;
+    }
+
+    .contact-form {
+        margin-top: 30px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+    }
+
+    .contact-form button {
+        padding: 10px 20px;
+        background-color: #0096c7;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+        background-color: #0077b6;
+    }
+
+    @media (max-width: 768px) {
+        .info-grid {
+            flex-direction: column;
+        }
+
+        .ap_header h1 {
+            font-size: 1.6rem;
+        }
+    }
+</style>
+{% endblock css %}
+
+{% block body %}
+<div class="appointment_detail_body">
+    <div class="ap_header">
+        <h1>Appointment Detail</h1>
+    </div>
+
+    <div class="ap_container">
+        <div class="section-title">Welcome to Healthify</div>
+        <p>Thank you for choosing us! Here's all the essential information related to your appointment.</p>
+
+        <div class="section-title">Clinic Info</div>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Opening Hours</h3>
+                <p>Mon - Fri: 8:00 AM - 6:00 PM</p>
+                <p>Sat: 9:00 AM - 2:00 PM</p>
+                <p>Sun: Closed</p>
+            </div>
+            <div class="info-card">
+                <h3>Doctor Assigned</h3>
+                <p>Dr. Samuel Richardson</p>
+                <p>Specialist: Cardiology</p>
+                <p>Contact: +1 404-447-6013</p>
+            </div>
+            <div class="info-card">
+                <h3>Appointment Info</h3>
+                <p>Date: 19 Jan 2018</p>
+                <p>Status: <strong style="color: #28a745;">Approved</strong></p>
+                <p>Location: 71 Pilgrim Ave, MD</p>
+            </div>
+        </div>
+
+        <div class="section-title">Books & Records</div>
+        <p>Patient files and health records will be accessible during the appointment. Please carry your ID proof and insurance card.</p>
+
+        <div class="section-title">Contact Us</div>
+        <div class="contact-form">
+            <form>
+                <input type="text" placeholder="Your Full Name" required>
+                <input type="email" placeholder="Your Email Address" required>
+                <textarea rows="5" placeholder="Your Message / Query"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %} User Profile {% endblock title %} 
+
+{% block css %}
+    <style>
+        .profile_body {
+            background-color: #f0f8ff; /* AliceBlue background */
+            color: #333;
+            padding: 40px
+        }
+        .profile-header {
+            background-color: #007bff; /* Bootstrap primary blue */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .profile-content {
+            margin-top: 20px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .list-group-item {
+            background-color: transparent;
+            border: none;
+        }
+    </style>
+{% endblock css %}
+
+{% block body %}
+<div class="profile_body">
+    <div class="container">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <h1 id="userFullName">User Full Name</h1>
+            <p id="userRole">User Role</p>
+        </div>
+
+        <!-- Profile Content -->
+        <div class="row profile-content">
+            <!-- Basic Information -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        Basic Information
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Email:</strong> <span id="userEmail">user@example.com</span></li>
+                        <li class="list-group-item"><strong>Phone:</strong> <span id="userPhone">+1234567890</span></li>
+                        <li class="list-group-item"><strong>Address:</strong> <span id="userAddress">123 Main St, City, Country</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="col-md-6">
+                <div class="card" id="doctorInfo" style="display: none;">
+                    <div class="card-header bg-primary text-white">
+                        Doctor Information
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Specialization:</strong> <span id="doctorSpecialization">Cardiology</span></li>
+                        <li class="list-group-item"><strong>Gender:</strong> <span id="doctorGender">Male</span></li>
+                        <li class="list-group-item"><strong>Bio:</strong> <span id="doctorBio">Experienced cardiologist with over 10 years in practice.</span></li>
+                    </ul>
+                </div>
+                <div class="card" id="patientInfo" style="display: none;">
+                    <div class="card-header bg-primary text-white">
+                        Patient Information
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Age:</strong> <span id="patientAge">30</span></li>
+                        <li class="list-group-item"><strong>Gender:</strong> <span id="patientGender">Female</span></li>
+                        <li class="list-group-item"><strong>Medical History:</strong> <span id="patientMedicalHistory">No significant medical history.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="text-center">
+            <button class="btn btn-primary" id="editProfileBtn">Edit Profile</button>
+            <a href="{% url 'logout' %}"  class="btn btn-secondary" id="logoutBtn">Logout</a>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Example user data; replace with actual data from your backend
+            var userData = {
+                role: 'Doctor', // or 'Patient'
+                firstName: 'John',
+                lastName: 'Doe',
+                email: 'john.doe@example.com',
+                phone: '+1234567890',
+                address: '123 Main St, City, Country',
+                specialization: 'Cardiology',
+                gender: 'Male',
+                bio: 'Experienced cardiologist with over 10 years in practice.',
+                age: 45,
+                medicalHistory: 'No significant medical history.'
+            };
+
+            // Populate profile with user data
+            document.getElementById('userFullName').textContent = userData.firstName + ' ' + userData.lastName;
+            document.getElementById('userRole').textContent = userData.role;
+            document.getElementById('userEmail').textContent = userData.email;
+            document.getElementById('userPhone').textContent = userData.phone;
+            document.getElementById('userAddress').textContent = userData.address;
+
+            if (userData.role === 'Doctor') {
+                document.getElementById('doctorSpecialization').textContent = userData.specialization;
+                document.getElementById('doctorGender').textContent = userData.gender;
+                document.getElementById('doctorBio').textContent = userData.bio;
+                document.getElementById('doctorInfo').style.display = 'block';
+            } else if (userData.role === 'Patient') {
+                document.getElementById('patientAge').textContent = userData.age;
+                document.getElementById('patientGender').textContent = userData.gender;
+                document.getElementById('patientMedicalHistory').textContent = userData.medicalHistory;
+                document.getElementById('patientInfo').style.display = 'block';
+            }
+
+            // Event listeners for buttons
+            document.getElementById('editProfileBtn').addEventListener('click', function () {
+                alert('Edit Profile functionality to be implemented.');
+            });
+
+            document.getElementById('logoutBtn').addEventListener('click', function () {
+  
+            });
+        });
+    </script>
+</div>
+{% endblock body %}

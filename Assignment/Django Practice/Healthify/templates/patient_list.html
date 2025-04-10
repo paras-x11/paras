@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block css %}
+    <style>
+        .patient_list {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f8ff;
+            padding: 40px;
+        }
+
+        .card-custom {
+            border: 2px solid #00c6ff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card-header-custom {
+            background-color: #fff;
+            border-bottom: 1px solid #eaeaea;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-tabs-custom .nav-link {
+            border: none;
+            color: #777;
+            font-weight: 600;
+        }
+
+        .nav-tabs-custom .nav-link.active {
+            color: #00c6ff;
+            border-bottom: 2px solid #00c6ff;
+        }
+
+        .table-custom th {
+            color: #666;
+            font-weight: 600;
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .table-custom td {
+            vertical-align: middle;
+        }
+
+        .patient-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .badge-approved {
+            background-color: #e8fff3;
+            color: #28a745;
+            border: 1px solid #28a745;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .badge-pending {
+            background-color: #fff6e8;
+            color: #fd7e14;
+            border: 1px solid #fd7e14;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .dots {
+            cursor: pointer;
+        }
+
+        .dots::after {
+            content: '\f142';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+        }
+    </style>
+{% endblock css %}
+
+
+{% block body %}
+<div class="patient_list">
+<div class="card card-custom">
+    <div class="card-header-custom">
+        <h6 class="mb-0"><strong>Patients</strong> List</h6>
+        <i class="fas fa-ellipsis-v"></i>
+    </div>
+    <ul class="nav nav-tabs nav-tabs-custom px-3 pt-2" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#">All</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#">USA</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#">India</a>
+        </li>
+    </ul>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-custom align-middle">
+            <thead>
+                <tr>
+                    <th>Media</th>
+                    <th>Patients ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Address</th>
+                    <th>Number</th>
+                    <th>Last Visit</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="https://randomuser.me/api/portraits/women/1.jpg" class="patient-img"></td>
+                    <td><a href="{% url 'appointment_detail' %}">KU 00598</a>
+                    </td>
+                    <td>Daniel</td>
+                    <td>32</td>
+                    <td>71 Pilgrim Avenue Chevy Chase, MD 20815</td>
+                    <td>404-447-6013</td>
+                    <td>11 Jan 2018</td>
+                    <td><span class="badge-approved">APPROVED</span></td>
+                </tr>
+                <tr>
+                    <td><img src="https://randomuser.me/api/portraits/men/2.jpg" class="patient-img"></td>
+                    <td>KU 00258</td>
+                    <td>Alexander</td>
+                    <td>22</td>
+                    <td>123 6th St. Melbourne, FL 32904</td>
+                    <td>404-447-6013</td>
+                    <td>15 Jan 2018</td>
+                    <td><span class="badge-approved">APPROVED</span></td>
+                </tr>
+                <tr>
+                    <td><img src="https://randomuser.me/api/portraits/men/3.jpg" class="patient-img"></td>
+                    <td>KU 00369</td>
+                    <td>Richard</td>
+                    <td>26</td>
+                    <td>123 6th St. Melbourne, FL 32904</td>
+                    <td>404-447-6013</td>
+                    <td>16 Jan 2018</td>
+                    <td><span class="badge-approved">APPROVED</span></td>
+                </tr>
+                <tr>
+                    <td><img src="https://randomuser.me/api/portraits/men/4.jpg" class="patient-img"></td>
+                    <td>KU 00147</td>
+                    <td>Samuel</td>
+                    <td>45</td>
+                    <td>71 Pilgrim Avenue Chevy Chase, MD 20815</td>
+                    <td>404-447-6013</td>
+                    <td>17 Jan 2018</td>
+                    <td><span class="badge-approved">APPROVED</span></td>
+                </tr>
+                <tr>
+                    <td><img src="https://randomuser.me/api/portraits/men/5.jpg" class="patient-img"></td>
+                    <td>KU 00123</td>
+                    <td>Stephen</td>
+                    <td>55</td>
+                    <td>71 Pilgrim Avenue Chevy Chase, MD 20815</td>
+                    <td>404-447-6013</td>
+                    <td>18 Jan 2018</td>
+                    <td><span class="badge-approved">APPROVED</span></td>
+                </tr>
+                <tr>
+                    <td><img src="https://randomuser.me/api/portraits/women/6.jpg" class="patient-img"></td>
+                    <td>KU 00456</td>
+                    <td>Joseph</td>
+                    <td>27</td>
+                    <td>70 Bowman St. South Windsor, CT 06074</td>
+                    <td>404-447-6013</td>
+                    <td>19 Jan 2018</td>
+                    <td><span class="badge-approved">APPROVED</span></td>
+                </tr>
+                <tr>
+                    <td><img src="https://randomuser.me/api/portraits/men/7.jpg" class="patient-img"></td>
+                    <td>KU 00789</td>
+                    <td>Cameron</td>
+                    <td>38</td>
+                    <td>123 6th St. Melbourne, FL 32904</td>
+                    <td>404-447-6013</td>
+                    <td>19 Jan 2018</td>
+                    <td><span class="badge-pending">PENDING</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+{% endblock body %}
+
