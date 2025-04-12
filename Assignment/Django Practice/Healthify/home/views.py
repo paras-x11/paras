@@ -7,6 +7,7 @@ from django.http import JsonResponse
 from django.http import Http404
 from django.views.decorators.cache import never_cache
 from django.forms.models import model_to_dict
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -46,10 +47,65 @@ def get_user_info(request):
     except Exception as e:
         return JsonResponse({'name': ''})
 
+
 def doctors(request):
     doctors = DoctorProfile.objects.all()
     context = {'doctors': doctors}
     return render(request, "doctors.html", context)
+
+def doctor_profile(request, d_id):
+    try:
+        doctor = get_object_or_404(DoctorProfile, pk=d_id)
+        context = {'doctor': doctor}
+        return render(request, "doctor_profile.html", context)
+    
+    except Http404:
+        return render(request, '404.html')
+    except Exception as e:
+        return render(request, 'doctor_profile.html', {"messgae": str(e)})
+    
+
+@never_cache
+@login_required(login_url='login_user')
+def appointment(request):
+    doctors = DoctorProfile.objects.all()
+    return render(request, "appointment.html", {'doctors': doctors})
+
+@login_required(login_url='login_user')
+def book_appointment(request):
+    try:
+        if request.method == "POST":
+            name = request.POST.get('name')
+            email = request.POST.get('email')
+            phone = request.POST.get('phone')
+            patient = get_object_or_404(PatientProfile, user=request.user)
+            doctor = get_object_or_404(DoctorProfile, pk=request.POST.get('doctor'))
+            date = request.POST.get('date')
+            time = request.POST.get('time')
+            symptoms = request.POST.get('symptoms')
+
+            if not all([name, email, phone, doctor, date, time, symptoms]):
+                messages.error(request, "All Fields are Required!!")
+                return redirect('appointment')
+            
+            appointment = Appointment.objects.create(
+                patient=patient, doctor=doctor, a_name=name, a_email=email, 
+                a_phone=phone, date=date, time=time, symptoms=symptoms
+            )
+
+            if appointment:
+                messages.success(request, f"Appointment Booked on {appointment.date} at {appointment.time} with {appointment.doctor.full_name}")   
+            else:
+                messages.error(request, f"Something went wrong!!")   
+            return redirect('appointment')
+    
+    except Http404:
+        messages.error(request, "Something went wrong. make sure u filled the form properly!!")
+        return redirect('appointment')
+    except Exception as e:
+        print(str(e))
+        messages.error(request, "Something Went Wrong!!")
+        return redirect('appointment')
 
 @never_cache
 @login_required(login_url="login_user")
@@ -74,7 +130,15 @@ def appointment_list(request):
     except Exception as e:
         return render(request, 'appointment_list.html', {"message": str(e)})
 
-    
+
+
+
+def get_appointment_by_status(request):
+    pass
+
+
+
+
 @login_required(login_url='login_user')
 def appointment_detail(request, a_id):
     try:
@@ -95,7 +159,8 @@ def appointment_detail(request, a_id):
     except Http404:
         return render(request, '404.html') 
     except Exception as e:
-        return render(request, 'appointment_detail.html', {"message": str(e)})
+        print(str(e))
+        return render(request, 'appointment_detail.html', {"message": "Something Went Wrong!!"})
 
 def update_status(request):
     try:
@@ -110,10 +175,14 @@ def update_status(request):
         print("status after:", appointment.status)
         return JsonResponse({'a_status': appointment.status})
     except Exception as e:
-        return render(request, "appointment_detail.html", {"message": str(e)})
+        print(str(e))
+        return render(request, "appointment_detail.html", {"message": "Something Went Wrong!!"})
+
 
 def about(request):
-    return render(request, "about.html")
+    doctors = DoctorProfile.objects.all()
+    context = {'doctors': doctors}
+    return render(request, "about.html", context)
 
 def services(request):
     return render(request, "services.html")
@@ -124,41 +193,8 @@ def testimonial(request):
 def contact(request):
     return render(request, "contact.html")
 
-@login_required(login_url='login_user')
-def appointment(request):
-    doctors = DoctorProfile.objects.all()
-    return render(request, "appointment.html", {'doctors': doctors})
 
-@login_required(login_url='login_user')
-def book_appointment(request):
-    patient = get_object_or_404(PatientProfile, user=request.user)
-    print(patient)
-    doctor = get_object_or_404(DoctorProfile, user=request.POST.get('doctor'))    
-    print(doctor)
-    date = request.POST.get('date')
-    
-    
-    
-    
-    
-    data = model_to_dict(patient)
-    if patient.patient_image:
-        data["patient_image"] = patient.patient_image.url
-    else:
-        data["patient_image"] = None
-    return JsonResponse({'data': data})
 
-def doctor_profile(request, d_id):
-    try:
-        doctor = get_object_or_404(DoctorProfile, pk=d_id)
-        context = {'doctor': doctor}
-        return render(request, "doctor_profile.html", context)
-    
-    except Http404:
-        return render(request, '404.html')
-    except Exception as e:
-        return render(request, 'doctor_profile.html', {"messgae": str(e)})
-    
 @login_required(login_url="logint_user")
 def profile(request):
     user = request.user
@@ -207,6 +243,8 @@ def profile(request):
 
 def update_profile(reuqest):
     return JsonResponse({"status": "ok"})
+
+
 
 def signup_user(request):
     try:

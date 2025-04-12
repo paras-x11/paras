@@ -138,9 +138,9 @@
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Address</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Healthify HQ, New York, USA</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+1 (800) 123-4567</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>support@healthify.com</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social rounded-circle" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
@@ -150,17 +150,17 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Services</h5>
-                    <a class="btn btn-link" href="">Cardiology</a>
-                    <a class="btn btn-link" href="">Pulmonary</a>
-                    <a class="btn btn-link" href="">Neurology</a>
-                    <a class="btn btn-link" href="">Orthopedics</a>
-                    <a class="btn btn-link" href="">Laboratory</a>
+                    <a class="btn btn-link" href="{% url 'services' %}">Cardiology</a>
+                    <a class="btn btn-link" href="{% url 'services' %}">Pulmonary</a>
+                    <a class="btn btn-link" href="{% url 'services' %}">Neurology</a>
+                    <a class="btn btn-link" href="{% url 'services' %}">Orthopedics</a>
+                    <a class="btn btn-link" href="{% url 'services' %}">Laboratory</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="{%url 'about'%}">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
+                    <a class="btn btn-link" href="{% url 'about' %}">About Us</a>
+                    <a class="btn btn-link" href="{% url 'contact' %}">Contact Us</a>
+                    <a class="btn btn-link" href="{% url 'services' %}">Our Services</a>
                     <a class="btn btn-link" href="">Terms & Condition</a>
                     <a class="btn btn-link" href="">Support</a>
                 </div>
