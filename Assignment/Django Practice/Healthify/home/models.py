@@ -44,6 +44,8 @@ class DoctorProfile(models.Model):
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES, null=True)
     phone = models.CharField(max_length=15, unique=True)
     bio = models.TextField(blank=True)
+    clinic_name = models.CharField(max_length=100, blank=True)
+    clinic_address = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
