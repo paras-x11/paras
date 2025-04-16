@@ -65,6 +65,37 @@
             color: blue;
             text-decoration: none;
         }
+        select.form-control {
+            height: auto;
+            min-height: 45px;
+            padding: 10px 20px;
+            padding-right: 2.5rem;
+            border-radius: 50px;
+            line-height: 1.6;
+            background-color: white;
+            font-size: 16px;
+            appearance: none; /* optional: cleaner look */
+        }
+        select.form-control {
+            appearance: none;
+            background-color: white;
+            background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='40' viewBox='0 0 24 24' width='40' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 24px 24px; /* 👈 Yeh important hai */
+            padding-right: 3rem; /* right side icon ke liye space */
+            border-radius: 50px;
+            padding: 10px 20px;
+        }
+        
+        
+        select.form-control:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba(4, 99, 250, 0.25);
+        }
+        
+        
+        
     </style>
 </head>
 <body class="bg-gray-900">
@@ -81,6 +112,13 @@
         <div class="w-full max-w-md form-box">
             <h2 class="text-2xl font-bold text-center mb-6 text-white">Sign Up</h2>
             
+            <!-- Show message if exists -->
+            {% if message %}
+                <div class="text-red-400 bg-red-100 p-2 text-center rounded mb-4">
+                    {{ message }}
+                </div>
+            {% endif %}
+            
             <form method="POST" action="{% url 'signup_user' %}">
                 {% csrf_token %}
 
@@ -93,7 +131,7 @@
                 <input type="text" name="first_name" class="form-control my-2" placeholder="Enter First Name" required>
                 <input type="text" name="last_name" class="form-control my-2" placeholder="Enter Last Name" required>
                 <input type="email" name="email" class="form-control my-2" placeholder="Enter Email" required>
-                <input type="text" name="contact" class="form-control my-2" placeholder="Enter Contact" required>
+                <input type="text" name="phone" class="form-control my-2" placeholder="Enter phone" required>
                 <input type="password" name="password" class="form-control my-2" placeholder="Enter Password" required>
 
                 <button type="submit" class="btn btn-info w-full">Sign Up</button>

@@ -16,21 +16,31 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from home import views
+from home.views import *
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
-    path('', views.index, name="index"),
-    path('index', views.index, name="index"),
-    path('doctors', views.doctors, name="doctors"),
-    path('about', views.about, name="about"),
-    path('services', views.services, name="services"),
-    path('contact', views.contact, name="contact"),
-    path('appointment', views.appointment, name="appointment"),
-    path('testimonial', views.testimonial, name="testimonial"),
-    path('signup_user', views.signup_user, name="signup_user"),
-    path('login_user', views.login_user, name="login_user"),
+    path('', index, name="index"),
+    path('index', index, name="index"),
+    path('doctors', doctors, name="doctors"),
+    path('about', about, name="about"),
+    path('services', services, name="services"),
+    path('contact', contact, name="contact"),
+    path('appointment', appointment, name="appointment"),
+    path('book_appointment', book_appointment, name="book_appointment"),
+    path('testimonial', testimonial, name="testimonial"),
+    path('doctor_profile/<int:d_id>', doctor_profile, name="doctor_profile"),
+    path('appointment_list', appointment_list, name="appointment_list"),
+    path('appointment_detail/<int:a_id>', appointment_detail, name="appointment_detail"),
+    path('update_status', update_status, name="update_status"),
+    path('profile', profile, name="profile"),
+    path('update_profile', update_profile, name="update_profile"),
+    path('get_user_info', get_user_info, name="get_user_info"),
+    path('signup_user', signup_user, name="signup_user"),
+    path('login_user', login_user, name="login_user"),
+    path('logout', logout_user, name="logout"),
 ]
 
 if settings.DEBUG:

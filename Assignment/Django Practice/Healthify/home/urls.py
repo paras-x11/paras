@@ -33,6 +33,7 @@ urlpatterns = [
     path('testimonial', testimonial, name="testimonial"),
     path('doctor_profile/<int:d_id>', doctor_profile, name="doctor_profile"),
     path('appointment_list', appointment_list, name="appointment_list"),
+    path('get_appointments/<str:status>', get_appointments, name="get_appointments"),
     path('appointment_detail/<int:a_id>', appointment_detail, name="appointment_detail"),
     path('update_status', update_status, name="update_status"),
     path('profile', profile, name="profile"),

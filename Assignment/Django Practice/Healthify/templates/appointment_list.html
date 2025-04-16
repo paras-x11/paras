@@ -116,16 +116,19 @@
     </div>
     <ul class="nav nav-tabs nav-tabs-custom px-3 pt-2" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" data-bs-toggle="tab" href="#">All</a>
+            <button class="nav-link active" data-bs-toggle="tab" onclick="getAppointmentByStatus('')">All</button>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#">Pending</a>
+            <button class="nav-link" data-bs-toggle="tab" onclick="getAppointmentByStatus('Pending')">Pending</button>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#">Approved</a>
+            <button class="nav-link" data-bs-toggle="tab" onclick="getAppointmentByStatus('Approved')">Approved</button>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#">Rejected</a>
+            <a class="nav-link" data-bs-toggle="tab" onclick="getAppointmentByStatus('Rejected')">Rejected</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" onclick="getAppointmentByStatus('Completed')">Completed</a>
         </li>
     </ul>
 
@@ -151,84 +154,37 @@
                     <th>Status</th>
                 </tr>
             </thead>
-            <tbody>
-                {% if not appointments %}
-                    <tr>
-                        {% if message %}
-                            <td class="text-red-400 bg-red-100 p-2 text-center rounded mb-4">
-                                {{ message }}
-                            </td>
-                        {% else%}
-                            <td colspan="8" class="text-center"> No Appointments </td>
-                        {% endif %}
-                    </tr>
-                {% else %}
-
-                    {% for a in appointments %}
-                    <tr>
-                        {% if request.user.is_superuser%}
-                            <td>
-                                {% if a.patient.patient_image %}
-                                    <img src="{{ a.patient.patient_image.url }}" class="patient-img" alt="Patient Image">
-                                {% else %}
-                                    <img src="https://www.w3schools.com/howto/img_avatar.png" class="patient-img" alt="No Image">
-                                {% endif %}
-                            </td>
-                            <td><a href="{% url 'appointment_detail' a.id %}">xyz-{{ a.id }}</a></td>
-                            <td>{{ a.patient.full_name }}</td>
-                            <td>{{ a.doctor.full_name }}</td>
-                        {% endif %}
-                        
-                        {% if request.user.is_doctor%}
-                            <td>
-                                {% if a.patient.patient_image %}
-                                    <img src="{{ a.patient.patient_image.url }}" class="patient-img" alt="Patient Image">
-                                {% else %}
-                                    <img src="https://www.w3schools.com/howto/img_avatar.png" class="patient-img" alt="No Image">
-                                {% endif %}
-                            </td>
-                            <td><a href="{% url 'appointment_detail' a.id %}">xyz-{{ a.id }}</a></td>
-                            <td>{{ a.patient.full_name }}</td>
-                            <td>{{ a.patient.age }}</td>
-                            <td>{{ a.patient.phone }}</td>
-                        {% endif %}
-
-                        {% if request.user.is_patient %}
-                            <td>
-                                {% if a.doctor.doctor_image %}
-                                    <img src="{{ a.doctor.doctor_image.url }}" class="patient-img" alt="Doctor Image">
-                                {% else %}
-                                    <img src="https://www.w3schools.com/howto/img_avatar.png" class="patient-img" alt="No Image">
-                                {% endif %}
-                            </td>
-                            <td><a href="{% url 'appointment_detail' a.id %}">xyz-{{ a.id }}</a></td>
-                            <td>{{ a.doctor.full_name }}</td>
-                            <td>{{ a.doctor.phone }}</td>
-                        {% endif %}
-                    
-                        <td>{{ a.doctor.clinic_address }}</td>
-
-                        <td>{{ a.date|date:"M d, Y" }} {{ a.time|time:"H:i A" }}</td>
-                        
-                        {% if a.status == "Pending" %}
-                            <td><span class="badge-pending">PENDING</span></td>
-                        {% elif a.status == "Approved" %}
-                            <td><span class="badge-approved">APPROVED</span></td>
-                        {% elif a.status == "Rejected" %}
-                            <td><span class="badge-rejected">REJECTED</span></td>
-                        {% elif a.status == "Completed" %}
-                            <td><span class="badge-completed">COMPLETED</span></td>
-                        {% else %}
-                            <td><span class="badge-rejected">Unknown</span></td>        
-                        {% endif %}
-                    </tr>
-                    {% endfor %}
-                {% endif %}
+            <tbody id="appointment-data">
+           
             </tbody>
         </table>
     </div>
 </div>
 </div>
 
-{% endblock body %}
 
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>    
+
+<script>
+    
+    $(document).ready(function(){
+        getAppointmentByStatus('')
+    })
+
+    const getAppointmentByStatus = (status) => {
+        if (status == undefined || status == null || status == '') {
+            status = 'All';
+        }
+        
+        console.log("status: " + status);
+
+        $.get(`get_appointments/${status}`  , function(data){
+            // console.log(data)
+            $('#appointment-data').html(data);
+
+        })
+    }
+
+</script>
+{% endblock body %}
