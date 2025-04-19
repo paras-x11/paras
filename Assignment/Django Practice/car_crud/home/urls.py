@@ -20,7 +20,8 @@ from home.views import *
 
 urlpatterns = [
     path('', index, name="index"),
-    path('add_car/', add_car, name="add_car"),
-    path('update_car/<int:cid>/', update_car, name="update_car"),
-    path('delete_car/<int:cid>/', delete_car, name="delete_car"),
+    path('car/form/', car_form, name="car_form"),
+    path('add/car/', add_car, name="add_car"),
+    path('update/car/<int:cid>/', update_car, name="update_car"),
+    path('delete/car/<int:cid>/', delete_car, name="delete_car"),
 ]

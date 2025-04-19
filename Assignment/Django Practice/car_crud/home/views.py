@@ -11,6 +11,9 @@ def index(request):
     context = {"cars": cars}
     return render(request, 'index.html', context)
 
+def car_form(request):
+    return render(request, 'car_form.html')
+
 def add_car(request):
     if request.method == "POST":
         data = request.POST 
@@ -54,7 +57,7 @@ def add_car(request):
 def update_car(request, cid):
     car = Car.objects.get(pk=cid)
     cars = Car.objects.all()
-    return render(request, "index.html", {"car": car, "cars": cars})
+    return render(request, "car_form.html", {"car": car, "cars": cars})
 
 
 def delete_car(request, cid):
