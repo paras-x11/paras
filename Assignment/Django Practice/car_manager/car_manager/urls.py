@@ -1,5 +1,5 @@
 """
-URL configuration for car_crud project.
+URL configuration for car_manager project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -15,13 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from home.views import *
+from django.urls import path, include
 
 urlpatterns = [
-    path('', index, name="index"),
-    path('car/form/', car_form, name="car_form"),
-    path('add/car/', add_car, name="add_car"),
-    path('update/car/<int:cid>/', update_car, name="update_car"),
-    path('delete/car/<int:cid>/', delete_car, name="delete_car"),
+    path('admin/', admin.site.urls),
+    path('', include('home.urls')),
 ]

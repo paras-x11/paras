@@ -70,32 +70,82 @@
 # print(name[-4:-1])
 # print(name[1:4])
 
-l = [1,2,2,3,3,4]
-print(l)
-print(type(l))
-print(l[1])
-l[4] = 4
-print(l, "\n")
+# l = [1,2,2,3,3,4]
+# print(l)
+# print(type(l))
+# print(l[1])
+# l[4] = 4
+# print(l, "\n")
 
-t = (1,2,2,3,3,4)
-print(t)
-print(type(t))
-print(t[1])
-# t[4] = 4
-print(t, "\n")
+# t = (1,2,2,3,3,4)
+# print(t)
+# print(type(t))
+# print(t[1])
+# # t[4] = 4
+# print(t, "\n")
 
-s = {1,2,2,3,3,4}
-print(s)
-print(type(s))
-# print(s[1])    # unordered
-# s[4] = 4
-print(s, "\n")
+# s = {1,2,2,3,3,4}
+# print(s)
+# print(type(s))
+# # print(s[1])    # unordered
+# # s[4] = 4
+# print(s, "\n")
 
-fs = frozenset({1,2,2,3,3,4})
-print(fs)
-print(type(fs))
-# print(fs[1])
-# fs[4] = 4
-print(fs, "\n")
+# fs = frozenset({1,2,2,3,3,4})
+# print(fs)
+# print(type(fs))
+# # print(fs[1])
+# # fs[4] = 4
+# print(fs, "\n")
 
-print(dir(t))
+# print(dir(t))
+
+
+
+n = 5
+for r in range(1, n+1):
+    print("* " * r)
+
+# for r in range(1, n+1):
+#     for c in range(r):
+#         print('* ', end="")
+#     print()
+
+# print("\n============================================================\n")
+
+for r in range(n, 0, -1):
+    print("* " * r)
+
+# for r in range(n, 0, -1):
+#     for c in range(r):
+#         print('* ', end="")
+#     print()
+        
+# print("\n============================================================\n")
+
+for r in range(1, n+1):
+    print("  " * (n-r) + "* " * r)
+
+# for r in range(1, n+1):
+#     for s in range(n-r):
+#         print("  ", end="")
+#     for c in range(r):
+#         print("* ", end="")
+#     print()
+
+# print("\n============================================================\n")
+
+for r in range(n, 0, -1):
+    print("  " * (n-r) + "* " * r)
+
+
+n = 5
+for r in range(1, n+1):
+    for s in range(n-r):
+        print("  ", end="")
+    for c in range(2*r-1):
+        print("* ", end="")
+    print()
+
+for r in range(1, n+1):
+    print("  " * (n-r) + "* " * (2*r-1))
