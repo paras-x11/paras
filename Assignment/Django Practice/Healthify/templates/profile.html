@@ -111,6 +111,16 @@
                                 <span id="userLastName">{{ user_data.lastName }}</span>
                                 <input id="inputLastName" class="form-control d-none" value="{{ user_data.lastName }}">
                             </li>
+                            <li class="list-group-item"><strong>Department:</strong>
+                                <span id="userDepartment">{{ user_data.department }}</span>
+                                <select id="inputDepartment" class="form-control d-none" name="department">
+                                    {% for dept in departments %}
+                                    <option value="{{ dept.id }}" {% if dept.id == user_data.department.id %}selected{% endif %}>
+                                        {{ dept.name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </li>
                             <li class="list-group-item"><strong>Specialization:</strong>
                                 <span id="userSpecialization">{{ user_data.specialization }}</span>
                                 <input id="inputSpecialization" class="form-control d-none" value="{{ user_data.specialization }}">
@@ -184,18 +194,20 @@
                 <i class="fas fa-save me-1"></i>Save
             </button>
             <a href="{% url 'logout' %}" class="btn btn-secondary">
-                <i class="fas fa-sign-out-alt me-1"></i>Logout
+                <i class="fas fa-sign-out-alt me-1"></i>Logout_
             </a>
         </div>
         
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- JS Logic -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const editableFields = [
                 "Email", "Phone", "Address", "FirstName", "LastName", 
-                "Specialization", "Gender", "Bio", "ClinicName", "ClinicAddress", "Age"
+                "Department", "Specialization", "Gender", "Bio", "ClinicName", "ClinicAddress", "Age"
             ];
 
             const previewImage = document.getElementById("previewImage");
@@ -255,10 +267,21 @@
                     contentType: false,
                     success: function (res) {
                         if (res.status === "ok") {
-                            alert("✅ Profile updated successfully!");
-                            location.reload();
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Profile Updated',
+                                text: '✅ Your profile was updated successfully!',
+                                confirmButtonColor: '#3085d6'
+                            }).then(() => {
+                                location.reload();
+                            });
                         } else {
-                            alert("❌ Update failed. Try again.");
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Update Failed',
+                                text: '❌ Something went wrong. Please try again.',
+                                confirmButtonColor: '#d33'
+                            });
                         }
                     }
                 });

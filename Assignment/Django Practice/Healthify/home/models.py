@@ -40,6 +40,7 @@ class DoctorProfile(models.Model):
     doctor_image = models.ImageField(upload_to="doctor_images", height_field=None, width_field=None, max_length=None, null=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    address = models.TextField(blank=True, null=True)
     specialization = models.CharField(max_length=100, null=True)
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES, null=True)
     phone = models.CharField(max_length=15, unique=True)
