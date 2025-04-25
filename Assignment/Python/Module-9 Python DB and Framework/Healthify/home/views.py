@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -128,15 +128,51 @@ def appointment_list(request):
         return render(request, "appointment_list.html", context)
 
     except Exception as e:
-        return render(request, 'appointment_list.html', {"message": str(e)})
+        print(str(e))
+        return render(request, 'appointment_list.html', {"message": "Something went wrong!"})
 
 
+def get_appointments(request, status):
+    try:
+        appointments = []
+        if not status:
+            return render(request, "partial/appointments_row.html", {"message": "status not matched"})
+        print("STATUS:" , status)
 
+        valid_statuses =  ('All', 'Pending', 'Approved', 'Rejected', 'Completed')
+        print("check: ", status in valid_statuses)
 
-def get_appointment_by_status(request):
-    pass
+        if status not in valid_statuses:
+            return render(request, "partial/appointments_row.html", {"message": "status not matched"})
 
-
+        if request.user.is_superuser:
+            if status == "All":
+                appointments = Appointment.objects.all()
+            else:
+                appointments = Appointment.objects.filter(status=status)
+            return render(request, "partial/appointments_row.html", {"appointments": appointments})
+        
+        elif request.user.is_doctor:
+            doctor = get_object_or_404(DoctorProfile, user=request.user)
+            if status == "All":
+                appointments = Appointment.objects.filter(doctor=doctor)
+            else:
+                appointments = Appointment.objects.filter(status=status, doctor=doctor)
+            return render(request, "partial/appointments_row.html", {"appointments": appointments})
+        
+        elif request.user.is_patient:
+            patient = get_object_or_404(PatientProfile, user=request.user)
+            if status == "All":
+                appointments = Appointment.objects.filter(patient=patient)
+            else:
+                appointments = Appointment.objects.filter(status=status, patient=patient)
+            return render(request, "partial/appointments_row.html", {"appointments": appointments})
+        
+        else:
+            return render(request, "partial/appointments_row.html", {"message": "Something went wrong! user not logged in"})
+    except Exception as e:
+        print(str(e))
+        return render(request, "partial/appointments_row.html", {"message": "Something went wrong!"})
 
 
 @login_required(login_url='login_user')
@@ -195,10 +231,12 @@ def contact(request):
 
 
 
-@login_required(login_url="logint_user")
+@login_required(login_url="login_user")
 def profile(request):
     user = request.user
-    context = { "user_data": {
+    departments = Department.objects.all()
+    context = { "departments": departments,
+                "user_data": {
                     "role": "Doctor" if user.is_doctor else "Patient" if user.is_patient else "Superuser",
                     "email": user.email,
                 }}
@@ -208,6 +246,8 @@ def profile(request):
         context["user_data"].update({
             "firstName": doctor.first_name,
             "lastName": doctor.last_name,
+            "address": doctor.address,
+            "department": doctor.department,
             "specialization": doctor.specialization,
             "gender": doctor.gender,
             "phone": doctor.phone,
@@ -238,11 +278,78 @@ def profile(request):
             "gender": "-",
             "image": "",  # You can set default admin image
         })
-
     return render(request, "profile.html", context)
 
-def update_profile(reuqest):
-    return JsonResponse({"status": "ok"})
+def update_profile(request):
+    if request.method == "POST":
+        data = request.POST
+        files = request.FILES
+        Image = files.get('profile_image')
+        Email = data.get('email')
+        Phone = data.get('phone')
+        Address = data.get('address')
+        FirstName = data.get('firstname')
+        LastName = data.get('lastname')
+        Gender = data.get('gender')
+        Age = data.get('age')
+        print("Common data: ", Email, Phone, Address, FirstName, LastName, Gender, Age)
+
+        user = request.user
+        print(user)
+
+        if user.is_doctor:
+            doctor = get_object_or_404(DoctorProfile, user=user)
+            print(doctor)
+            DepaermentId = data.get('department')
+            Specialization = data.get('specialization')
+            Bio = data.get('bio')
+            ClinicName = data.get('clinicname')
+            ClinicAddress = data.get('clinicaddress')
+            print("Doctors: ", Email, Phone, Address, FirstName, LastName,  Gender, Age, Department, Specialization, Bio, ClinicName, ClinicAddress)
+
+            user.email = Email
+            user.save()
+            if DepaermentId:
+                dept = Department.objects.get(pk=DepaermentId)
+                doctor.department = dept
+            doctor.first_name = FirstName
+            doctor.last_name = LastName
+            doctor.address = Address
+            doctor.specialization = Specialization
+            doctor.gender = Gender
+            doctor.phone = Phone
+            doctor.bio = Bio
+            doctor.clinic_name = ClinicName
+            doctor.clinic_address = ClinicAddress
+            if Image:
+               doctor.doctor_image = Image
+            doctor.save()
+            return JsonResponse({"status": "ok"})
+        
+        if user.is_patient:
+            patient = get_object_or_404(PatientProfile, user=user)
+            print(patient)
+            user.email = Email
+            user.save()
+            patient.first_name = FirstName
+            patient.last_name = LastName
+            patient.age = Age
+            patient.gender = Gender
+            patient.phone = Phone
+            patient.address = Address
+            if Image:
+                patient.patient_image = Image
+            patient.save()
+            return JsonResponse({"status": "ok"})
+        
+        if user.is_superuser:
+            user.email = Email
+            user.first_name = FirstName
+            user.last_name = LastName
+            user.save()
+            return JsonResponse({"status": "ok"})
+            
+    return JsonResponse({"status": "failed"})
 
 
 
