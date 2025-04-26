@@ -6,10 +6,10 @@ my_list = list(str1)
 
 max_len = len(str1[0])
 
-for index, words in enumerate(my_list):
-    if len(words) > max_len:
-        max_len = len(words)
-        max_word = words
+for index, word in enumerate(my_list):
+    if len(word) > max_len:
+        max_len = len(word)
+        max_word = word
 
 print(f"\nLongest word is: {max_word} and \nits length is: {max_len}")
 

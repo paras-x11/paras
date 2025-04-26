@@ -1,10 +1,16 @@
 # 17. Write a generator function that generates the first 10 even numbers.
 
-def generate_even_numbers():
-    for i in  range(1, 11):
+def generate_even_numbers(num):
+    for i in  range(1, num+1):
         yield i * 2
 
-for num in generate_even_numbers():
-    print(f"{num},", end="")
+gen = generate_even_numbers(10)
+print(next(gen))
+print(next(gen))
+print(next(gen))
+print(next(gen))
+
+# for num in generate_even_numbers(10):
+#     print(f"{num},", end="")
 
 

@@ -26,4 +26,15 @@ a = a - b
 
 print("a =", a, "b =", b)
 
+#------------------------------------------------------------------#
+
+a = 10
+b = 20
+
+print("\nSwapping variables without temp: ")
+
+a, b = b, a
+
+print("a =", a, "b =", b)
+
 

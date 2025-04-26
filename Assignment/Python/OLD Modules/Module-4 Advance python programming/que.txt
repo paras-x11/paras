@@ -28,3 +28,322 @@
 28. What is used to check whether an object o is an instance of class A? 
 29. What relationship is appropriate for Course and Faculty?  
 30. What relationship is appropriate for Student and Person? 
+
+
+
+
+Alright! Here’s a full, clear set of answers to your questions —  
+I'll give it neatly with small code examples where needed.  
+---
+
+# 1. What is File function in python? What is keywords to create and write file?
+- **File functions** in Python are used to **open**, **read**, **write**, and **close** files.
+- **Important Keywords**:
+  - `open()` – to open a file.
+  - `write()` – to write into a file.
+  - `close()` – to close the file after operations.
+  
+Example:
+```python
+f = open("sample.txt", "w")  # 'w' mode is for writing
+f.write("Hello, World!")
+f.close()
+```
+
+---
+
+# 2. Python program to read an entire text file
+```python
+with open('sample.txt', 'r') as file:
+    data = file.read()
+    print(data)
+```
+
+---
+
+# 3. Python program to append text to a file and display the text
+```python
+with open('sample.txt', 'a') as file:
+    file.write("\nThis is appended text.")
+
+with open('sample.txt', 'r') as file:
+    print(file.read())
+```
+
+---
+
+# 4. Python program to read first n lines of a file
+```python
+n = 3
+with open('sample.txt', 'r') as file:
+    for _ in range(n):
+        print(file.readline().strip())
+```
+
+---
+
+# 5. Python program to read last n lines of a file
+```python
+n = 3
+with open('sample.txt', 'r') as file:
+    lines = file.readlines()
+    for line in lines[-n:]:
+        print(line.strip())
+```
+
+---
+
+# 6. Python program to read a file line by line and store it into a list
+```python
+with open('sample.txt', 'r') as file:
+    lines = file.readlines()
+print(lines)
+```
+
+---
+
+# 7. Python program to read a file line by line and store into a variable
+```python
+with open('sample.txt', 'r') as file:
+    content = file.read()
+print(content)
+```
+
+---
+
+# 8. Python program to find the longest word
+```python
+with open('sample.txt', 'r') as file:
+    words = file.read().split()
+    longest = max(words, key=len)
+    print("Longest word:", longest)
+```
+
+---
+
+# 9. Python program to count the number of lines in a text file
+```python
+with open('sample.txt', 'r') as file:
+    lines = file.readlines()
+    print("Number of lines:", len(lines))
+```
+
+---
+
+# 10. Python program to count the frequency of words in a file
+```python
+from collections import Counter
+
+with open('sample.txt', 'r') as file:
+    words = file.read().split()
+    frequency = Counter(words)
+    print(frequency)
+```
+
+---
+
+# 11. Python program to write a list to a file
+```python
+my_list = ['apple', 'banana', 'cherry']
+
+with open('fruits.txt', 'w') as file:
+    for item in my_list:
+        file.write(item + '\n')
+```
+
+---
+
+# 12. Python program to copy contents of a file to another file
+```python
+with open('sample.txt', 'r') as file1:
+    content = file1.read()
+
+with open('copy_sample.txt', 'w') as file2:
+    file2.write(content)
+```
+
+---
+
+# 13. Explain Exception handling? What is an Error in Python?
+- **Exception Handling**: Dealing with unexpected errors during code execution using `try-except` blocks.
+- **Error**: Problem that occurs during program execution (e.g., `ZeroDivisionError`, `ValueError`).
+
+---
+
+# 14. How many except statements can a try-except block have? Name some built-in exception classes
+- **Multiple** `except` blocks can be used.
+- **Built-in exception classes**: `ZeroDivisionError`, `ValueError`, `TypeError`, `IndexError`, `KeyError`.
+
+---
+
+# 15. When will the else part of try-except-else be executed?
+- The `else` part executes **if no exception occurs** in the try block.
+
+---
+
+# 16. Can one block of except statements handle multiple exceptions?
+- **Yes**, using a tuple:
+```python
+try:
+    # code
+except (ValueError, TypeError):
+    # handle both exceptions
+```
+
+---
+
+# 17. When is the finally block executed?
+- `finally` always runs, **whether there was an exception or not**.
+
+---
+
+# 18. What happens when ‘1’ == 1 is executed?
+- It returns **False** because different types: string `'1'` and integer `1`.
+
+---
+
+# 19. How to handle exceptions with Try/Except/Finally in Python? (Code Example)
+```python
+try:
+    x = int(input("Enter a number: "))
+    print(10/x)
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except ValueError:
+    print("Invalid input!")
+finally:
+    print("This is always executed.")
+```
+
+---
+
+# 20. Python program that allows only odd numbers, else raise exception
+```python
+try:
+    num = int(input("Enter an odd number: "))
+    if num % 2 == 0:
+        raise ValueError("That is not an odd number!")
+    else:
+        print("Good! You entered an odd number.")
+except ValueError as e:
+    print(e)
+```
+
+---
+
+# 21. What are OOPS concepts? Is multiple inheritance supported in Java?
+- **OOPS Concepts**: Class, Object, Inheritance, Polymorphism, Encapsulation, Abstraction.
+- **Java** supports **multiple inheritance** **through interfaces**, not through classes.
+
+---
+
+# 22. How to Define a Class in Python? What Is Self? Give An Example Of A Python Class
+- **Class**: A blueprint for objects.
+- **`self`**: Refers to the **current object** itself.
+
+Example:
+```python
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self):
+        print("Hello", self.name)
+
+p = Person("John")
+p.greet()
+```
+
+---
+
+# 23. Python class named Rectangle
+```python
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+r = Rectangle(5, 3)
+print(r.area())
+```
+
+---
+
+# 24. Python class named Circle with area and perimeter
+```python
+import math
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi * self.radius ** 2
+
+    def perimeter(self):
+        return 2 * math.pi * self.radius
+
+c = Circle(4)
+print(c.area())
+print(c.perimeter())
+```
+
+---
+
+# 25. (Repeated) Same as Question 24.
+
+---
+
+# 26. Explain Inheritance in Python with an Example. What is `__init__`?
+- **Inheritance**: One class inherits properties of another class.
+- **`__init__`**: Constructor method, runs when object is created.
+
+Example:
+```python
+class Animal:
+    def speak(self):
+        print("Animal speaks")
+
+class Dog(Animal):
+    def bark(self):
+        print("Dog barks")
+
+d = Dog()
+d.speak()
+d.bark()
+```
+
+---
+
+# 27. What is Instantiation in OOP terminology?
+- **Instantiation**: **Creating an object** from a class.
+
+---
+
+# 28. What is used to check whether an object o is an instance of class A?
+- Using `isinstance(o, A)`.
+
+Example:
+```python
+if isinstance(obj, A):
+    print("obj is an instance of A")
+```
+
+---
+
+# 29. What relationship is appropriate for Course and Faculty?
+- **Association** or **Aggregation**.  
+  (Faculty *teaches* Course)
+
+---
+
+# 30. What relationship is appropriate for Student and Person?
+- **Inheritance**.  
+  (Student **is a** Person)
+
+---
+
+---

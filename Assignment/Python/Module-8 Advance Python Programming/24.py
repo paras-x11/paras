@@ -10,4 +10,5 @@ result = re.match(r'The', text)  # Matches 'The' at the start of the string
 
 if result:
     print("Match found:", result.group())  
+else:
     print("Match not found.")  

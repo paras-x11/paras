@@ -34,6 +34,12 @@ if __name__ == "__main__":
     print("Select operation: 1) Add 2) Subtract 3) Multiply 4) Divide")
     choice = input("Enter choice (1/2/3/4): ")
 
+    choices = ['1','2','3','4']
+
+    if choice not in choices:
+        print("invalid choice")
+        exit()
+
     # Take input for numbers
     num1 = float(input("Enter first number: "))
     num2 = float(input("Enter second number: "))

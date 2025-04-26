@@ -19,3 +19,8 @@ def is_odd(x):
     return x % 2 != 0
 odd_numbers = list(filter(lambda x : x % 2 != 0, numbers))
 print(odd_numbers)
+
+
+l1 = [x for x in range(1, 101)]
+divisible_by_4 = list(filter(lambda x: x % 4 == 0, l1))
+print(divisible_by_4)

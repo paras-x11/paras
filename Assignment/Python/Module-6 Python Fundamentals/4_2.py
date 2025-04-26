@@ -4,9 +4,9 @@ n = int(input("Enter number: "))
 
 flag = True
 
-for i in range (2, n):
-    # print(i)
+for i in range (2, n//2):
     if n % i == 0:
+        print(i)
         flag = False
         break
 
