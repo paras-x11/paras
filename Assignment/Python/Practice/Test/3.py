@@ -20,12 +20,10 @@ class Employee:
         self._salary = salary
         print(f"\n-> Object '{self._name}' Created")
 
-    @property
     def get_salary(self):
         print(f"{self._name}'s salary is: {self._salary}")
         return self._salary
 
-    @get_salary.setter
     def set_new_salary(self, amt):
         self._salary = amt
         print(f"{self._name}'s new salary is set to: {self._salary}")
@@ -37,7 +35,6 @@ class Manager(Employee):
         super().__init__(name, salary)
         self._bonus = bonus
 
-    @property
     def get_salary(self):
         total_salary = self._salary + self._bonus
         print(f"{self._name}'s total salary (salary + bonus) is: {total_salary}")
@@ -45,16 +42,16 @@ class Manager(Employee):
 
 
 e = Employee('pavan', 20000)
-e.get_salary
-e.set_new_salary = 30000
-print("New Salary: ", e.get_salary)
+e.get_salary()
+e.set_new_salary(30000)
+print("New Salary: ", e.get_salary())
 
 print("=================================================================")
 
 m = Manager('paras', 50000, 5000)
-m.get_salary
-m.set_new_salary = 70000
-print("New Salary: ", m.get_salary)
+m.get_salary()
+m.set_new_salary(70000)
+print("New Salary: ", m.get_salary())
 
 
 
