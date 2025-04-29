@@ -9,6 +9,8 @@
 # 2. Check if a number is even or odd.
 # 3. Find the largest among 3 numbers.
 # 4. Take user input and reverse it.
+# str1 = input("enter input: ")
+# print(str1[::-1])
 # 5. Calculate area and perimeter of a rectangle/circle.
 
 # ### 📌 Strings
@@ -20,17 +22,50 @@
 
 # ### 📌 Lists & Tuples
 # 11. Find the second largest element in a list.
+# import random as r
+# l1 = [x for x in range(1, 101) if x%2==0]
+# print(l1)
+# l2 = [r.choice(range(1, 101)) for _ in range(15)]
+# print(l2)
+# l2.sort()
+# print(l2)
+# print(l2[-2])
 # 12. Remove duplicates from a list.
 # 13. Merge two sorted lists into one.
 # 14. Flatten a nested list.
-# 15. Find the common elements in two lists.
+# l3 = [1,[2,3,4], 5,6, [7,88,9], 0, 33,44,55,[66,777,88]]
+# l4 = []
+# for ele in l3:
+#     if isinstance(ele, list):
+#         l4.extend(ele)
+#     else:
+#         l4.append(ele)
+# print(l4)
 
+# 15. Find the common elements in two lists.
+# l5 = [58, 56, 6, 75, 20, 93, 1, 66, 60, 81, 2, 43, 25, 89, 99]
+# l6 = [6, 53, 81, 23, 100, 24, 89, 58, 12, 69, 15, 75, 52, 13, 66]
+# l7 = []
+
+# for ele1 in l5:
+#     for ele2 in l6:
+#         if ele1 == ele2:
+#             l7.append(ele1)
+#             continue
+# print(l7)
 # ---
 
 # ## 🧠 **Intermediate Level – Logic & Structures**
 
 # ### 📌 Dictionaries & Sets
 # 16. Count word occurrences in a paragraph.
+# madara = """Madara Uchiha (Japanese: うちは マダラ, Hepburn: Uchiha Madara) is a fictional character and one of the main antagonists in Masashi Kishimoto's manga (and anime adaptation) Naruto. He appears for the first time in "Part II" of the manga and the Shippuden anime adaptation (During the Fourth Shinobi War arc).
+
+# He, along with its first Hokage Hashirama Senju, is one of the co-founders of Konohagakure (Japanese: 木ノ葉隠れの里, Hepburn: Konohagakure no Sato) village from the ninja world. Their power conflict over how to run the village, as well as the long-time feud between clans, leads to Madara deciding that humanity is beyond saving and seeks to cast a genjutsu (infinite tsukuyomi) on the entire planet, however, he isn't aware that this plan will eventually annihilate humanity and turn them into numerous variants of White Zetsu. This leads to his defection and death in a battle with Hashirama; however, it is revealed later that Madara secretly revived himself, surviving well into elderhood, and manipulating Obito Uchiha into laying the key for his future plans before his true death.""".lower()
+
+# word = input('enter any word to count: ').lower()
+# count = madara.count(word)
+# print(count)
 # 17. Sort a dictionary by value.
 # 18. Find duplicate values in dictionary keys.
 # 19. Merge two dictionaries.
@@ -56,6 +91,18 @@
 
 # ### 📌 Object-Oriented Programming
 # 31. Create a class for `BankAccount` with deposit and withdraw.
+class BankAccount:
+    def __init__(self, acc_holder):
+        self._acc_holder = acc_holder
+        self.balance = 0
+    def deposit(self, amt):
+        if amt > 0:
+            self.balance += amt
+            print(f'₹{amt} deposited successfully. Total Balance is: ₹{self.balance}')
+        else:
+            print(f'Enter positive amount. Total Balance is: ₹{self.balance}')
+
+
 # 32. Implement inheritance: `Vehicle -> Car, Bike`.
 # 33. Use @property decorators for a class.
 # 34. Overload operators using magic methods (`__add__`, `__str__`).
