@@ -36,7 +36,7 @@ class LogWriter:
         open(self._file_path, 'a').close()
 
     def write_log(self, message):
-        timestamp = timestamp = dt.datetime.now().strftime('[%Y-%m-%d %H:%M:%S]')
+        timestamp = dt.datetime.now().strftime('[%Y-%m-%d %H:%M:%S]')
         with open(self._file_path, 'a') as f:
             f.write(f"[{timestamp} {message}],\n")
 
@@ -58,13 +58,5 @@ for log in logs:
     print(log)
 
 
-today = dt.datetime.now()
- 
-# Attributes
-print("Day: ", today.day)
-print("Month: ", today.month)
-print("Year: ", today.year)
-print("Hour: ", today.hour)
-print("Minute: ", today.minute)
-print("Second: ", today.second)
+
 
