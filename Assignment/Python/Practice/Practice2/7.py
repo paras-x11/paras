@@ -47,7 +47,22 @@ Namespaces are one honking great idea -- let's do more of those!"""
 #     for key, val in word_counts.items():
 #         print(f"{key}: {val}")
 
+# import os
+# import datetime
 
+# class LogWriter:
+#     def __init__(self, file_path):
+#         self._file_path = file_path
+#         open(self._file_path, 'a').close()
+
+#     def write_log(self, message):
+#         timestamp = datetime.datetime.now().strftime("[%Y-%m-%d %H:%M:%S]")
+#         with open(self._file_path, 'a') as file:
+#             file.write(f"{timestamp} {message}\n")
+
+#     def read_logs(self):
+#         with open(self._file_path, 'r') as file:
+#             return [line.strip() for line in file.readlines()]
 
 # 37. Append new lines to an existing file.
 # with open('example.txt', 'a') as f:
