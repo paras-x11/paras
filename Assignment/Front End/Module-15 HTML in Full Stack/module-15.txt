@@ -1,0 +1,20 @@
+-> Question 1: Define HTML. What is the purpose of HTML in web development? 
+-> Question 2: Explain the basic structure of an HTML document. Identify the mandatory tags and their purposes. 
+-> Question 3: What is the difference between block-level elements and inline elements in HTML? Provide examples of each. 
+-> Question 4: Discuss the role of semantic HTML. Why is it important for accessibility and SEO? Provide examples of semantic elements. 
+
+
+
+
+2. HTML Forms   
+-> Question 1: What are HTML forms used for? Describe the purpose of the input, textarea, select, and button elements. 
+-> Question 2: Explain the difference between the GET and POST methods in form submission. When should each be used? 
+-> Question 3: What is the purpose of the label element in a form, and how does it improve accessibility? 
+
+
+
+ 
+3. HTML Tables  
+-> Question 1: Explain the structure of an HTML table and the purpose of each of the following elements: <table>, <tr>, <th>, <td>, and <thead>. 
+-> Question 2: What is the difference between colspan and rowspan in tables? Provide examples. 
+-> Question 3: Why should tables be used sparingly for layout purposes? What is a better alternative? 

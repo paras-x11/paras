@@ -1,0 +1,137 @@
+<!-- 
+Lab Assignment 1: HTML Basics
+
+-> Task: Create a simple HTML webpage that includes: 
+o A header (<header>), footer (<footer>), main section (<main>), and aside section (<aside>). 
+o A paragraph with some basic text. 
+o A list (both ordered and unordered). 
+o A link that opens in a new tab.  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Basics</title>
+    <style>
+        /* Make sure header takes full width */
+        /* Make sure header takes full width and centers content */
+        header {
+            display: flex;
+            align-items: center;      /* Vertically center the nav */
+            justify-content: center;  /* Horizontally center */
+            height: 60px;
+            background-color: aqua;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Center nav list inside header */
+        header nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;      /* Vertically align items inside ul */
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Space between nav items */
+        header nav li {
+            margin: 0 20px;
+        }
+
+        /* Optional: Remove underline and set color */
+        header nav a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        header nav li {
+            margin: 0 20px;
+        }
+
+        /* Add some styling for the main, footer, and aside sections */
+        main {
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        aside {
+            padding: 10px;
+            background-color: #e9e9e9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+
+        h2 {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <h1>Welcome to My Simple Webpage</h1>
+        <p>This is a simple webpage created as part of an HTML basics assignment.</p>
+
+        <!-- Frontend Technologies Section -->
+        <h2>Frontend Technologies:</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Bootstrap</li>
+            <li>W3CSS</li>
+        </ul>
+
+        <!-- Backend Technologies Section -->
+        <h2>Backend Technologies:</h2>
+        <ol>
+            <li>C</li>
+            <li>C++</li>
+            <li>Java</li>
+            <li>Python</li>
+            <li>PHP</li>
+            <li>Node.js</li>
+        </ol>
+
+        <!-- Link that opens in a new tab -->
+        <h2>Learn More</h2>
+        <p>Click <a href="https://www.example.com" target="_blank">here</a> to visit an external website.</p>
+    </main>
+
+    <!-- Aside Section -->
+    <aside>
+        <h3>Additional Information</h3>
+        <p>Here you can add some extra details related to the main content, such as links or relevant facts.</p>
+    </aside>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 My Simple Webpage. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

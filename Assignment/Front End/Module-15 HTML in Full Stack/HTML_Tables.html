@@ -1,0 +1,102 @@
+<!--
+Lab Assignment 3: HTML Tables
+
+-> Task: Create a product catalog table that includes the following columns: 
+o Product Name 
+o Product Image (use placeholder image URLs) 
+o Price 
+o Description 
+o Availability (in stock, out of stock) 
+ 
+Additional Requirements:  
+o Use thead for the table header. 
+o Add a border and some basic styling using inline CSS. 
+o Use colspan or rowspan to merge cells where applicable. -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        img {
+            width: 100px;
+            height: auto;
+        }
+        .in-stock {
+            color: green;
+            font-weight: bold;
+        }
+        .out-of-stock {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Product Catalog</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Image</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Availability</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Product 1</td>
+                <td><img src="https://picsum.photos/id/0/400/300/" alt="Product 1 Image"></td>
+                <td>$19.99</td>
+                <td>High-quality item made with durable materials.</td>
+                <td class="in-stock">In Stock</td>
+            </tr>
+            <tr>
+                <td>Product 2</td>
+                <td><img src="https://picsum.photos/id/54/400/300/" alt="Product 2 Image"></td>
+                <td>$29.99</td>
+                <td>Popular item with great reviews and excellent features.</td>
+                <td class="out-of-stock">Out of Stock</td>
+            </tr>
+            <tr>
+                <td>Product 3</td>
+                <td><img src="https://picsum.photos/id/57/400/300/" alt="Product 3 Image"></td>
+                <td>$39.99</td>
+                <td>Perfect for all your home improvement needs.</td>
+                <td class="in-stock">In Stock</td>
+            </tr>
+            <tr>
+                <td>Product 4</td>
+                <td><img src="https://picsum.photos/id/76/400/300/" alt="Product 4 Image"></td>
+                <td>$49.99</td>
+                <td>New arrival, comes with a variety of features.</td>
+                <td class="out-of-stock">Out of Stock</td>
+            </tr>
+            <tr>
+                <td colspan="5" style="text-align: center; font-weight: bold;">* Limited Stock Available for Certain Products *</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
