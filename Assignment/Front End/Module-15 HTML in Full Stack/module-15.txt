@@ -18,3 +18,210 @@
 -> Question 1: Explain the structure of an HTML table and the purpose of each of the following elements: <table>, <tr>, <th>, <td>, and <thead>. 
 -> Question 2: What is the difference between colspan and rowspan in tables? Provide examples. 
 -> Question 3: Why should tables be used sparingly for layout purposes? What is a better alternative? 
+
+
+
+
+---
+
+ 1. HTML Basics
+
+ ➤ Question 1: Define HTML. What is the purpose of HTML in web development?
+
+HTML (HyperText Markup Language) is the standard language used to create and structure web pages. It describes the content and layout of a web page using markup tags.
+
+Purpose in Web Development:
+
+ Defines the structure of web content (headings, paragraphs, links, etc.)
+ Embeds multimedia elements like images, videos, and audio
+ Supports form creation for user interaction
+ Provides semantic meaning to content for search engines and screen readers
+
+---
+
+ ➤ Question 2: Explain the basic structure of an HTML document. Identify the mandatory tags and their purposes.
+
+ Basic Structure:
+
+html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+  <body>
+    <h1>Hello, World!</h1>
+    <p>This is a paragraph.</p>
+  </body>
+</html>
+
+
+ Mandatory Tags and Their Purposes:
+
+ <!DOCTYPE html> – Declares the document type and HTML version (HTML5 here)
+ <html> – Root element that wraps the entire HTML content
+ <head> – Contains meta information, links to stylesheets, page title, etc.
+ <title> – Sets the title shown in the browser tab
+ <body> – Contains the visible content like text, images, forms, etc.
+
+---
+
+ ➤ Question 3: What is the difference between block-level elements and inline elements in HTML? Provide examples of each.
+
+| Feature       | Block-level Elements           | Inline Elements                    |
+| ------------- | ------------------------------ | ---------------------------------- |
+| Flow behavior | Start on a new line            | Flow within the current line       |
+| Width         | Fills full width by default    | Only as wide as content            |
+| Can contain   | Other block or inline elements | Only text or other inline elements |
+
+Examples:
+
+ Block-level: <div>, <p>, <h1> to <h6>, <ul>, <section>, <article>
+ Inline: <span>, <a>, <strong>, <em>, <img>
+
+---
+
+ ➤ Question 4: Discuss the role of semantic HTML. Why is it important for accessibility and SEO? Provide examples of semantic elements.
+
+Semantic HTML uses elements that clearly describe their meaning in a human- and machine-readable way.
+
+Importance:
+
+ Accessibility: Helps screen readers understand page structure (e.g., a screen reader knows <nav> is for navigation)
+ SEO: Search engines understand page content better, improving indexing and ranking
+ Maintainability: Easier for developers to read and manage code
+
+Examples of Semantic Elements:
+
+ <header>, <footer>, <nav>, <article>, <section>, <aside>, <main>
+
+---
+
+ 2. HTML Forms
+
+ ➤ Question 1: What are HTML forms used for? Describe the purpose of the input, textarea, select, and button elements.
+
+HTML forms collect user data and send it to a server for processing.
+
+Elements and Their Purposes:
+
+ <input>: For single-line data (e.g., text, password, email, checkbox, radio)
+ <textarea>: For multi-line text input (e.g., comments)
+ <select>: Creates a dropdown list; used when options are predefined
+ <button>: Submits the form or triggers a custom action (e.g., using JavaScript)
+
+---
+
+ ➤ Question 2: Explain the difference between the GET and POST methods in form submission. When should each be used?
+
+| Feature      | GET                                     | POST                                                        |
+| ------------ | --------------------------------------- | ----------------------------------------------------------- |
+| Visibility   | Appends data to URL                     | Sends data in request body                                  |
+| Length limit | Limited by URL length (\~2000 chars)    | No significant limit                                        |
+| Use case     | Safe, idempotent actions (e.g., search) | Sensitive or state-changing actions (e.g., login, register) |
+| Caching      | Can be cached                           | Cannot be cached easily                                     |
+
+Use GET: When data is not sensitive and bookmarking is useful
+Use POST: When sending sensitive or large amounts of data
+
+---
+
+ ➤ Question 3: What is the purpose of the label element in a form, and how does it improve accessibility?
+
+The <label> element describes what a form control (like an input field) is for.
+
+Benefits:
+
+ Accessibility: Helps screen readers announce form fields clearly
+ Clickable association: Clicking the label focuses the input
+
+Example:
+
+html
+<label for="email">Email:</label>
+<input type="email" id="email" name="email">
+
+
+---
+
+ 3. HTML Tables
+
+ ➤ Question 1: Explain the structure of an HTML table and the purpose of each of the following elements: <table>, <tr>, <th>, <td>, and <thead>.
+
+ Structure Example:
+
+html
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>John</td>
+    <td>30</td>
+  </tr>
+</table>
+
+
+Element Purposes:
+
+ <table>: Defines the table container
+ <tr> (table row): Groups table cells in a row
+ <th> (table header): Defines header cells (bold and centered by default)
+ <td> (table data): Defines standard data cells
+ <thead>: Groups header content, useful for styling or repeating headers on pages
+
+---
+
+ ➤ Question 2: What is the difference between colspan and rowspan in tables? Provide examples.
+
+| Attribute | Purpose                               |
+| --------- | ------------------------------------- |
+| colspan | Merges multiple columns into one cell |
+| rowspan | Merges multiple rows into one cell    |
+
+ Example – colspan:
+
+html
+<tr>
+  <td colspan="2">Merged Cell</td>
+</tr>
+
+
+ Example – rowspan:
+
+html
+<tr>
+  <td rowspan="2">Row Span</td>
+  <td>Row 1</td>
+</tr>
+<tr>
+  <td>Row 2</td>
+</tr>
+
+
+---
+
+ ➤ Question 3: Why should tables be used sparingly for layout purposes? What is a better alternative?
+
+Problems with Table-Based Layouts:
+
+ Not responsive or mobile-friendly
+ Difficult to maintain and update
+ Slower rendering
+ Poor accessibility and semantic meaning
+
+Better Alternative:
+
+ Use CSS Flexbox or CSS Grid for layout
+ Use semantic HTML for structure
+
+  html
+  <div class="container">
+    <header>...</header>
+    <main>...</main>
+    <footer>...</footer>
+  </div>
+  
