@@ -1,0 +1,145 @@
+Module 16) CSS in Full Stack Course  
+ 
+4. CSS Selectors & Styling 
+ 
+Theory Assignment 
+ 
+ Question 1: What is a CSS selector? Provide examples of element, class, and ID selectors. 
+ 
+ Question 2: Explain the concept of CSS specificity. How do conflicts between multiple styles 
+get resolved? 
+ Question 3: What is the difference between internal, external, and inline CSS? Discuss the 
+advantages and disadvantages of each approach. 
+ 
+Lab Assignment 
+ 
+ Task: Style the contact form (created in the HTML Forms lab) using external CSS. The 
+following should be implemented: 
+o Change the background color of the form. 
+o Add padding and margins to form fields. 
+o Style the submit button with a hover effect. 
+o Use class selectors for styling common elements and ID selectors for unique 
+elements. 
+
+
+ 
+ 
+5. CSS Box Model 
+ 
+Theory Assignment 
+ 
+ Question 1: Explain the CSS box model and its components (content, padding, border, 
+margin). How does each affect the size of an element? 
+ Question 2: What is the difference between border-box and content-box box-sizing in 
+CSS? Which is the default? 
+ 
+Lab Assignment 
+ 
+ Task: Create a profile card layout using the box model. The profile card should 
+include: 
+o A profile picture. 
+o The user’s name and bio. 
+o A button to "Follow" the user. 
+ 
+Additional Requirements: 
+ 
+o Add padding and borders to the elements. 
+o Ensure the layout is clean and centered on the page using CSS margins. 
+o Use the box-sizing property to demonstrate both content-box and border-box 
+on different elements. 
+ 
+ 
+ 
+6. CSS Flexbox 
+ 
+Theory Assignment 
+ 
+ Question 1: What is CSS Flexbox, and how is it useful for layout design? Explain the terms 
+flex-container and flex-item. 
+ Question 2: Describe the properties justify-content, align-items, and flex-direction used 
+in Flexbox. 
+ 
+Lab Assignment 
+ 
+ Task: Create a simple webpage layout using Flexbox. The layout should include: 
+o A header. 
+o A sidebar on the left. 
+o A main content area in the center. 
+o A footer. 
+ 
+Additional Requirements: 
+ 
+o Use Flexbox to position and align the elements. 
+o Apply different justify-content and align-items properties to observe their effects. 
+o Ensure the layout is responsive, adjusting for smaller screens. 
+ 
+ 
+ 
+7. CSS Grid 
+ 
+Theory Assignment 
+ 
+ Question 1: Explain CSS Grid and how it differs from Flexbox. When would you use Grid over 
+Flexbox? 
+ Question 2: Describe the grid-template-columns, grid-template-rows, and grid-gap 
+properties. Provide examples of how to use them. 
+ 
+Lab Assignment 
+ 
+ Task: Create a 3x3 grid of product cards using CSS Grid. Each card should contain: 
+o A product image. 
+o A product title. 
+o A price. 
+ 
+Additional Requirements: 
+ 
+o Use grid-template-columns to create the grid layout.  
+o Use grid-gap to add spacing between the grid items. 
+o Apply hover effects to each card for better interactivity. 
+ 
+ 
+ 
+8. Responsive Web Design with Media Queries 
+ 
+Theory Assignment 
+ 
+ Question 1: What are media queries in CSS, and why are they important for responsive 
+design? 
+ Question 2: Write a basic media query that adjusts the font size of a webpage for screens 
+smaller than 600px. 
+ 
+Lab Assignment 
+ 
+ Task: Build a responsive webpage that includes: 
+o A navigation bar. 
+o A content section with two columns. 
+o A footer. 
+ 
+Additional Requirements: 
+ 
+o Use media queries to make the webpage responsive for mobile devices. 
+o On smaller screens (below 768px), stack the columns vertically. 
+o Adjust the font sizes and padding to improve readability on mobile. 
+ 
+ 
+ 
+9. Typography and Web Fonts 
+ 
+Theory Assignment 
+ 
+ Question 1: Explain the difference between web-safe fonts and custom web fonts. Why 
+might you use a web-safe font over a custom font? 
+ Question 2: What is the font-family property in CSS? How do you apply a custom Google 
+Font to a webpage? 
+ 
+Lab Assignment 
+ 
+ Task: Create a blog post layout with the following: 
+o A title, subtitle, and body content. 
+o Use at least two different fonts (one for headings, one for body content). 
+o Style the text to be responsive and easy to read. 
+ 
+Additional Requirements: 
+ 
+o Use a custom font from Google Fonts. 
+o Adjust line-height, font-size, and spacing for improved readability.

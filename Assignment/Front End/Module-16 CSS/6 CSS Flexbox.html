@@ -1,0 +1,150 @@
+<!-- Lab Assignment 
+ 
+ Task: Create a simple webpage layout using Flexbox. The layout should include: 
+o A header. 
+o A sidebar on the left. 
+o A main content area in the center. 
+o A footer. 
+ 
+Additional Requirements: 
+ 
+o Use Flexbox to position and align the elements. 
+o Apply different justify-content and align-items properties to observe their effects. 
+o Ensure the layout is responsive, adjusting for smaller screens.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebPage Layout</title>
+    <style>
+        body{
+
+        }
+
+        .main {
+            height: 100vh;
+            margin: 20px 10px;
+            border: 2px solid red;
+
+        }
+
+        .header {
+            height: 10vh;
+            margin: 10px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .center {
+            height: 70vh;
+            padding: 10px;
+            display: flex;
+            /* justify-content: flex-start; */
+            /* flex-direction: row; */
+        }
+
+        .sidebar {
+            margin-right: 5px;
+            width: 20vw;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .content {
+            margin-left: 5px;
+            padding: 5px 10px;
+            width: 80vw;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .boxes{
+            border: 1px solid transparent;
+            padding: 10px 0px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+        }
+
+        .label {
+            border: 1px solid transparent;
+            height: 100px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .box1,
+        .box2,
+        .box3 {
+            width: 300px;
+            height: 300px;
+            border: 2px solid blue;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        .footer {
+            height: 10vh;
+            margin: 10px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+
+        <div class="header">
+            <h1>Header</h1>
+        </div>
+
+        <div class="center">
+            <div class="sidebar">
+                <h1>Sidebar</h1>
+            </div>
+
+            <div class="content">
+                
+                <h1 class="label">Content</h1>
+            
+                <div class="boxes">
+                    <div class="box1">
+                        <h3>Box 1</h3>
+                    </div>
+                    <div class="box2">
+                        <h3>Box 2</h3>
+                    </div>
+                    <div class="box3">
+                        <h3>Box 3</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h1>Footer</h1>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
