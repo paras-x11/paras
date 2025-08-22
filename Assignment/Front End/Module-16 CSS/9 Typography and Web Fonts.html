@@ -1,0 +1,96 @@
+<!--  
+9. Typography and Web Fonts 
+ 
+Theory Assignment 
+ 
+ Question 1: Explain the difference between web-safe fonts and custom web fonts. Why 
+might you use a web-safe font over a custom font? 
+ Question 2: What is the font-family property in CSS? How do you apply a custom Google 
+Font to a webpage? 
+ 
+Lab Assignment 
+ 
+ Task: Create a blog post layout with the following: 
+o A title, subtitle, and body content. 
+o Use at least two different fonts (one for headings, one for body content). 
+o Style the text to be responsive and easy to read. 
+ 
+Additional Requirements: 
+ 
+o Use a custom font from Google Fonts. 
+o Adjust line-height, font-size, and spacing for improved readability.
+
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog Post</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 20px;
+      font-family: 'Roboto', sans-serif; /* Body font */
+      line-height: 1.6;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    h1 {
+      font-family: 'Merriweather', serif; /* Heading font */
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    /* Responsive Text */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.3rem;
+      }
+      body {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>The Beauty of Typography</h1>
+  <h2>Why Fonts Matter in Web Design</h2>
+  <p>
+    Typography is one of the most important aspects of web design. The right 
+    combination of fonts can enhance readability, set the tone, and improve 
+    the overall user experience.
+  </p>
+  <p>
+    Using Google Fonts allows designers to access thousands of fonts 
+    without worrying about installation. At the same time, choosing 
+    web-safe fallback fonts ensures accessibility and faster loading.
+  </p>
+  <p>
+    The key to great typography is balance: combining contrasting fonts for 
+    headings and body text, adjusting line-height for readability, and making 
+    sure text adapts well to different screen sizes.
+  </p>
+
+</body>
+</html>

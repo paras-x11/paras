@@ -1,0 +1,26 @@
+    SampleID=, SAKSHI          , Analyte=, #TSH , Conc=, 1.353, Unit=, uIU/ml    , Position=, 1, TestNumber=, 1, Rate=, 2.673996, Flag=,   ,Date=, 10/07/25 17:24
+    
+        SampleID=, TINU            , Analyte=, #FT3 , Conc=, 1.02, Unit=, pg/ml     , Position=, 2, TestNumber=, 1, Rate=, 40.031321, Flag=, CV,Date=, 10/07/25 17:25
+ 
+SampleID=, TINU            , Analyte=, #FT2 , Conc=, 1.2, Unit=, pg/ml     , Position=, 2, TestNumber=, 1, Rate=, 40.031321, Flag=, CV,Date=, 10/07/25 17:25
+ 
+  SampleID=, TINU1            , Analyte=, #FT3 , Conc=, 1.0, Unit=, pg/ml     , Position=, 2, TestNumber=, 1, Rate=, 40.031321, Flag=, CV,Date=, 10/07/25 17:25
+ 
+SampleID=, TINU1            , Analyte=, #TSH , Conc=, 1.02, Unit=, pg/ml     , Position=, 2, TestNumber=, 1, Rate=, 40.031321, Flag=, CV,Date=, 10/07/25 17:25
+ 
+SampleID=, TINU2            , Analyte=, #FT3 , Conc=, 1.02, Unit=, pg/ml     , Position=, 2, TestNumber=, 1, Rate=, 40.031321, Flag=, CV,Date=, 10/07/25 17:25
+ 
+SampleID=, TINU3            , Analyte=, #FT3 , Conc=, 1, Unit=, pg/ml     , Position=, 2, TestNumber=, 1, Rate=, 40.031321, Flag=, CV,Date=, 10/07/25 17:25
+ 
+SampleID=, TINU4            , Analyte=, #FT3 , Conc=, 1.2, Unit=, pg/ml     , Position=, 2, TestNumber=, 1, Rate=, 40.031321, Flag=, CV,Date=, 10/07/25 17:25
+ 
+SampleID=, TINU5            , Analyte=, #FT1 , Conc=, 1.2, Unit=, pg/ml     , Position=, 2, TestNumber=, 1, Rate=, 40.031321, Flag=, CV,Date=, 10/07/25 17:25
+ 
+SampleID=, TINU6            , Analyte=, #FT , Conc=, 1.02, Unit=, pg/ml     , Position=, 2, TestNumber=, 1, Rate=, 40.031321, Flag=, CV,Date=, 10/07/25 17:25
+
+SampleID=, TINU5            , Analyte=, #CBC , Conc=, 1.2, Unit=, pg/ml     , Position=, 2, TestNumber=, 1, Rate=, 40.031321, Flag=, CV,Date=, 10/07/25 17:25
+ 
+SampleID=, TINU6            , Analyte=, #VTN , Conc=, 1.02, Unit=, pg/ml     , Position=, 2, TestNumber=, 1, Rate=, 40.031321, Flag=, CV,Date=, 10/07/25 17:25
+
+ 
+ 

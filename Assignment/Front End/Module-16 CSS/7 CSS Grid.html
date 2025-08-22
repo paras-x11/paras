@@ -1,0 +1,349 @@
+<!-- 7. CSS Grid 
+ Task: Create a 3x3 grid of product cards using CSS Grid. Each card should contain: 
+o A product image. 
+o A product title. 
+o A price. 
+ 
+Additional Requirements: 
+ 
+o Use grid-template-columns to create the grid layout.  
+o Use grid-gap to add spacing between the grid items. 
+o Apply hover effects to each card for better interactivity.  -->
+
+<!-- 
+        /* CSS Grid properties:
+    
+        -> Container Properties
+        1. display: grid           Enables a grid container.
+        2. grid-template-rows      Defines the row structure of the grid.        
+        3. grid-template-columns   Defines the column structure of the grid.      
+        4. grid-template-areas     Names grid areas for layout design.
+        5. gap                     Sets space between grid items (both rows and columns).
+        6. row-gap                 Sets space between rows.
+        7. column-gap              Sets space between columns.
+        8. justify-items           Aligns items horizontally within their grid cells.
+        9. align-items             Aligns items vertically within their grid cells.
+        10. place-items            Shorthand for align-items and justify-items.
+        11. justify-content        Aligns the entire grid container horizontally.
+        12. align-content          Aligns the entire grid container vertically.
+        13. place-content          Shorthand for align-content and justify-content.
+        14. grid-auto-rows         Defines default row sizes for auto-generated rows.
+        15. grid-auto-columns      Defines default column sizes for auto-generated columns.
+        16. grid-auto-flow         Controls the item placement order (row, column, dense).
+        
+        -> Item Properties
+        1. grid-column     Specifies the column start and end positions.
+        2. grid-row        Specifies the row start and end positions.
+        3. grid-area       Assigns an item to a named grid area or defines start/end for rows and columns.
+        4. justify-self    Aligns an item horizontally within its cell.
+        5. align-self      Aligns an item vertically within its cell.
+        6. place-self      Shorthand for align-self and justify-self. */ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Gridq</title>
+    <style>
+        /* ---------- Original CSS ---------- */
+        /*
+        .container {
+            margin: 10px;
+            padding: 20px;
+            display: grid;
+            grid-gap: 60px 10px;
+            grid-template-columns: auto auto auto auto;
+            justify-items: center;
+            align-content: space-evenly;
+        }
+        */
+
+        /* ✅ Updated CSS for responsive grid layout */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            /* Responsive columns */
+            gap: 30px;
+            padding: 40px;
+            justify-items: center;
+        }
+
+        /* ---------- Original Card CSS ---------- */
+        /*
+        .items {
+            width: 320px;
+            height: 450px;
+            border: 3px solid black;
+            border-radius: 4%;
+            align-self: center;
+        }
+
+        .items:hover {
+            background-color: aqua;
+        }
+        */
+
+        /* ✅ Enhanced Card Styling */
+        .items {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;  
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .items:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ---------- Original Image CSS ---------- */
+        /*
+        .product-img {
+            width: 320px;
+            height: 390px;
+            border: 3px solid transparent;
+            border-radius: 3%;
+            overflow: hidden;
+            margin-bottom: 7px;
+            box-sizing: border-box;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+        */
+
+        /* ✅ Cleaned Image CSS */
+        .product-img {
+            width: 100%;
+            height: 390px;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ---------- Original Details Layout ---------- */
+        /*
+        .details {
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+
+        .title {
+            width: 200px;
+            margin-left: 7px;
+            margin-right: 3px;
+            padding: 3px;
+            height: auto;
+            justify-items: start;
+            align-content: start;
+            overflow: hidden;
+        }
+
+        .price {
+            width: 80px;
+            margin-left: 3px;
+            margin-right: 7px;
+            padding: 5px;
+            height: auto;
+            justify-items: end;
+            align-content: end;
+        }
+        */
+
+        /* ✅ Simplified with Flexbox */
+        .details {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            align-items: center;
+        }
+
+        .title h5,
+        .price h5 {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        /* ---------- Original Media Query ---------- */
+        /*
+        @media screen and (max-width:500px) {
+            .container {
+                margin: 10px;
+                padding: 20px;
+                display: grid;
+                grid-gap: 60px 10px;
+                grid-template-columns: auto auto auto;
+                justify-items: center;
+                align-content: center;
+            }
+        }
+    */
+
+        /* ✅ Not needed now due to auto-fit, keeping for reference */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- ---------- Original Product Card 1 ---------- -->
+        <!--
+        <div class="items">
+            <div class="product-img">
+                <img src="../Module-16 CSS/assets/men-01.jpg" alt="Product Image" />
+            </div>
+            <div class="details">
+                <div class="title">
+                    <h5><p>Product 1 <br> Short Sleeves</p></h5>
+                </div>
+                <div class="price">
+                    <h5><p>Rs. 1200</p></h5>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <div class="items">
+            <div class="product-img">
+                <img src="../Module-16 CSS/assets/men-01.jpg" alt="Classic T-shirt" />
+            </div>
+            <div class="details">
+                <div class="title">
+                    <h5>Classic T-shirt</h5>
+                </div>
+                <div class="price">
+                    <h5>Rs. 799</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="items">
+            <div class="product-img">
+                <img src="../Module-16 CSS/assets/men-02.jpg" alt="Formal Shirt" />
+            </div>
+            <div class="details">
+                <div class="title">
+                    <h5>Formal Shirt</h5>
+                </div>
+                <div class="price">
+                    <h5>Rs. 1199</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="items">
+            <div class="product-img">
+                <img src="../Module-16 CSS/assets/women-01.jpg" alt="Floral Dress" />
+            </div>
+            <div class="details">
+                <div class="title">
+                    <h5>Floral Dress</h5>
+                </div>
+                <div class="price">
+                    <h5>Rs. 1699</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="items">
+            <div class="product-img">
+                <img src="../Module-16 CSS/assets/women-02.jpg" alt="Denim Jacket" />
+            </div>
+            <div class="details">
+                <div class="title">
+                    <h5>Denim Jacket</h5>
+                </div>
+                <div class="price">
+                    <h5>Rs. 2299</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="items">
+            <div class="product-img">
+                <img src="../Module-16 CSS/assets/women-03.jpg" alt="Kurti Set" />
+            </div>
+            <div class="details">
+                <div class="title">
+                    <h5>Kurti Set</h5>
+                </div>
+                <div class="price">
+                    <h5>Rs. 1399</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="items">
+            <div class="product-img">
+                <img src="../Module-16 CSS/assets/women-04.jpg" alt="Anarkali Dress" />
+            </div>
+            <div class="details">
+                <div class="title">
+                    <h5>Anarkali Dress</h5>
+                </div>
+                <div class="price">
+                    <h5>Rs. 1999</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="items">
+            <div class="product-img">
+                <img src="../Module-16 CSS/assets/women-05.jpg" alt="Skater Dress" />
+            </div>
+            <div class="details">
+                <div class="title">
+                    <h5>Skater Dress</h5>
+                </div>
+                <div class="price">
+                    <h5>Rs. 999</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="items">
+            <div class="product-img">
+                <img src="../Module-16 CSS/assets/watch-01.jpg" alt="Analog Watch" />
+            </div>
+            <div class="details">
+                <div class="title">
+                    <h5>Analog Watch</h5>
+                </div>
+                <div class="price">
+                    <h5>Rs. 1299</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="items">
+            <div class="product-img">
+                <img src="../Module-16 CSS/assets/watch-02.jpg" alt="Smart Watch" />
+            </div>
+            <div class="details">
+                <div class="title">
+                    <h5>Smart Watch</h5>
+                </div>
+                <div class="price">
+                    <h5>Rs. 2999</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

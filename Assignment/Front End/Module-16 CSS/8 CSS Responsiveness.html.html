@@ -1,0 +1,177 @@
+<!-- 
+8. Responsive Web Design with Media Queries 
+ 
+Theory Assignment 
+ 
+ Question 1: What are media queries in CSS, and why are they important for responsive 
+design? 
+ Question 2: Write a basic media query that adjusts the font size of a webpage for screens 
+smaller than 600px. 
+ 
+Lab Assignment 
+ 
+ Task: Build a responsive webpage that includes: 
+o A navigation bar. 
+o A content section with two columns. 
+o A footer. 
+ 
+Additional Requirements: 
+ 
+o Use media queries to make the webpage responsive for mobile devices. 
+o On smaller screens (below 768px), stack the columns vertically. 
+o Adjust the font sizes and padding to improve readability on mobile. 
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Responsive Webpage</title>
+<style>
+  /* Basic Reset */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* Navigation Bar */
+  nav {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav .logo {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li {
+    margin-left: 20px;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+
+  /* Content Section */
+  .content {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .column {
+    flex: 1;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 6px;
+  }
+
+  /* Footer */
+  footer {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+  }
+
+  /* Media Queries for Responsive Design */
+  @media (max-width: 768px) {
+    /* Stack columns vertically */
+    .content {
+      flex-direction: column;
+      padding: 15px;
+    }
+
+    .column {
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    /* Adjust font sizes */
+    body {
+      font-size: 14px;
+    }
+
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    nav ul {
+      flex-direction: column;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    nav ul li {
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+  }
+
+  /* Smaller font for very small devices */
+  @media (max-width: 480px) {
+    body {
+      font-size: 13px;
+    }
+
+    nav .logo {
+      font-size: 1em;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">MyWebsite</div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Products</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="content">
+  <div class="column">
+    <h2>Column 1</h2>
+    <p>This is the first content column. It contains some text to illustrate layout and styling.</p>
+  </div>
+  <div class="column">
+    <h2>Column 2</h2>
+    <p>This is the second content column. On smaller screens, these columns will stack vertically.</p>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 MyWebsite. All rights reserved.
+</footer>
+
+</body>
+</html>
