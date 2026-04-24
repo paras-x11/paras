@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Arrays</title>
+</head>
+<body>
+    <br><hr><br>
+    <div class="container">
+        <div id="fruitsBlock" class="fruits">
+            <h1 id="fruit1"> </h1>
+            <h1 id="fruit2"> </h1>
+            <h1 id="fruit3"> </h1>
+        </div>
+
+        <form action="">
+            <!-- <label for="enterFruit">Enter Fruit Name: </label> -->
+            <input id="newFruit" type="text" placeholder="Enter new fruit">
+            <input type="button" value="submit" onclick="changeFruit()">
+        </form>
+    </div>
+
+    <br><br><hr><hr><br>
+
+    <div class="container2">
+        <div id="sum">
+            <form action="">
+                <!-- <label for="enterFruit">Enter Fruit Name: </label> -->
+                <input id="num1" type="text" placeholder="Enter Number 1"> <br> <br>
+                <input id="num2" type="text" placeholder="Enter Number 2"> <br> <br>
+                <input type="button" value="submit" onclick="calculateSum()">
+            </form>
+            <p id="ans"> </p>
+        </div>
+    </div>
+
+    <script>
+        // Lab Assignment  
+        //  Task 1: 
+        // o Declare an array of fruits (["apple", "banana", "cherry"]). Use JavaScript to: 
+        //  Add a fruit to the end of the array. 
+        //  Remove the first fruit from the array. 
+        //  Log the modified array to the console. 
+
+        let fruits = ["apple", "banana", "cherry"]
+
+        function displayArray(){
+             document.getElementById("fruit1").innerHTML = fruits[0]
+             document.getElementById("fruit2").innerHTML = fruits[1]
+             document.getElementById("fruit3").innerHTML = fruits[2]
+        }
+
+        window.onload = displayArray()
+
+        function changeFruit(){
+            new_fruit = document.getElementById("newFruit").value
+            
+            if (new_fruit !== "") {  
+                if (fruits.length >= 3) {  
+                    fruits.splice(0, 1);   
+                }
+                fruits.push(new_fruit);    
+            }
+            displayArray()
+            document.getElementById("newFruit").value = ""
+        }
+
+        //  Task 2: 
+        // o Write a program to find the sum of all elements in an array of numbers. 
+        function calculateSum() {
+            let val1 = document.getElementById("num1").value.trim();
+            let val2 = document.getElementById("num2").value.trim();
+
+            let x = Number(val1);
+            let y = Number(val2);
+
+            if (isNaN(x) || isNaN(y)) {
+                document.getElementById("ans").innerHTML = 
+                    `❌ Invalid input! Please enter valid numbers.<br>
+                    You entered: "${val1}" and "${val2}"`;
+            } else {
+                document.getElementById("ans").innerHTML = `
+                    You entered <b>${x}</b> and <b>${y}</b>.<br>
+                    Performing addition: ${x} + ${y}<br>
+                    <b>Result = ${x + y}</b>
+                `;
+            }
+
+            // Clear inputs
+            document.getElementById("num1").value = "";
+            document.getElementById("num2").value = "";
+        }
+
+
+    </script>
+</body>
+</html>

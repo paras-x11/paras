@@ -1,0 +1,36 @@
+<!--  
+10. DOM Manipulation
+Lab Assignment  
+ Task:  
+o Create an HTML page with a paragraph (<p>) that displays "Hello, World!". 
+o Use JavaScript to: 
+ Change the text inside the paragraph to "JavaScript is fun!". 
+ Change the color of the paragraph to blue.  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Toggle Text</title>
+</head>
+<body>
+
+  <p id="text">Hello, World!</p>
+
+  <button onclick="changeText()">Change Text</button>
+
+  <script>
+    function changeText() {
+      let para = document.getElementById("text");
+
+      if (para.innerHTML === "Hello, World!") {
+        para.innerHTML = "JavaScript is fun!";
+        para.style.color = "blue";
+      } else {
+        para.innerHTML = "Hello, World!";
+        para.style.color = "black";
+      }
+    }
+  </script>
+
+</body>
+</html>

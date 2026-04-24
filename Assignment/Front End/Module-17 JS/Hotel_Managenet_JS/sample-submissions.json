@@ -1,0 +1,14 @@
+[
+  {
+    "fullName": "Rahul Verma",
+    "phone": "9876543210",
+    "email": "rahul@example.com",
+    "address": "A-12, Green Park, New Delhi",
+    "aadhar": "123412341234",
+    "checkIn": "2025-08-25",
+    "checkOut": "2025-08-28",
+    "adults": "2",
+    "purpose": "Business conference",
+    "createdAt": "2025-08-21T10:30:00.000Z"
+  }
+]

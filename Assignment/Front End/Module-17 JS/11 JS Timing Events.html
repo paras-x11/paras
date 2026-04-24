@@ -1,0 +1,41 @@
+<!-- 11. JavaScript Timing Events (setTimeout, setInterval)  
+Lab Assignment  
+ Task 1: 
+o Write a program that changes the background color of a webpage after 5 
+seconds using setTimeout(). 
+ Task 2:
+o Create a digital clock that updates every second using setInterval(). 
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Background Change</title>
+</head>
+<body>
+
+  <h2>Wait for 5 seconds...</h2>
+
+  <script>
+    setTimeout(() => {
+      document.body.style.backgroundColor = "lightblue";
+    }, 5000);
+  </script>
+
+  <h2 id="clock"></h2>
+
+  <script>
+    function updateClock() {
+      let now = new Date();
+      let time = now.toLocaleTimeString();
+      document.getElementById("clock").innerHTML = time;
+    }
+
+    // Update every second
+    setInterval(updateClock, 1000);
+
+    // Run immediately once
+    updateClock();
+  </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!-- Lab Assignment  
+ Task:  
+o Create an HTML page with a paragraph (<p>) that displays "Hello, World!". 
+o Use JavaScript to: 
+ Change the text inside the paragraph to "JavaScript is fun!". 
+ Change the color of the paragraph to blue.  -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Manipulation</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%; /* full page height */
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;   /* items one below other */
+      justify-content: center;  /* vertical center */
+      align-items: center;      /* horizontal center */
+      height: 100vh;            /* full viewport height */
+      text-align: center;
+    }
+
+    p {
+      margin: 10px;
+      font-size: 20px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p id="p1">Hello, World!</p>
+    <p id="p2"></p>
+    <button type="button" onclick="swapValues()">Click to Swap</button>
+  </div>
+
+  <script>
+    const p1 = document.getElementById('p1');
+    const p2 = document.getElementById('p2');
+
+    const p1_val = p1.innerText;
+    const p2_val = "JavaScript is fun!";
+
+    // initially set p2
+    p2.innerText = p2_val;
+    p2.style.color = "blue";
+
+    function swapValues() {
+      // swap text
+      let temp = p1.innerText;
+      p1.innerText = p2.innerText;
+      p2.innerText = temp;
+
+      // swap colors
+      p1.style.color = "blue";
+      p2.style.color = "black";
+    }
+  </script>
+</body>
+</html>

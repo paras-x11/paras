@@ -1,0 +1,51 @@
+/* Elegant hotel-themed gradient background and glass card styling */
+:root{
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255,255,255,0.4);
+}
+
+.bg-gradient{
+  min-height: 100vh;
+  background:
+    radial-gradient(1000px 600px at 10% 10%, rgba(255,255,255,0.3), transparent 60%),
+    radial-gradient(800px 500px at 90% 10%, rgba(255,255,255,0.25), transparent 60%),
+    linear-gradient(135deg, #0d1b2a, #1b263b 40%, #415a77);
+  background-attachment: fixed;
+  color: #0b1320;
+}
+
+.glass-card{
+  border-radius: 1.25rem;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+}
+
+.navbar .btn, .navbar .btn:focus{
+  box-shadow: none !important;
+}
+
+.table thead th{
+  white-space: nowrap;
+}
+
+.invalid-feedback{
+  display: none;
+}
+
+.is-invalid + .invalid-feedback,
+.was-validated .form-control:invalid + .invalid-feedback{
+  display: block;
+}
+
+.toast{
+  border-radius: .75rem;
+}
+
+.badge{
+  border-radius: 999px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+  cursor: pointer;
+}

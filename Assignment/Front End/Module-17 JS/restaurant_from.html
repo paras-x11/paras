@@ -1,0 +1,236 @@
+<!-- JavaScript Assessment Test 1
+ Make a Restaurants Booking form by using JavaScript.
+ Details are :-
+o Choice of booking
+o User name
+o Mobile Number
+o Email
+o No of person
+o Date
+o Time
+o Slot
+ In Choice of booking make it a drop down menu of
+o Full day booking
+o Half day booking
+o Hourly booking
+ After selection of option 1 i.e. Full day booking . Only date option is available.
+ After selection of option 2 i.e. Half day booking . Date option is available and
+Slot option shown to user in which 3 option are there
+o Breakfast
+o Lunch
+o Dinner
+ After selection of option 3 i.e. Hourly booking . Date & Time option is available.
+NOTE:-
+ Must use create element by using createNode. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Restaurant Booking Form</title>
+  <style>
+    /* Background with restaurant theme */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') 
+                  no-repeat center center/cover;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Form container with glass effect */
+    .form-container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      width: 400px;
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 26px;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      text-align: left;
+      color: #444;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus, select:focus {
+      border-color: #ff6600;
+      box-shadow: 0 0 8px rgba(255, 102, 0, 0.5);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      width: 100%;
+      background: linear-gradient(45deg, #ff6600, #ff3300);
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: linear-gradient(45deg, #ff3300, #cc0000);
+      transform: scale(1.05);
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h1>Book a Table</h1>
+    <form id="bookingForm"></form>
+  </div>
+
+  <script>
+    let form = document.getElementById("bookingForm");
+
+    // User Name
+    let labelName = document.createElement("label");
+    labelName.textContent = "User Name:";
+    let inputName = document.createElement("input");
+    inputName.type = "text";
+    inputName.placeholder = "Enter your name";
+
+    // Mobile Number
+    let labelMobile = document.createElement("label");
+    labelMobile.textContent = "Mobile Number:";
+    let inputMobile = document.createElement("input");
+    inputMobile.type = "text";
+    inputMobile.placeholder = "Enter mobile number";
+
+    // Email
+    let labelEmail = document.createElement("label");
+    labelEmail.textContent = "Email:";
+    let inputEmail = document.createElement("input");
+    inputEmail.type = "email";
+    inputEmail.placeholder = "Enter your email";
+
+    // No. of Persons
+    let labelPersons = document.createElement("label");
+    labelPersons.textContent = "No of Persons:";
+    let inputPersons = document.createElement("input");
+    inputPersons.type = "number";
+    inputPersons.min = "1";
+    inputPersons.placeholder = "Enter number of guests";
+
+    // Choice of Booking
+    let labelChoice = document.createElement("label");
+    labelChoice.textContent = "Choice of Booking:";
+    let selectChoice = document.createElement("select");
+    let option1 = new Option("Full Day Booking", "full");
+    let option2 = new Option("Half Day Booking", "half");
+    let option3 = new Option("Hourly Booking", "hourly");
+    selectChoice.appendChild(option1);
+    selectChoice.appendChild(option2);
+    selectChoice.appendChild(option3);
+
+    // Date
+    let labelDate = document.createElement("label");
+    labelDate.textContent = "Date:";
+    let inputDate = document.createElement("input");
+    inputDate.type = "date";
+    labelDate.classList.add("hidden");
+    inputDate.classList.add("hidden");
+
+    // Time
+    let labelTime = document.createElement("label");
+    labelTime.textContent = "Time:";
+    let inputTime = document.createElement("input");
+    inputTime.type = "time";
+    labelTime.classList.add("hidden");
+    inputTime.classList.add("hidden");
+
+    // Slot
+    let labelSlot = document.createElement("label");
+    labelSlot.textContent = "Slot:";
+    let selectSlot = document.createElement("select");
+    let s1 = new Option("Breakfast", "breakfast");
+    let s2 = new Option("Lunch", "lunch");
+    let s3 = new Option("Dinner", "dinner");
+    selectSlot.appendChild(s1);
+    selectSlot.appendChild(s2);
+    selectSlot.appendChild(s3);
+    labelSlot.classList.add("hidden");
+    selectSlot.classList.add("hidden");
+
+    // Button
+    let submitBtn = document.createElement("button");
+    submitBtn.type = "submit";
+    submitBtn.textContent = "Book Now";
+
+    // Append
+    form.append(labelName, inputName, 
+                labelMobile, inputMobile,
+                labelEmail, inputEmail,
+                labelPersons, inputPersons,
+                labelChoice, selectChoice,
+                labelDate, inputDate,
+                labelTime, inputTime,
+                labelSlot, selectSlot,
+                submitBtn);
+
+    // Show/hide fields
+    selectChoice.addEventListener("change", function () {
+      let choice = selectChoice.value;
+
+      labelDate.classList.add("hidden");
+      inputDate.classList.add("hidden");
+      labelTime.classList.add("hidden");
+      inputTime.classList.add("hidden");
+      labelSlot.classList.add("hidden");
+      selectSlot.classList.add("hidden");
+
+      if (choice === "full") {
+        labelDate.classList.remove("hidden");
+        inputDate.classList.remove("hidden");
+      } else if (choice === "half") {
+        labelDate.classList.remove("hidden");
+        inputDate.classList.remove("hidden");
+        labelSlot.classList.remove("hidden");
+        selectSlot.classList.remove("hidden");
+      } else if (choice === "hourly") {
+        labelDate.classList.remove("hidden");
+        inputDate.classList.remove("hidden");
+        labelTime.classList.remove("hidden");
+        inputTime.classList.remove("hidden");
+      }
+    });
+  </script>
+</body>
+</html>

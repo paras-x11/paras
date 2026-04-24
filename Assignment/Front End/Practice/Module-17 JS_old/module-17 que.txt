@@ -1,0 +1,191 @@
+
+Module 17) Javascript For Full Stack Assignment  
+ 
+1. JavaScript Introduction  
+Theory Assignment  
+ Question 1: What is JavaScript? Explain the role of JavaScript in web development. 
+ Question 2: How is JavaScript different from other programming languages like Python or 
+Java? 
+ Question 3: Discuss the use of <script> tag in HTML. How can you link an external JavaScript 
+file to an HTML document? 
+ 
+Lab Assignment  
+ Task: 
+o Create a simple HTML page and add a <script> tag within the page. 
+o Write JavaScript code to display an alert box with the message "Welcome to 
+JavaScript!" when the page loads. 
+ 
+ 
+ 
+2. Variables and Data Types  
+Theory Assignment  
+ Question 1: What are variables in JavaScript? How do you declare a variable using var, let, 
+and const? 
+ Question 2: Explain the different data types in JavaScript. Provide examples for each. 
+ Question 3: What is the difference between undefined and null in JavaScript? 
+ 
+Lab Assignment  
+ Task: 
+o Write a JavaScript program to declare variables for different data types (string, 
+number, boolean, null, and undefined). 
+o Log the values of the variables and their types to the console using console.log(). 
+ 
+ 
+ 
+3. JavaScript Operators  
+Theory Assignment  
+ Question 1: What are the different types of operators in JavaScript? Explain with examples. 
+o Arithmetic operators 
+o Assignment operators 
+o Comparison operators 
+o Logical operators 
+ 
+ Question 2: What is the difference between == and === in JavaScript? 
+ 
+Lab Assignment  
+ Task: 
+o Create a JavaScript program to perform the following: 
+ Add, subtract, multiply, and divide two numbers using arithmetic operators. 
+ Use comparison operators to check if two numbers are equal and if one 
+number is greater than the other. 
+ Use logical operators to check if both conditions (e.g., a > 10 and b < 5) are 
+true. 
+ 
+ 
+ 
+4. Control Flow (If-Else, Switch)  
+Theory Assignment  
+ Question 1: What is control flow in JavaScript? Explain how if-else statements work with an 
+example. 
+ Question 2: Describe how switch statements work in JavaScript. When should you use a 
+switch statement instead of if-else? 
+ 
+Lab Assignment  
+ Task 1: 
+o Write a JavaScript program to check if a number is positive, negative, or zero using 
+an if-else statement. 
+ Task 2: 
+o Create a JavaScript program using a switch statement to display the day of the week 
+based on the user input (e.g., 1 for Monday, 2 for Tuesday, etc.). 
+ 
+  
+5. Loops (For, While, Do-While)  
+Theory Assignment  
+ Question 1: Explain the different types of loops in JavaScript (for, while, do-while). Provide a 
+basic example of each. 
+ Question 2: What is the difference between a while loop and a do-while loop? 
+ 
+Lab Assignment  
+ Task 1: 
+o Write a JavaScript program using a for loop to print numbers from 1 to 10. 
+ Task 2: 
+ 
+o Create a JavaScript program that uses a while loop to sum all even numbers 
+between 1 and 20. 
+ Task 3: 
+o Write a do-while loop that continues to ask the user for input until they enter a 
+number greater than 10. 
+ 
+ 
+ 
+6. Functions  
+Theory Assignment  
+ Question 1: What are functions in JavaScript? Explain the syntax for declaring and calling a 
+function. 
+ Question 2: What is the difference between a function declaration and a function expression? 
+ Question 3: Discuss the concept of parameters and return values in functions. 
+ 
+Lab Assignment  
+ Task 1: 
+o Write a function greetUser that accepts a user’s name as a parameter and displays a 
+greeting message (e.g., "Hello, John!"). 
+ Task 2: 
+o Create a JavaScript function calculateSum that takes two numbers as parameters, 
+adds them, and returns the result. 
+ 
+ 
+ 
+7. Arrays  
+Theory Assignment  
+ Question 1: What is an array in JavaScript? How do you declare and initialize an array? 
+ Question 2: Explain the methods push(), pop(), shift(), and unshift() used in arrays. 
+ 
+Lab Assignment  
+ Task 1: 
+o Declare an array of fruits (["apple", "banana", "cherry"]). Use JavaScript to: 
+ Add a fruit to the end of the array. 
+ Remove the first fruit from the array. 
+ Log the modified array to the console. 
+ Task 2: 
+o Write a program to find the sum of all elements in an array of numbers. 
+ 
+ 
+ 
+8. Objects  
+Theory Assignment  
+ Question 1: What is an object in JavaScript? How are objects different from arrays? 
+ Question 2: Explain how to access and update object properties using dot notation and 
+bracket notation. 
+ 
+Lab Assignment  
+ Task: 
+o Create a JavaScript object car with properties brand, model, and year. Use JavaScript 
+to: 
+ Access and print the car’s brand and model. 
+ Update the year property. 
+ Add a new property color to the car object. 
+ 
+  
+9. JavaScript Events  
+Theory Assignment  
+ Question 1: What are JavaScript events? Explain the role of event listeners. 
+ Question 2: How does the addEventListener() method work in JavaScript? Provide 
+an example. 
+ 
+Lab Assignment  
+ Task: 
+o Create a simple webpage with a button that, when clicked, displays an alert saying 
+"Button clicked!" using JavaScript event listeners. 
+ 
+ 
+ 
+10. DOM Manipulation  
+Theory Assignment  
+ Question 1: What is the DOM (Document Object Model) in JavaScript? How does JavaScript 
+interact with the DOM? 
+ Question 2: Explain the methods getElementById(), getElementsByClassName(), and 
+querySelector() used to select elements from the DOM. 
+ 
+Lab Assignment  
+ Task: 
+ 
+o Create an HTML page with a paragraph (<p>) that displays "Hello, World!". 
+o Use JavaScript to: 
+ Change the text inside the paragraph to "JavaScript is fun!". 
+ Change the color of the paragraph to blue. 
+ 
+  
+11. JavaScript Timing Events (setTimeout, setInterval)  
+Theory Assignment  
+ Question 1: Explain the setTimeout() and setInterval() functions in JavaScript. How are 
+they used for timing events? 
+ Question 2: Provide an example of how to use setTimeout() to delay an action by 2 seconds. 
+ 
+Lab Assignment  
+ Task 1: 
+o Write a program that changes the background color of a webpage after 5 
+seconds using setTimeout(). 
+ Task 2: 
+o Create a digital clock that updates every second using setInterval(). 
+ 
+  
+12. JavaScript Error Handling  
+Theory Assignment  
+ Question 1: What is error handling in JavaScript? Explain the try, catch, and finally 
+blocks with an example. 
+ Question 2: Why is error handling important in JavaScript applications? 
+ 
+Lab Assignment  
+ Task: 
+o Write a JavaScript program that attempts to divide a number by zero. Use try-
+catch to handle the error and display an appropriate error message. 
